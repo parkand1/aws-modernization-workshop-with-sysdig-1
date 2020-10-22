@@ -1,0 +1,2133 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="description" content="AWS Modernization Workshop with Sysdig">
+<meta name="author" content="Sysdig Training and CNATIVE Teams">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title> :: AWS Modernization Workshop with Sysdig</title>
+
+    
+    <link href="/css/nucleus.css?1603016987" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603016987" rel="stylesheet">
+    <link href="/css/hybrid.css?1603016987" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603016987" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603016987" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603016987" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603016987" rel="stylesheet">
+    <link href="/css/theme.css?1603016987" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603016987" rel="stylesheet">
+    
+      <link href="/css/theme-mine.css?1603016987" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1603016987"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/50_module_3/markdown_temp.html">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/" title="Go home"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" width="60%" style="padding:20px 0px;"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg></a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1603016987"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603016987"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1603016987"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/00_introduction.html" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/00_introduction.html">
+          Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/00_security_basics.html" title="Security basics" class="dd-item ">
+        <a href="/00_introduction/00_security_basics.html">
+        Security basics
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/01_image_scanning.html" title="Image Scanning" class="dd-item ">
+        <a href="/00_introduction/01_image_scanning.html">
+        Image Scanning
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/03_infra_runtime_sec.html" title="Infrastructure Runtime Security" class="dd-item ">
+        <a href="/00_introduction/03_infra_runtime_sec.html">
+        Infrastructure Runtime Security
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/04_fargate_ecs_sec.html" title="AWS Fargate and ECS Security" class="dd-item ">
+        <a href="/00_introduction/04_fargate_ecs_sec.html">
+        AWS Fargate and ECS Security
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/05_workshop_overview.html" title="Workshop Overview" class="dd-item ">
+        <a href="/00_introduction/05_workshop_overview.html">
+        Workshop Overview
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/10_prerequisites.html" title="Prerequisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10_prerequisites.html">
+          Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/10_prerequisites/11_sysdig.html" title="Sign-up for a Sysdig Trial account" class="dd-item ">
+        <a href="/10_prerequisites/11_sysdig.html">
+        Sign-up for a Sysdig Trial account
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="Start the Workshop..." class="dd-item ">
+        <a href="/10_prerequisites/12_start_workshop.html">
+        Start the Workshop...
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/10_prerequisites/13_aws_event.html" title="At an AWS Event..." class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10_prerequisites/13_aws_event.html">
+          At an AWS Event...
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/10_prerequisites/14_self_paced.html" title="...or on your own" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10_prerequisites/14_self_paced.html">
+          ...or on your own
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/10_prerequisites/14_self_paced/account.html" title="Create an AWS account" class="dd-item ">
+        <a href="/10_prerequisites/14_self_paced/account.html">
+        Create an AWS account
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/20_workshop_setup.html" title="Workshop Setup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/20_workshop_setup.html">
+          Workshop Setup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/20_cloud9.html" title="Cloud9" class="dd-item ">
+        <a href="/20_workshop_setup/20_cloud9.html">
+        Cloud9
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/21_iamrole.html" title="Create an IAM role for your workspace" class="dd-item ">
+        <a href="/20_workshop_setup/21_iamrole.html">
+        Create an IAM role for your workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace" class="dd-item ">
+        <a href="/20_workshop_setup/22_workspaceiam.html">
+        Attach the IAM role to your Workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/23_cloud.html" title="Update IAM settings for your Workspace" class="dd-item ">
+        <a href="/20_workshop_setup/23_cloud.html">
+        Update IAM settings for your Workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item ">
+        <a href="/20_workshop_setup/24_setup_cloudtrail.html">
+        Setup CloudTrail Runtime Security
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/20_workshop_setup/24_setup_cloudtrail.html">
+          Setup CloudTrail Runtime Security
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html" title="Enable AWS Security Hub" class="dd-item ">
+        <a href="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html">
+        Enable AWS Security Hub
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html" title="Installing the CloudConnector" class="dd-item ">
+        <a href="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html">
+        Installing the CloudConnector
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/30_module_1.html" title="Module 1: Amazon ECR Image Scanning" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/30_module_1.html">
+          Module 1: Amazon ECR Image Scanning
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/30_setup_ecr.html" title="1.3. Setup Amazon ECR Registry" class="dd-item ">
+        <a href="/30_module_1/30_setup_ecr.html">
+        1.3. Setup Amazon ECR Registry
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/31_deploy_ecr_integration.html" title="1.4 Deploy the Amazon ECR Integration" class="dd-item ">
+        <a href="/30_module_1/31_deploy_ecr_integration.html">
+        1.4 Deploy the Amazon ECR Integration
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/32_image_from_registry.html" title="1.5 Push and scan an image from the registry" class="dd-item ">
+        <a href="/30_module_1/32_image_from_registry.html">
+        1.5 Push and scan an image from the registry
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/33_image_rescan.html" title="1.6 Modify the image and trigger a second scan" class="dd-item ">
+        <a href="/30_module_1/33_image_rescan.html">
+        1.6 Modify the image and trigger a second scan
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/40_module_2.html" title="Module 2: Fargate automatic image scanning" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/40_module_2.html">
+          Module 2: Fargate automatic image scanning
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/40_install_amazon_ecs_cli.html" title="Install Amazon ECS CLI" class="dd-item ">
+        <a href="/40_module_2/40_install_amazon_ecs_cli.html">
+        Install Amazon ECS CLI
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/41_deploy_image_scanner_for_fargate.html" title="Deploy Sysdig Secure Automatic Image Scanner for Fargate" class="dd-item ">
+        <a href="/40_module_2/41_deploy_image_scanner_for_fargate.html">
+        Deploy Sysdig Secure Automatic Image Scanner for Fargate
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/42_deploy_an_ecs_cluster.html" title="Deploy an ECS cluster using Fargate" class="dd-item ">
+        <a href="/40_module_2/42_deploy_an_ecs_cluster.html">
+        Deploy an ECS cluster using Fargate
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/43_initiate_scan.html" title="Initiate CodeBuild Pipelines Build and Scan" class="dd-item ">
+        <a href="/40_module_2/43_initiate_scan.html">
+        Initiate CodeBuild Pipelines Build and Scan
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/44_sysdig_secure_dashboard.html" title="View Results on Sysdig Secure Dashboard" class="dd-item ">
+        <a href="/40_module_2/44_sysdig_secure_dashboard.html">
+        View Results on Sysdig Secure Dashboard
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/markdown_temp.html" title="" class="dd-item ">
+        <a href="/40_module_2/markdown_temp.html">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/50_module_3.html" title="Module 3: CloudTrail Runtime Security" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/50_module_3.html">
+          Module 3: CloudTrail Runtime Security
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/51_setup_cloudtrail_runtime_security.html" title="Setup CloudTrail Runtime Security" class="dd-item ">
+        <a href="/50_module_3/51_setup_cloudtrail_runtime_security.html">
+        Setup CloudTrail Runtime Security
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/52_detecting_runtime_cloud_security_threats.html" title="Detecting Runtime Cloud Security Threats" class="dd-item ">
+        <a href="/50_module_3/52_detecting_runtime_cloud_security_threats.html">
+        Detecting Runtime Cloud Security Threats
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/53_checking_security_findings_in_the_aws_security_hub.html" title="Checking Security Findings in AWS Security Hub" class="dd-item ">
+        <a href="/50_module_3/53_checking_security_findings_in_the_aws_security_hub.html">
+        Checking Security Findings in AWS Security Hub
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail10module_2_fargate_automatic_image_scanning.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
+        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail10module_2_fargate_automatic_image_scanning.html">
+        Modifying a Falco Rule for CloudTrail
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/markdown_temp.html" title="" class="dd-item active">
+        <a href="/50_module_3/markdown_temp.html">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/60_conclusions.html" title="Conclusions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/60_conclusions.html">
+          Conclusions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/70_cleanup.html" title="Cleanup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/70_cleanup.html">
+          Cleanup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://awsworkshop.io"><i class='fas fa-graduation-cap'></i> Modernization Workshops</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/builders-library/"><i class='fas fa-tools'></i> AWS Builders Library</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/blogs/modernizing-with-aws/"><i class='far fa-lightbulb'></i> Modernization with AWS</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    <h5 class="copyright">&copy; 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.<h5>
+</left>
+
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/50_module_3/markdown_temp.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Main Page</a> > <a href='/50_module_3.html'>Module 3: CloudTrail Runtime Security</a> > 
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#aws-security-with-sysdig-working-title">AWS Security with Sysdig (Working title)</a>
+<ul>
+<li><a href="#module-3-cloudtrail-runtime-security">Module 3: CloudTrail runtime security</a>
+<ul>
+<li><a href="#3-4-detecting-runtime-cloud-security-threats">3.4. Detecting runtime cloud security threats</a>
+<ul>
+<li><a href="#3-4-1-checking-security-findings-in-the-aws-security-hub">3.4.1 Checking security findings in the AWS Security Hub</a></li>
+</ul></li>
+<li><a href="#3-5-modifying-a-falco-rule-for-cloudtrail">3.5. Modifying a Falco rule for CloudTrail</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              
+            </h1>
+          
+
+        
+
+
+
+
+
+<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 0; ALERTS: 6.</p>
+<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
+
+<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
+<a href="#gdcalert2">alert2</a>
+<a href="#gdcalert3">alert3</a>
+<a href="#gdcalert4">alert4</a>
+<a href="#gdcalert5">alert5</a>
+<a href="#gdcalert6">alert6</a>
+
+<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
+
+<h1 id="aws-security-with-sysdig-working-title">AWS Security with Sysdig (Working title)</h1>
+
+<p>[TOC]</p>
+
+<h2 id="module-3-cloudtrail-runtime-security">Module 3: CloudTrail runtime security</h2>
+
+<pre><code>### 3.1. Overview
+
+Every action taken over your infrastructure resources results in a registry in AWS CloudTrail. This includes all AWS account activity, actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This event history is useful for detecting unwanted or unexpected activity involving your AWS resources, however as your infrastructure grows, the amount of events and operational trails can become so huge that analyzing them is no longer practical. However, failing to react to a threat quickly could potentially have major consequences.
+
+In this module we will explain how to audit AWS CloudTrail events with Sysdig Cloud Connector.  Once deployed in your infrastructure, the Sysdig Cloud Connector analyzes every CloudTrail entry in real time, and provides AWS threat detection by evaluating each event against a flexible set of security rules based on Falco. This allows you to detect threats and raise notifications so you can address security threats as quickly as possible.
+
+
+### 3.2. Reference Architecture
+
+Similar to ECS Fargate serverless, incoming CloudTrail events are fetched and stored in an S3 bucket. A subscription in the SNS topic will then forward the events to the **Sysdig Cloud Connector** endpoint. The Cloud Connector will then analyze each event against a configured set of **Falco rules**.
+
+
+
+&lt;p id=&quot;gdcalert1&quot; &gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/50_module_3/image1.png). Store image on your image server and adjust path/filename/extension if necessary. &lt;/span&gt;&lt;br&gt;(&lt;a href=&quot;#&quot;&gt;Back to top&lt;/a&gt;)(&lt;a href=&quot;#gdcalert2&quot;&gt;Next alert&lt;/a&gt;)&lt;br&gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt; &lt;/span&gt;&lt;/p&gt;
+
+
+![alt_text](/images/50_module_3/image1.png &quot;image_tooltip&quot;)
+
+
+Sysdig Cloud Connector provides several **notification options**, including sending security findings to Sysdig Backend, as well as AWS Security Hub and AWS CloudWatch, so you can review the security events without leaving your AWS console.
+
+
+
+&lt;p id=&quot;gdcalert2&quot; &gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/50_module_3/image2.png). Store image on your image server and adjust path/filename/extension if necessary. &lt;/span&gt;&lt;br&gt;(&lt;a href=&quot;#&quot;&gt;Back to top&lt;/a&gt;)(&lt;a href=&quot;#gdcalert3&quot;&gt;Next alert&lt;/a&gt;)&lt;br&gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt; &lt;/span&gt;&lt;/p&gt;
+
+
+![alt_text](/images/50_module_3/image2.png &quot;image_tooltip&quot;)
+
+
+\
+
+A set of out-of-the-box Falco rules for CloudTrail is available in the Sysdig Cloud Connector, saving you a lot of time getting started, but you can complement these with your own custom rules to detect any cloud command.
+
+The included out-of-the-box CloudTrail rules can detect events like:
+
+
+
+*   Add an AWS user to a group.
+*   Allocate a New Elastic IP Address to AWS Account.
+*   Attach an Administrator Policy.
+*   Create an AWS user.
+*   Deactivate MFA for user access.
+*   Delete bucket encryption.
+
+These rules are also mapped against NIST 800-190 security standard controls. More compliance mapping for additional security standards like PCI or CIS will be provided in the future
+
+
+### 3.3 Setup CloudTrail Runtime Security
+
+If you followed this workshop from the beginning then you should have deployed the CloudTrail CloudFormation Template earlier. If you didn't, then go back and complete this step now &lt;&amp;lt;LINK to &quot;Setup CloudTrail Runtime Security&quot;&gt;&gt;, however please note that this can take up to ten minutes to complete.
+
+To check it has been deployed successfully, navigate to  [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/) and search for CloudConnector. You should see it's status is CREATE_COMPLETE.
+
+
+
+&lt;p id=&quot;gdcalert3&quot; &gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/50_module_3/image3.png). Store image on your image server and adjust path/filename/extension if necessary. &lt;/span&gt;&lt;br&gt;(&lt;a href=&quot;#&quot;&gt;Back to top&lt;/a&gt;)(&lt;a href=&quot;#gdcalert4&quot;&gt;Next alert&lt;/a&gt;)&lt;br&gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt; &lt;/span&gt;&lt;/p&gt;
+
+
+![alt_text](/images/50_module_3/image3.png &quot;image_tooltip&quot;)
+</code></pre>
+
+<h3 id="3-4-detecting-runtime-cloud-security-threats">3.4. Detecting runtime cloud security threats</h3>
+
+<p>Let&rsquo;s look at an example of AWS threat detection in action with CloudTrail and the Sysdig Cloud Connector.  To do so we&rsquo;ll create an S3 bucket, and make it public</p>
+
+<ol>
+<li>Log into Cloud9 Workspace</li>
+
+<li><p>Create an S3 bucket, and delta its encryption  <br />
+S3 bucketnames are globally unique, so you can use your initials and a timestamp</p>
+
+<pre><code></code></pre>
+
+<p>INITIALS=jaf
+BUCKETNAME=$INITIALS-$(date +%s)
+aws s3api create-bucket &ndash;bucket $BUCKETNAME &ndash;acl public-read
+aws s3api delete-bucket-encryption &ndash;bucket $BUCKETNAME</p>
+
+<pre><code></code></pre></li>
+
+<li><p>To view details of this event, browse to <a href="https://console.aws.amazon.com/cloudtrail/home">CloudTrail</a>  then &lsquo;Event History&rsquo;</p></li>
+
+<li><p>Click the event just created</p>
+
+<p>If you scroll down you&rsquo;ll see details of the new CloudTrail event that was created.  It looks like this in JSON format:</p>
+
+<pre><code>{
+&quot;eventVersion&quot;: &quot;1.05&quot;,
+&quot;userIdentity&quot;: {
+    &quot;type&quot;: &quot;Root&quot;,
+    &quot;principalId&quot;: &quot;999999999999&quot;,
+    &quot;arn&quot;: &quot;arn:aws:iam::972909301756:root&quot;,
+    &quot;accountId&quot;: &quot;999999999999&quot;,
+    &quot;accessKeyId&quot;: &quot;FE1D489888F66424BBE7&quot;,
+    &quot;sessionContext&quot;: {
+        &quot;sessionIssuer&quot;: {},
+        &quot;webIdFederationData&quot;: {},
+        &quot;attributes&quot;: {
+            &quot;mfaAuthenticated&quot;: &quot;true&quot;,
+            &quot;creationDate&quot;: &quot;2020-06-18T07:52:40Z&quot;
+        }
+    }
+},
+&quot;eventTime&quot;: &quot;2020-06-18T09:05:23Z&quot;,
+&quot;eventSource&quot;: &quot;iam.amazonaws.com&quot;,
+&quot;eventName&quot;: &quot;AttachUserPolicy&quot;,
+&quot;awsRegion&quot;: &quot;us-east-1&quot;,
+&quot;sourceIPAddress&quot;: &quot;37.132.12.63&quot;,
+&quot;userAgent&quot;: &quot;console.amazonaws.com&quot;,
+&quot;requestParameters&quot;: {
+    &quot;userName&quot;: &quot;admin_test&quot;,
+    &quot;policyArn&quot;: &quot;arn:aws:iam::aws:policy/AdministratorAccess&quot;
+},
+&quot;responseElements&quot;: null,
+&quot;requestID&quot;: &quot;7fe1d489-550c-527f-6155-70d1522b95f0&quot;,
+&quot;eventID&quot;: &quot;dd9fe2aa-70d1-4bbf-2ac4-b4766642e73b&quot;,
+&quot;eventType&quot;: &quot;AwsApiCall&quot;,
+&quot;recipientAccountId&quot;: &quot;999999999999&quot;
+}
+</code></pre></li>
+</ol>
+
+<p>All CloudTrail events have the following key fields:</p>
+
+<ul>
+<li><code><em>userIdentity</em></code>: The user who sent the request.</li>
+<li><code><em>eventName</em></code>: Specifies the type of event.</li>
+<li><code><em>requestParameters</em></code>: Contains all of the parameters related to the request.</li>
+</ul>
+
+<p>If a request has an <code><em>errorCode </em></code>field, it means that it could not be processed because of an error. For example, the requester may not have had permission to perform a change.</p>
+
+<p>In this case, we can see how a policy has just been attached (<code>AttachUserPolicy</code>) to a user (<code>admin_test</code>) with administrator access (<code>arn:aws:iam::aws:policy/AdministratorAccess</code>).</p>
+
+<p>A Falco rule to detect this elevation of privileges would look like this:</p>
+
+<pre><code>- rule: Delete bucket encryption
+  desc: Detect deleting configuration to use encryption for bucket storage
+  condition:
+    jevt.value[/eventName]=&quot;DeleteBucketEncryption&quot; and not jevt.value[/errorCode] exists
+  output:
+    A encryption configuration for a bucket has been deleted
+    (requesting user=%jevt.value[/userIdentity/arn],
+     requesting IP=%jevt.value[/sourceIPAddress],
+     AWS region=%jevt.value[/awsRegion],
+     bucket=%jevt.value[/requestParameters/bucketName])
+  priority: CRITICAL
+  tags: [cloud, source=cloudtrail, aws, NIST800_53, NIST800_53_AU8]
+  source: k8s_audit
+
+
+</code></pre>
+
+<p>This particular rule is already included out-of-the-box in Sysdig Cloud Connector.</p>
+
+<p>The <code><em>jevt.value</em></code> contains the JSON content of the event, and we are using it in the <code>condition</code>. Using the <a href="https://jsonpath.com/">[jsonpath]</a>(<a href="https://jsonpath.com/">https://jsonpath.com/</a>) format, we can indicate what parts of the event we want to evaluate.</p>
+
+<p>The <code>output</code> will provide context information, including the requester username and IP address, and this is what will be sent through all of the enabled notification channels.</p>
+
+<p>As you can see, this is a regular Falco rule. CloudTrail compatibility is achieved by handling its events as JSON objects, and referring to the event information using JSONPath.</p>
+
+<h4 id="3-4-1-checking-security-findings-in-the-aws-security-hub">3.4.1 Checking security findings in the AWS Security Hub</h4>
+
+<p>You can check these events without leaving the AWS console. This is how findings reported by Sysdig Cloud Connector look in the AWS Security Hub:</p>
+
+<ol>
+<li>Browse to <a href="[https://console.aws.amazon.com/securityhub/home](https://console.aws.amazon.com/securityhub/home)">Security Hub</a> and click &lsquo;Findings&rsquo; on the left.</li>
+</ol>
+
+<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/50_module_3/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/50_module_3/image4.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p>The details of one of these findings provide all the information you need to take immediate action:</p>
+
+<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/50_module_3/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/50_module_3/image5.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p>And they appear in JSON format in AWS CloudWatch log streams:</p>
+
+<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/50_module_3/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/50_module_3/image6.png" alt="alt_text" title="image_tooltip" /></p>
+
+<ul>
+<li>Create a insecure S3 bucket</li>
+<li>See the security finding on AWS Security Hub</li>
+</ul>
+
+<h3 id="3-5-modifying-a-falco-rule-for-cloudtrail">3.5. Modifying a Falco rule for CloudTrail</h3>
+
+<p>Using Sysdig Cloud Connector, you are not limited to the out-of-the-box rules provided. You can modify existing rules, or write your own tailored to your own needs.</p>
+
+<p>Let’s try first modifying a rule. There is one that checks if a resource is created in a region that you are not usually using. But to be active, you have to specify which regions you want to detect.</p>
+
+<pre><code>- list: disallowed_aws_regions
+  items: []
+
+- rule: AWS command executed on unused region
+  desc: Detect AWS command execution on unused regions
+  condition:
+    not jevt.value[/errorCode] exists and
+    jevt.value[/awsRegion] in (disallowed_aws_regions)
+  output:
+    An AWS command has been executed on an unused region
+    (requesting user=%jevt.value[/userIdentity/arn],
+     requesting IP=%jevt.value[/sourceIPAddress],
+     AWS region=%jevt.value[/awsRegion]
+  priority: CRITICAL
+  tags: [cloud, source=cloudtrail, aws, NIST800_53, NIST800_53_AC-2(12)(b)]
+  source: k8s_audit
+</code></pre>
+
+<p><em>[Include here instructions on how to download and update rules files when that mechanism is implemented]</em></p>
+
+<p>For the disallowed_aws_regions list, edit the items to include us-west-1 and us-west-2:</p>
+
+<pre><code>- list: disallowed_aws_regions
+  items: [us-west-1, us-west-2]
+</code></pre>
+
+<p><em>[Instructions to update and reload rules]</em></p>
+
+<p>Now we create a new log group on us-west-2</p>
+
+<pre><code>aws logs create-log-group --log-group-name &quot;test_unused_region&quot; --region=&quot;us-west-2&quot;
+</code></pre>
+
+<p>CloudTrail takes up to 10 minutes to provide the events. When the event is available, Cloud Connector will trigger the rule and we will see a new security finding appear in AWS Security Hub.</p>
+
+<p><em>[Introduce screenshots when rule update process is available]</em></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail10module_2_fargate_automatic_image_scanning.html" title="Modifying a Falco Rule for CloudTrail"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/60_conclusions.html" title="Conclusions" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1603016987"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603016987"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603016987"></script>
+    <script src="/js/jquery.sticky.js?1603016987"></script>
+    <script src="/js/featherlight.min.js?1603016987"></script>
+    <script src="/js/highlight.pack.js?1603016987"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603016987"></script>
+    <script src="/js/learn.js?1603016987"></script>
+    <script src="/js/hugo-learn.js?1603016987"></script>
+
+    <link href="/mermaid/mermaid.css?1603016987" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603016987"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

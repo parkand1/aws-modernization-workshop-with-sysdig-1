@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="description" content="AWS Modernization Workshop with Sysdig">
+<meta name="author" content="Sysdig Training and CNATIVE Teams">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title> :: AWS Modernization Workshop with Sysdig</title>
+
+    
+    <link href="/css/nucleus.css?1603016987" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603016987" rel="stylesheet">
+    <link href="/css/hybrid.css?1603016987" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603016987" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603016987" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603016987" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603016987" rel="stylesheet">
+    <link href="/css/theme.css?1603016987" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603016987" rel="stylesheet">
+    
+      <link href="/css/theme-mine.css?1603016987" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1603016987"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/40_module_2/markdown_temp.html">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/" title="Go home"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" width="60%" style="padding:20px 0px;"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg></a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1603016987"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603016987"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1603016987"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/00_introduction.html" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/00_introduction.html">
+          Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/00_security_basics.html" title="Security basics" class="dd-item ">
+        <a href="/00_introduction/00_security_basics.html">
+        Security basics
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/01_image_scanning.html" title="Image Scanning" class="dd-item ">
+        <a href="/00_introduction/01_image_scanning.html">
+        Image Scanning
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/03_infra_runtime_sec.html" title="Infrastructure Runtime Security" class="dd-item ">
+        <a href="/00_introduction/03_infra_runtime_sec.html">
+        Infrastructure Runtime Security
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/04_fargate_ecs_sec.html" title="AWS Fargate and ECS Security" class="dd-item ">
+        <a href="/00_introduction/04_fargate_ecs_sec.html">
+        AWS Fargate and ECS Security
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/05_workshop_overview.html" title="Workshop Overview" class="dd-item ">
+        <a href="/00_introduction/05_workshop_overview.html">
+        Workshop Overview
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/10_prerequisites.html" title="Prerequisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10_prerequisites.html">
+          Prerequisites
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/10_prerequisites/11_sysdig.html" title="Sign-up for a Sysdig Trial account" class="dd-item ">
+        <a href="/10_prerequisites/11_sysdig.html">
+        Sign-up for a Sysdig Trial account
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="Start the Workshop..." class="dd-item ">
+        <a href="/10_prerequisites/12_start_workshop.html">
+        Start the Workshop...
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/10_prerequisites/13_aws_event.html" title="At an AWS Event..." class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10_prerequisites/13_aws_event.html">
+          At an AWS Event...
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/10_prerequisites/14_self_paced.html" title="...or on your own" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10_prerequisites/14_self_paced.html">
+          ...or on your own
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/10_prerequisites/14_self_paced/account.html" title="Create an AWS account" class="dd-item ">
+        <a href="/10_prerequisites/14_self_paced/account.html">
+        Create an AWS account
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/20_workshop_setup.html" title="Workshop Setup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/20_workshop_setup.html">
+          Workshop Setup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/20_cloud9.html" title="Cloud9" class="dd-item ">
+        <a href="/20_workshop_setup/20_cloud9.html">
+        Cloud9
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/21_iamrole.html" title="Create an IAM role for your workspace" class="dd-item ">
+        <a href="/20_workshop_setup/21_iamrole.html">
+        Create an IAM role for your workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace" class="dd-item ">
+        <a href="/20_workshop_setup/22_workspaceiam.html">
+        Attach the IAM role to your Workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/23_cloud.html" title="Update IAM settings for your Workspace" class="dd-item ">
+        <a href="/20_workshop_setup/23_cloud.html">
+        Update IAM settings for your Workspace
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item ">
+        <a href="/20_workshop_setup/24_setup_cloudtrail.html">
+        Setup CloudTrail Runtime Security
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/20_workshop_setup/24_setup_cloudtrail.html">
+          Setup CloudTrail Runtime Security
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html" title="Enable AWS Security Hub" class="dd-item ">
+        <a href="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html">
+        Enable AWS Security Hub
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html" title="Installing the CloudConnector" class="dd-item ">
+        <a href="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html">
+        Installing the CloudConnector
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/30_module_1.html" title="Module 1: Amazon ECR Image Scanning" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/30_module_1.html">
+          Module 1: Amazon ECR Image Scanning
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/30_setup_ecr.html" title="1.3. Setup Amazon ECR Registry" class="dd-item ">
+        <a href="/30_module_1/30_setup_ecr.html">
+        1.3. Setup Amazon ECR Registry
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/31_deploy_ecr_integration.html" title="1.4 Deploy the Amazon ECR Integration" class="dd-item ">
+        <a href="/30_module_1/31_deploy_ecr_integration.html">
+        1.4 Deploy the Amazon ECR Integration
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/32_image_from_registry.html" title="1.5 Push and scan an image from the registry" class="dd-item ">
+        <a href="/30_module_1/32_image_from_registry.html">
+        1.5 Push and scan an image from the registry
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/33_image_rescan.html" title="1.6 Modify the image and trigger a second scan" class="dd-item ">
+        <a href="/30_module_1/33_image_rescan.html">
+        1.6 Modify the image and trigger a second scan
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/40_module_2.html" title="Module 2: Fargate automatic image scanning" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/40_module_2.html">
+          Module 2: Fargate automatic image scanning
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/40_install_amazon_ecs_cli.html" title="Install Amazon ECS CLI" class="dd-item ">
+        <a href="/40_module_2/40_install_amazon_ecs_cli.html">
+        Install Amazon ECS CLI
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/41_deploy_image_scanner_for_fargate.html" title="Deploy Sysdig Secure Automatic Image Scanner for Fargate" class="dd-item ">
+        <a href="/40_module_2/41_deploy_image_scanner_for_fargate.html">
+        Deploy Sysdig Secure Automatic Image Scanner for Fargate
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/42_deploy_an_ecs_cluster.html" title="Deploy an ECS cluster using Fargate" class="dd-item ">
+        <a href="/40_module_2/42_deploy_an_ecs_cluster.html">
+        Deploy an ECS cluster using Fargate
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/43_initiate_scan.html" title="Initiate CodeBuild Pipelines Build and Scan" class="dd-item ">
+        <a href="/40_module_2/43_initiate_scan.html">
+        Initiate CodeBuild Pipelines Build and Scan
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/44_sysdig_secure_dashboard.html" title="View Results on Sysdig Secure Dashboard" class="dd-item ">
+        <a href="/40_module_2/44_sysdig_secure_dashboard.html">
+        View Results on Sysdig Secure Dashboard
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/markdown_temp.html" title="" class="dd-item active">
+        <a href="/40_module_2/markdown_temp.html">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/50_module_3.html" title="Module 3: CloudTrail Runtime Security" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/50_module_3.html">
+          Module 3: CloudTrail Runtime Security
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/51_setup_cloudtrail_runtime_security.html" title="Setup CloudTrail Runtime Security" class="dd-item ">
+        <a href="/50_module_3/51_setup_cloudtrail_runtime_security.html">
+        Setup CloudTrail Runtime Security
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/52_detecting_runtime_cloud_security_threats.html" title="Detecting Runtime Cloud Security Threats" class="dd-item ">
+        <a href="/50_module_3/52_detecting_runtime_cloud_security_threats.html">
+        Detecting Runtime Cloud Security Threats
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/53_checking_security_findings_in_the_aws_security_hub.html" title="Checking Security Findings in AWS Security Hub" class="dd-item ">
+        <a href="/50_module_3/53_checking_security_findings_in_the_aws_security_hub.html">
+        Checking Security Findings in AWS Security Hub
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail10module_2_fargate_automatic_image_scanning.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
+        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail10module_2_fargate_automatic_image_scanning.html">
+        Modifying a Falco Rule for CloudTrail
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/markdown_temp.html" title="" class="dd-item ">
+        <a href="/50_module_3/markdown_temp.html">
+        
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/60_conclusions.html" title="Conclusions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/60_conclusions.html">
+          Conclusions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/70_cleanup.html" title="Cleanup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/70_cleanup.html">
+          Cleanup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://awsworkshop.io"><i class='fas fa-graduation-cap'></i> Modernization Workshops</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/builders-library/"><i class='fas fa-tools'></i> AWS Builders Library</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/blogs/modernizing-with-aws/"><i class='far fa-lightbulb'></i> Modernization with AWS</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    <h5 class="copyright">&copy; 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.<h5>
+</left>
+
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/40_module_2/markdown_temp.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Main Page</a> > <a href='/40_module_2.html'>Module 2: Fargate automatic image scanning</a> > 
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#aws-security-with-sysdig-working-title">AWS Security with Sysdig (Working title)</a>
+<ul>
+<li><a href="#module-2-fargate-automatic-image-scanning">Module 2: Fargate automatic image scanning</a>
+<ul>
+<li><a href="#2-1-module-overview">2.1. Module Overview</a></li>
+<li><a href="#2-2-reference-architecture">2.2. Reference Architecture</a></li>
+<li><a href="#2-3-setup-amazon-ecs-fargate-scanning">2.3. Setup Amazon ECS Fargate Scanning</a>
+<ul>
+<li><a href="#2-3-1-install-amazon-ecs-cli">2.3.1 Install Amazon ECS CLI</a></li>
+</ul></li>
+<li><a href="#2-4-deploy-sysdig-secure-automatic-image-scanner-for-fargate">2.4 Deploy Sysdig Secure Automatic Image Scanner for Fargate</a></li>
+<li><a href="#2-4-deploy-an-ecs-cluster-using-fargate">2.4 Deploy an ECS cluster using Fargate</a>
+<ul>
+<li><a href="#2-4-2-see-that-codebuild-pipelines-are-automatically-created-to-scan-them">2.4.2 See that CodeBuild pipelines are automatically created to scan them</a></li>
+<li><a href="#2-4-3-see-scan-results-on-sysdig-secure-dashboard">2.4.3 See scan results on Sysdig Secure dashboard</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              
+            </h1>
+          
+
+        
+
+
+
+
+
+<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 0; ALERTS: 13.</p>
+<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
+
+<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
+<a href="#gdcalert2">alert2</a>
+<a href="#gdcalert3">alert3</a>
+<a href="#gdcalert4">alert4</a>
+<a href="#gdcalert5">alert5</a>
+<a href="#gdcalert6">alert6</a>
+<a href="#gdcalert7">alert7</a>
+<a href="#gdcalert8">alert8</a>
+<a href="#gdcalert9">alert9</a>
+<a href="#gdcalert10">alert10</a>
+<a href="#gdcalert11">alert11</a>
+<a href="#gdcalert12">alert12</a>
+<a href="#gdcalert13">alert13</a>
+
+<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
+
+<h1 id="aws-security-with-sysdig-working-title">AWS Security with Sysdig (Working title)</h1>
+
+<p>[TOC]</p>
+
+<h2 id="module-2-fargate-automatic-image-scanning">Module 2: Fargate automatic image scanning</h2>
+
+<h3 id="2-1-module-overview">2.1. Module Overview</h3>
+
+<p>Amazon Fargate is a serverless compute engine for containers that works with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS). It allocates the correct amount of compute resources, eliminating the need to choose instance types and scaling cluster capacity. With Fargate, you pay for the minimum resources required to run your containers.  Sysdig provides the ability to scan running Fargate services for known issues, in a similar manner to how it scans Amazon ECR.</p>
+
+<p>In this lab we will</p>
+
+<ol>
+<li>Install Amazon ECS CLI</li>
+<li>Deploy Sysdig Secure automatic image scanner for Fargate</li>
+<li>Deploy an ECS cluster using Fargate</li>
+<li>See that CodeBuild pipelines are automatically created to scan them</li>
+<li>See scan results on Sysdig Secure dashboard</li>
+</ol>
+
+<h3 id="2-2-reference-architecture">2.2. Reference Architecture</h3>
+
+<p>Any <strong>deploy command</strong> directed at ECS Fargate will trigger an <strong>image scanning</strong> event. In particular the deploy command is detected by Amazon EventBridge, which will trigger a CodeBuild pipeline via an AWS Lambda function. It is within this CodeBuild pipeline that the image scanning runs. This is very similar workflow to how we seen earlier with Amazon ECR scanning.</p>
+
+<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image1.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image2.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p>The Sysdig inline image scanner will inspect the image to be deployed and will send its metadata to the Sysdig backend. The actual image contents won&rsquo;t leave the CodeBuild pipeline.</p>
+
+<p>The Sysdig backend then <strong>evaluates</strong> the container metadata against your security policies. It will generate a <strong>scan report</strong> if the image doesn&rsquo;t pass your security requirements, so you can <strong>take action</strong>.</p>
+
+<h3 id="2-3-setup-amazon-ecs-fargate-scanning">2.3. Setup Amazon ECS Fargate Scanning</h3>
+
+<h4 id="2-3-1-install-amazon-ecs-cli">2.3.1 Install Amazon ECS CLI</h4>
+
+<p>The first thing we need to do is install the Amazon ECS CLI on our Cloud9 Workspace. This tool is required to deploy the example ECS cluster used in this module.</p>
+
+<p>To install Amazon ECS CLI, follow the steps below</p>
+
+<ol>
+<li>Log into your Cloud9 Workspace</li>
+<li>Download the Amazon ECS CLI binary and make it executable .</li>
+</ol>
+
+<pre><code>sudo curl -Lo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest
+sudo chmod +x /usr/local/bin/ecs-cli
+
+</code></pre>
+
+<ol>
+<li>Check installation</li>
+</ol>
+
+<p>**<code>ecs-cli &ndash;version</code></strong></p>
+
+<ol>
+<li><p>Create a task execution IAM role. To do this, create a file named task-execution-assume-role.json, as follows</p>
+
+<pre><code>cat &lt;&lt;- 'EOF' &gt; &quot;task-execution-assume-role.json&quot;
+{
+&quot;Version&quot;: &quot;2012-10-17&quot;,
+&quot;Statement&quot;: [
+{
+  &quot;Sid&quot;: &quot;&quot;,
+  &quot;Effect&quot;: &quot;Allow&quot;,
+  &quot;Principal&quot;: {
+    &quot;Service&quot;: &quot;ecs-tasks.amazonaws.com&quot;
+  },
+  &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+}
+]
+}
+EOF
+</code></pre></li>
+
+<li><p>Create task execution role and attach the task execution role policy:</p></li>
+</ol>
+
+<table>
+  <tr>
+   <td>
+<code>aws iam --region us-east-1 create-role --role-name ecsTaskExecutionRole --assume-role-policy-document file://task-execution-assume-role.json</code>
+<p>
+<code>aws iam --region us-east-1 attach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy</code>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+  </tr>
+</table>
+
+<h3 id="2-4-deploy-sysdig-secure-automatic-image-scanner-for-fargate">2.4 Deploy Sysdig Secure Automatic Image Scanner for Fargate</h3>
+
+<p>To deploy the Sysdig image scanner for Fargate, we&rsquo;ll again use Amazon CloudFormation.  The procedure is identical to how we installed Amazon ECR Integration in the previous lab, so this time we&rsquo;ll use the AWS CLI instead.</p>
+
+<p><strong><em>Note</em></strong> You can find instructions on using the CLI on the <a href="https://sysdiglabs.github.io/ecs-image-scanning/install.html"><a href="https://sysdiglabs.github.io/ecs-image-scanning/install.html">Sysdig Fargate scanning installation page</a></a></p>
+
+<ol>
+<li>First we&rsquo;ll set a couple of environment parameters to simplify the actual <code>aws</code> command,</li>
+</ol>
+
+<table>
+  <tr>
+   <td>
+<code>APIToken="93d577a9-e0ed-4d39-95cd-ddd88882a749"</code>
+<p>
+<code>CFURI="https://cf-templates-secure-scanning-ecs.s3.amazonaws.com/ecs-image-scanning.template"</code>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+  </tr>
+</table>
+
+<ol>
+<li><p>Then we&rsquo;ll run the command, using those environment parameters</p>
+
+<pre><code>aws cloudformation create-stack \
+--stack-name ECSImageScanning \
+--template-body $CFURI \
+--parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$APIToken ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
+--capabilities &quot;CAPABILITY_NAMED_IAM&quot;
+</code></pre></li>
+</ol>
+
+<p>You can check the status of the CloudFormation task by browsing to the <a href="[https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/)">CloudFormation UI</a>.</p>
+
+<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image3.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p>Wait until the CloudFormation task completes, which may take several minutes.</p>
+
+<p>Once all stacks are created, you will be ready to deploy our ECS tasks in a Fargate cluster securely, as all images will be scanned automatically.  In the next steps we will see this scanning as it happens.</p>
+
+<h3 id="2-4-deploy-an-ecs-cluster-using-fargate">2.4 Deploy an ECS cluster using Fargate</h3>
+
+<p>To illustrate the automatic scanning, we will now deploy a sample ECS cluster that scales using Fargate</p>
+
+<ol>
+<li><p>Create a cluster configuration and create a cluster</p>
+
+<p>```
+ecs-cli configure &ndash;cluster tutorial &ndash;default-launch-type FARGATE &ndash;config-name tutorial &ndash;region us-east-1</p></li>
+</ol>
+
+<p>ecs-cli up &ndash;cluster-config tutorial &ndash;ecs-profile tutorial-profile</p>
+
+<p>INFO[0000] Created cluster                    cluster=tutorial region=us-east-1
+INFO[0000] Waiting for your cluster resources to be created&hellip;
+INFO[0000] Cloudformation stack status       stackStatus=CREATE_IN_PROGRESS
+INFO[0060] Cloudformation stack status       stackStatus=CREATE_IN_PROGRESS
+VPC created: vpc-046ed77edcd796e19
+Subnet created: subnet-045df8f58a51b2291
+Subnet created: subnet-0e4623283c4907ea7
+Cluster creation succeeded.</p>
+
+<pre><code>
+
+1. Set the names of the VPC and the two Subnets created as an environment variable, as follows
+
+
+</code></pre>
+
+<p>VPC=vpc-024736da4d3f41e25
+SUBNET1=subnet-045df8f58a51b2291
+SUBNET2=subnet-0e4623283c4907ea7</p>
+
+<pre><code>
+
+You can subsequently get these details from the [CloudFormation UI](https://console.aws.amazon.com/cloudformation/home)
+
+
+
+&lt;p id=&quot;gdcalert4&quot; &gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. &lt;/span&gt;&lt;br&gt;(&lt;a href=&quot;#&quot;&gt;Back to top&lt;/a&gt;)(&lt;a href=&quot;#gdcalert5&quot;&gt;Next alert&lt;/a&gt;)&lt;br&gt;&lt;span style=&quot;color: red; font-weight: bold&quot;&gt;&gt;&gt;&gt;&gt;&gt; &lt;/span&gt;&lt;/p&gt;
+
+
+![alt_text](/images/image4.png &quot;image_tooltip&quot;)
+
+
+
+
+2. Run the following command to retrieve the id of the default security group and allow inbound access on port 80
+
+    ```
+export group_id=$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$VPC --region us-east-1 | jq '.SecurityGroups[0].GroupId' | xargs)
+
+aws ec2 authorize-security-group-ingress --group-id $group_id --protocol tcp --port 80 --cidr 0.0.0.0/0 --region us-east-1
+
+echo The security group ID is $group_id
+</code></pre>
+
+<ol>
+<li><p>Create **docker-compose.yaml **file as follows</p>
+
+<p>```
+cat &lt;&lt;- &lsquo;EOF&rsquo; &gt; &ldquo;docker-compose.yml&rdquo;
+version: &lsquo;3&rsquo;
+services:
+web:
+image: amazon/amazon-ecs-sample
+ports:</p>
+
+<ul>
+<li>&ldquo;80:80&rdquo;
+logging:
+driver: awslogs
+options:
+awslogs-group: tutorial
+awslogs-region: us-east-1
+awslogs-stream-prefix: web
+EOF
+```</li>
+</ul></li>
+
+<li><p>Create <strong>ecs-params.yml</strong> file as follows, <strong>replacing subnets and security group id.</strong></p>
+
+<pre><code>cat &lt;&lt;- 'EOF' &gt; &quot;ecs-params.yml&quot;
+version: 1
+task_definition:
+task_execution_role: ecsTaskExecutionRole
+ecs_network_mode: awsvpc
+task_size:
+mem_limit: 0.5GB
+cpu_limit: 256
+run_params:
+network_configuration:
+awsvpc_configuration:
+  subnets:
+    - &quot;subnet-045df8f58a51b2291&quot;
+    - &quot;subnet-0e4623283c4907ea7&quot;
+  security_groups:
+    - &quot;sg-07c8bf61105e07021&quot;
+  assign_public_ip: ENABLED
+EOF
+</code></pre></li>
+
+<li><p>Deploy to the cluster:</p>
+
+<pre><code>ecs-cli compose --project-name tutorial service up --create-log-groups --cluster-config tutorial --ecs-profile tutorial-profile
+</code></pre></li>
+</ol>
+
+<p>Maybe replace steps 2-5 with this script</p>
+
+<pre><code>export group_id=$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$VPC --region us-east-1 | jq '.SecurityGroups[0].GroupId' | xargs)
+
+aws ec2 authorize-security-group-ingress --group-id $group_id --protocol tcp --port 80 --cidr 0.0.0.0/0 --region us-east-1
+
+cat &lt;&lt;- 'EOF' &gt; &quot;docker-compose.yml&quot;
+version: '3'
+services:
+  web:
+    image: amazon/amazon-ecs-sample
+    ports:
+      - &quot;80:80&quot;
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: tutorial
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: web
+EOF
+
+cat &lt;&lt;- 'EOF' &gt; &quot;ecs-params.yml&quot;
+version: 1
+task_definition:
+  task_execution_role: ecsTaskExecutionRole
+  ecs_network_mode: awsvpc
+  task_size:
+    mem_limit: 0.5GB
+    cpu_limit: 256
+run_params:
+  network_configuration:
+    awsvpc_configuration:
+      subnets:
+        - &quot;subnet1&quot;
+        - &quot;subnet2&quot;
+      security_groups:
+        - &quot;sg1&quot;
+      assign_public_ip: ENABLED
+EOF
+
+sed -i &quot;s/subnet1/$SUBNET1/g&quot; ecs-params.yml
+sed -i &quot;s/subnet2/$SUBNET2/g&quot; ecs-params.yml
+sed -i &quot;s/sg1/$group_id/g&quot; ecs-params.yml
+
+ecs-cli compose --project-name tutorial service up --create-log-groups --cluster-config tutorial --ecs-profile tutorial-profile
+</code></pre>
+
+<hr />
+
+<ol>
+<li>Once completed you can see on the [Amazon ECS UI]{<a href="https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/tutorial/services">https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/tutorial/services</a>)</li>
+</ol>
+
+<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image5.png" alt="alt_text" title="image_tooltip" /></p>
+
+<h4 id="2-4-2-see-that-codebuild-pipelines-are-automatically-created-to-scan-them">2.4.2 See that CodeBuild pipelines are automatically created to scan them</h4>
+
+<ol>
+<li>Now go to <a href="[https://console.aws.amazon.com/codesuite/codebuild/projects](https://console.aws.amazon.com/codesuite/codebuild/projects)">CodeBuild &gt; Build projects</a> and see the task in progress.</li>
+</ol>
+
+<p>&lt;&lt;ToDo: Recheck the following steps &amp; screens in live environment - need to fix Cloud9 issues first. I see this</p>
+
+<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image6.png" alt="alt_text" title="image_tooltip" /></p>
+
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+
+<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image7.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image8.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image9.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image9.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image10.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image10.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image11.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image11.png" alt="alt_text" title="image_tooltip" /></p>
+
+<h4 id="2-4-3-see-scan-results-on-sysdig-secure-dashboard">2.4.3 See scan results on Sysdig Secure dashboard</h4>
+
+<p>The beauty of the Amazon ECS Fargate with Sysdig is that you have a centralised location to report on your scanning results.</p>
+
+<ol>
+<li>Log into Sysdig Secure, and Browse to &lsquo;Image Scanning &gt; Scan Results&rsquo;.</li>
+</ol>
+
+<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image12.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image12.png" alt="alt_text" title="image_tooltip" /></p>
+
+<ol>
+<li>You can drill into</li>
+</ol>
+
+<p id="gdcalert13" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image13.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert14">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+<p><img src="/images/image13.png" alt="alt_text" title="image_tooltip" /></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/40_module_2/44_sysdig_secure_dashboard.html" title="View Results on Sysdig Secure Dashboard"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/50_module_3.html" title="Module 3: CloudTrail Runtime Security" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1603016987"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603016987"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603016987"></script>
+    <script src="/js/jquery.sticky.js?1603016987"></script>
+    <script src="/js/featherlight.min.js?1603016987"></script>
+    <script src="/js/highlight.pack.js?1603016987"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603016987"></script>
+    <script src="/js/learn.js?1603016987"></script>
+    <script src="/js/hugo-learn.js?1603016987"></script>
+
+    <link href="/mermaid/mermaid.css?1603016987" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603016987"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

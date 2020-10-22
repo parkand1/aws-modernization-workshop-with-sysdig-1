@@ -1,0 +1,514 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Cloud Connector for AWS
+
+Resources:
+
+# CloudWatch Logs for Cloud Connector
+
+  CloudConnectorLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: cloud-connector
+      RetentionInDays: 7
+
+  CloudConnectorAlertsLogStream:
+    Type: AWS::Logs::LogStream
+    Properties:
+      LogGroupName: !Ref CloudConnectorLogGroup
+      LogStreamName: alerts
+
+# Dedicated VPC for Cloud Connector
+
+  CloudConnectorVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      CidrBlock: 10.0.0.0/16
+
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+
+  InternetGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref InternetGateway
+      VpcId: !Ref CloudConnectorVPC
+
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone:
+         Fn::Select:
+         - 0
+         - Fn::GetAZs: {Ref: 'AWS::Region'}
+      VpcId: !Ref CloudConnectorVPC
+      CidrBlock: 10.0.1.0/24
+
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone:
+         Fn::Select:
+         - 1
+         - Fn::GetAZs: {Ref: 'AWS::Region'}
+      VpcId: !Ref CloudConnectorVPC
+      CidrBlock: 10.0.2.0/24
+
+  PrivateSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone:
+         Fn::Select:
+         - 0
+         - Fn::GetAZs: {Ref: 'AWS::Region'}
+      VpcId: !Ref CloudConnectorVPC
+      CidrBlock: 10.0.100.0/24
+
+  PrivateSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone:
+         Fn::Select:
+         - 1
+         - Fn::GetAZs: {Ref: 'AWS::Region'}
+      VpcId: !Ref CloudConnectorVPC
+      CidrBlock: 10.0.101.0/24
+
+  NatGateway1EIP:
+    Type: AWS::EC2::EIP
+    DependsOn: InternetGatewayAttachment
+
+  NatGateway2EIP:
+    Type: AWS::EC2::EIP
+    DependsOn: InternetGatewayAttachment
+
+  NatGateway1:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId: !GetAtt NatGateway1EIP.AllocationId
+      SubnetId: !Ref PublicSubnet1
+
+  NatGateway2:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId: !GetAtt NatGateway2EIP.AllocationId
+      SubnetId: !Ref PublicSubnet2
+
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref CloudConnectorVPC
+
+  DefaultPublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: InternetGatewayAttachment
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  PublicSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet1
+
+  PublicSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet2
+
+  PrivateRouteTable1:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref CloudConnectorVPC
+
+  DefaultPrivateRoute1:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable1
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId: !Ref NatGateway1
+
+  PrivateSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable1
+      SubnetId: !Ref PrivateSubnet1
+
+  PrivateRouteTable2:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref CloudConnectorVPC
+
+  DefaultPrivateRoute2:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable2
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId: !Ref NatGateway2
+
+  PrivateSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable2
+      SubnetId: !Ref PrivateSubnet2
+
+
+# CloudConnector Fargate Workload
+
+  CloudConnectorTaskRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service: [ecs-tasks.amazonaws.com]
+          Action: ['sts:AssumeRole']
+      Path: /
+      Policies:
+        - PolicyName: CloudConnectorTaskRolePolicy
+          PolicyDocument:
+            Statement:
+            - Effect: Allow
+              Action:
+                - "s3:Get*"
+                - "s3:List*"
+                - "securityhub:GetFindings"
+                - "securityhub:BatchImportFindings"
+                - 'logs:DescribeLogStreams'
+                - 'logs:GetLogEvents'
+                - 'logs:PutLogEvents'
+              Resource: '*'
+
+  CloudConnectorExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service: [ecs-tasks.amazonaws.com]
+          Action: ['sts:AssumeRole']
+      Path: /
+      Policies:
+        - PolicyName: CloudConnectorExecutionRolePolicy
+          PolicyDocument:
+            Statement:
+            - Effect: Allow
+              Action:
+                - 'logs:CreateLogStream'
+                - 'logs:PutLogEvents'
+              Resource: '*'
+
+  CloudConnectorTaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      RequiresCompatibilities:
+        - "FARGATE"
+      NetworkMode: awsvpc
+      TaskRoleArn: !Ref CloudConnectorTaskRole
+      ExecutionRoleArn: !Ref CloudConnectorExecutionRole
+      Cpu: 256
+      Memory: 512
+      Volumes:
+        - Name: config
+          Host: {}
+      ContainerDefinitions:
+        - Name: CloudConnectorConfig
+          Command:
+            - sh
+            - -c
+            - !Sub
+              - "echo '${Command}'| base64 -d > /etc/cloud-connector/cloud-connector.yaml"
+              - Command:
+                  "Fn::Base64":
+                    !Sub |
+                      rules:
+                        - directory:
+                            path: /rules
+                      ingestors:
+                        - cloudtrail-sns-http:
+                            url: /cloudtrail
+                        - cloudtrail-http:
+                            url: /cloudtrail-debug
+                      notifiers:
+                        - console: {}
+                        - metrics: {}
+                        - cloudwatch:
+                            logGroup: cloud-connector
+                            logStream: alerts
+                        - securityhub:
+                            productArn: arn:aws:securityhub:${AWS::Region}:${AWS::AccountId}:product/${AWS::AccountId}/default
+
+          Image: busybox
+          Essential: false
+          MountPoints:
+            - SourceVolume: config
+              ContainerPath: "/etc/cloud-connector"
+        - Name: CloudConnector
+          DependsOn:
+            - ContainerName: CloudConnectorConfig
+              Condition: SUCCESS
+          Image: sysdiglabs/cloud-connector
+          Essential: true
+          PortMappings:
+            - ContainerPort: 5000
+          MountPoints:
+            - SourceVolume: config
+              ContainerPath: "/etc/cloud-connector"
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref CloudConnectorLogGroup
+              awslogs-region: !Ref AWS::Region
+              awslogs-stream-prefix: "ecs"
+
+  CloudConnectorCluster:
+    Type: AWS::ECS::Cluster
+    Properties:
+      ClusterName: CloudConnector
+
+  CloudConnectorService:
+    Type: AWS::ECS::Service
+    DependsOn:
+      - NatGateway1
+      - NatGateway2
+      - LoadBalancerListener
+    Properties:
+      ServiceName: CloudConnector
+      Cluster: !Ref CloudConnectorCluster
+      DesiredCount: 1
+      LaunchType: FARGATE
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          SecurityGroups:
+            - !Ref CloudConnectorSecurityGroup
+          Subnets:
+            - !Ref PrivateSubnet1
+            - !Ref PrivateSubnet2
+      TaskDefinition: !Ref CloudConnectorTaskDefinition
+      LoadBalancers:
+        - ContainerName: CloudConnector
+          ContainerPort: 5000
+          TargetGroupArn: !Ref CloudConnectorTargetGroup
+
+  CloudConnectorSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      VpcId: !Ref CloudConnectorVPC
+      GroupDescription: CloudConnector Containers security group
+      SecurityGroupIngress:
+        - CidrIp: 10.0.0.0/16
+          IpProtocol: -1
+
+# CloudConnector Load Balancer
+
+  CloudConnectorTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckIntervalSeconds: 10
+      HealthCheckPath: /health
+      HealthCheckProtocol: HTTP
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 2
+      TargetType: ip
+      Name: CloudConnector
+      Port: 5000
+      Protocol: HTTP
+      UnhealthyThresholdCount: 2
+      VpcId: !Ref CloudConnectorVPC
+
+  LoadBalancerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      VpcId: !Ref CloudConnectorVPC
+      GroupDescription: CloudConnector public facing load balancer
+      SecurityGroupIngress:
+        - CidrIp: 0.0.0.0/0
+          IpProtocol: -1
+
+  CloudConnectorLoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Scheme: internet-facing
+      LoadBalancerAttributes:
+      - Key: idle_timeout.timeout_seconds
+        Value: '30'
+      Subnets:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+      SecurityGroups:
+        - !Ref LoadBalancerSecurityGroup
+
+  LoadBalancerListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    DependsOn:
+      - CloudConnectorLoadBalancer
+    Properties:
+      DefaultActions:
+        - TargetGroupArn: !Ref CloudConnectorTargetGroup
+          Type: 'forward'
+      LoadBalancerArn: !Ref CloudConnectorLoadBalancer
+      Port: 80
+      Protocol: HTTP
+
+# CloudTrail
+
+  CloudConnectorCloudTrailBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Join
+      - "-"
+      - - "cloud-connector-ct-logs"
+        - !Select
+          - 0
+          - !Split
+            - "-"
+            - !Select
+              - 2
+              - !Split
+                - "/"
+                - !Ref "AWS::StackId"
+      LifecycleConfiguration:
+        Rules:
+          - ExpirationInDays: 7
+            Status: Enabled
+
+  CloudConnectorBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref CloudConnectorCloudTrailBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: "AWSCloudTrailAclCheck20150319"
+            Action:
+              - "s3:GetBucketAcl"
+            Effect: "Allow"
+            Resource: !GetAtt CloudConnectorCloudTrailBucket.Arn
+            Principal:
+              Service: "cloudtrail.amazonaws.com"
+          - Sid: "AWSCloudTrailWrite20150319"
+            Action:
+              - "s3:PutObject"
+            Effect: "Allow"
+            Resource: !Sub "${CloudConnectorCloudTrailBucket.Arn}/AWSLogs/${AWS::AccountId}/*"
+            Principal:
+              Service: "cloudtrail.amazonaws.com"
+            Condition:
+              StringEquals:
+                s3:x-amz-acl: "bucket-owner-full-control"
+
+  CloudConnectorSNSTopic:
+    Type: AWS::SNS::Topic
+    DependsOn:
+      - CloudConnectorService
+    Properties:
+      TopicName: cloud-connector
+      Subscription:
+        - Protocol: HTTP
+          Endpoint: !Sub 'http://${CloudConnectorLoadBalancer.DNSName}/cloudtrail'
+
+  CloudConnectorSNSPolicy:
+    Type: AWS::SNS::TopicPolicy
+    Properties:
+      Topics:
+        - !Ref CloudConnectorSNSTopic
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: "AWSCloudTrailSNSPolicy20131101"
+            Effect: "Allow"
+            Principal:
+               Service: "cloudtrail.amazonaws.com"
+            Action: "SNS:Publish"
+            Resource: !Ref CloudConnectorSNSTopic
+
+  CloudConnectorKMSKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Enabled: True
+      EnableKeyRotation: False
+      KeyPolicy:
+        Version: '2012-10-17'
+        Id: Key policy created by CloudTrail
+        Statement:
+        - Sid: Enable IAM User Permissions
+          Effect: Allow
+          Principal:
+            AWS:
+            - !Sub arn:aws:iam::${AWS::AccountId}:root
+          Action: kms:*
+          Resource: "*"
+        - Sid: Allow CloudTrail to encrypt logs
+          Effect: Allow
+          Principal:
+            Service:
+            - cloudtrail.amazonaws.com
+          Action: kms:GenerateDataKey*
+          Resource: "*"
+          Condition:
+            StringLike:
+              kms:EncryptionContext:aws:cloudtrail:arn: !Sub arn:aws:cloudtrail:*:${AWS::AccountId}:trail/*
+        - Sid: Allow CloudTrail to describe key
+          Effect: Allow
+          Principal:
+            Service:
+            - cloudtrail.amazonaws.com
+          Action: kms:DescribeKey
+          Resource: "*"
+        - Sid: Allow principals in the account to decrypt log files
+          Effect: Allow
+          Principal:
+            AWS: "*"
+          Action:
+          - kms:Decrypt
+          - kms:ReEncryptFrom
+          Resource: "*"
+          Condition:
+            StringEquals:
+              kms:CallerAccount: !Sub ${AWS::AccountId}
+            StringLike:
+              kms:EncryptionContext:aws:cloudtrail:arn: !Sub arn:aws:cloudtrail:*:${AWS::AccountId}:trail/*
+        - Sid: Allow alias creation during setup
+          Effect: Allow
+          Principal:
+            AWS: "*"
+          Action: kms:CreateAlias
+          Resource: "*"
+          Condition:
+            StringEquals:
+              kms:ViaService: !Sub ec2.${AWS::Region}.amazonaws.com
+              kms:CallerAccount: !Sub ${AWS::AccountId}
+        - Sid: Enable cross account log decryption
+          Effect: Allow
+          Principal:
+            AWS: "*"
+          Action:
+          - kms:Decrypt
+          - kms:ReEncryptFrom
+          Resource: "*"
+          Condition:
+            StringEquals:
+              kms:CallerAccount: !Sub ${AWS::AccountId}
+            StringLike:
+              kms:EncryptionContext:aws:cloudtrail:arn: !Sub arn:aws:cloudtrail:*:${AWS::AccountId}:trail/*
+
+  CloudConnectorTrail:
+    Type: AWS::CloudTrail::Trail
+    DependsOn:
+      - CloudConnectorBucketPolicy
+      - CloudConnectorSNSPolicy
+    Properties:
+      TrailName: cloud-connector
+      IsLogging: Yes
+      IsMultiRegionTrail: Yes
+      IncludeGlobalServiceEvents: Yes
+      EnableLogFileValidation: Yes
+      KMSKeyId: !Ref CloudConnectorKMSKey
+      S3BucketName: !Ref CloudConnectorCloudTrailBucket
+      SnsTopicName: !Ref CloudConnectorSNSTopic

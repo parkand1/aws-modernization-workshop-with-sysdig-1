@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on AWS Modernization Workshop with Sysdig</title>
+    <link>//localhost:1313/00_introduction.html</link>
+    <description>Recent content in Introduction on AWS Modernization Workshop with Sysdig</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="//localhost:1313/00_introduction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Workshop Overview</title>
+      <link>//localhost:1313/00_introduction/01_workshop_overview.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/00_introduction/01_workshop_overview.html</guid>
+      <description>It is extremely important to maintain a high level of security in your entire application environment. Not doing so can result in your system being compromised. This can incur significant costs and can lead to commercial &amp;amp; business issues, and failed compliance tests leading to a loss of trust with customers and monetary fines and/or settlement fees.
+In a cloud native environment, the security of your application is dependent largely upon the security of your containers, but not exclusively - it also depends upon the infrastructure upon which it runs.</description>
+    </item>
+    
+    <item>
+      <title>Image Scanning</title>
+      <link>//localhost:1313/00_introduction/03_image_scanning.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/00_introduction/03_image_scanning.html</guid>
+      <description>Sysdig&amp;rsquo;s ImageVision provides a comprehensive suite of tools to enhance security across your application&amp;rsquo;s ecosystem. One critical part of this is scanning the images in your registry.
+An image scanner inspects a container&amp;rsquo;s content to detect threats such as unencrypted passwords, known vulnerabilities, exposed ports, etc. You can implement scanning best practices on several phases of your DevOps pipeline, blocking threats before they are deployed into production, and without adding extra overhead.</description>
+    </item>
+    
+    <item>
+      <title>Inline Scanning</title>
+      <link>//localhost:1313/00_introduction/04_inline_scanning.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/00_introduction/04_inline_scanning.html</guid>
+      <description>There are two general approaches to scanning images in Sysdig - backend scanning or inline scanning. The reasons why you might choose one over the other is best explained by an understanding of how scanning works under the hood.
+--
+With Sysdig, there are two phases in scanning an image
+ Analysis of contents Evaluation against policies and vulnerabilities  Phase 1 - Analysis of Contents During the analysis phase of the scan, the worker first loads the image.</description>
+    </item>
+    
+    <item>
+      <title>Infrastructure Runtime Security</title>
+      <link>//localhost:1313/00_introduction/05_infra_runtime_sec.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/00_introduction/05_infra_runtime_sec.html</guid>
+      <description>In the same way image scanning gives you visibility of vulnerabilities and threats pertaining specifically to an application&amp;rsquo;s containers, infrastructure scanning gives visibility of potential issues emanating from the environment on which these containers run.
+AWS provides a rich environment upon which to base your application, but it&amp;rsquo;s not without its risks. There are many places where bad actors can create harm, for example exposing data by making S3 buckets public, deleting bucket encryption, disabling MFA for an account, adding/removing IAM policies.</description>
+    </item>
+    
+    <item>
+      <title>AWS Fargate and ECS Security</title>
+      <link>//localhost:1313/00_introduction/06_fargate_ecs_sec.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/00_introduction/06_fargate_ecs_sec.html</guid>
+      <description>AWS Fargate and ECS allow you to deploy containerized workloads quickly. Those services are so convenient that many people leave them unattended, risking exposure to vulnerabilities inside their containers that can exfiltrate secrets, compromise business data, impact performance, and increase their AWS costs.
+For example, think of some credentials mistakenly included in an image, later deployed on Fargate. They will be exposed to anyone with access to the image (think on the repository), or to the Fargate service.</description>
+    </item>
+    
+  </channel>
+</rss>

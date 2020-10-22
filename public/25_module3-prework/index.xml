@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Module 3 Prework: Setup CloudTrail Runtime Security on AWS Modernization Workshop with Sysdig</title>
+    <link>//localhost:1313/25_module3-prework.html</link>
+    <description>Recent content in Module 3 Prework: Setup CloudTrail Runtime Security on AWS Modernization Workshop with Sysdig</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="//localhost:1313/25_module3-prework/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing the CloudConnector</title>
+      <link>//localhost:1313/25_module3-prework/241_enable_aws_security_hub.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/25_module3-prework/241_enable_aws_security_hub.html</guid>
+      <description>Step 1. Enable AWS Security Hub To enable AWS Security Hub:
+ Log into your Cloud9 Workspace
+ Run the following command
+aws securityhub enable-security-hub --enable-default-standards  Log into your AWS account with your browser then browse to AWS Security Hub.
+   You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made.</description>
+    </item>
+    
+  </channel>
+</rss>

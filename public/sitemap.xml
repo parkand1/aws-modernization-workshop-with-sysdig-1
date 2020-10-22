@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>//localhost:1313/</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/00_introduction/01_workshop_overview.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/00_introduction/03_image_scanning.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/00_introduction/04_inline_scanning.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/00_introduction/05_infra_runtime_sec.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/00_introduction.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/00_introduction/06_fargate_ecs_sec.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites/11_sysdig.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites/12_start_workshop.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites/13_aws_event.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites/14_self_paced.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites/16_start_cloud9workspace.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites/15_workspace_setup/20_cloud9.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites/15_workspace_setup/21_iamrole.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites/15_workspace_setup/22_workspaceiam.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites/15_workspace_setup/23_cloud.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/25_prework.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/30_module_1.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/30_module_1/30_setup_ecr.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/30_module_1/31_deploy_ecr_integration.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/30_module_1/32_image_from_registry.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/30_module_1/33_image_rescan.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/40_module_2/40_install_amazon_ecs_cli.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/40_module_2.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/40_module_2/41_deploy_image_scanner_for_fargate.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/40_module_2/42_deploy_an_ecs_cluster.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/40_module_2/43_initiate_scan.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/40_module_2/44_sysdig_secure_dashboard.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/50_module_3.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/50_module_3/51_setup_cloudtrail_runtime_security.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/50_module_3/52_detecting_runtime_cloud_security_threats.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/50_module_3/53_checking_security_findings_in_the_aws_security_hub.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/60_conclusions.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/70_cleanup.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/25_prework/241_enable_aws_security_hub.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/categories.html</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/tags.html</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

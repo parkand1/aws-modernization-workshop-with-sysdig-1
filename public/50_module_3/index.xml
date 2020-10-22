@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Module 3 on AWS Modernization Workshop with Sysdig</title>
+    <link>//localhost:1313/50_module_3.html</link>
+    <description>Recent content in Module 3 on AWS Modernization Workshop with Sysdig</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="//localhost:1313/50_module_3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Setup CloudTrail Runtime Security</title>
+      <link>//localhost:1313/50_module_3/51_setup_cloudtrail_runtime_security.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/50_module_3/51_setup_cloudtrail_runtime_security.html</guid>
+      <description>If you followed this workshop from the beginning then you should have deployed the CloudTrail CloudFormation Template earlier. If you didn&amp;rsquo;t, then go back and complete this step now Setup CloudTrail Runtime Security, however please note that this can take up to ten minutes to complete.
+To check it has been deployed successfully, navigate to https://console.aws.amazon.com/cloudformation/ and search for CloudConnector. You should see it&amp;rsquo;s status is CREATE_COMPLETE.</description>
+    </item>
+    
+    <item>
+      <title>Detecting Runtime Cloud Security Threats</title>
+      <link>//localhost:1313/50_module_3/52_detecting_runtime_cloud_security_threats.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/50_module_3/52_detecting_runtime_cloud_security_threats.html</guid>
+      <description>Let&amp;rsquo;s look at an example of AWS threat detection in action with CloudTrail and the Sysdig CloudConnector. To do so we&amp;rsquo;ll create an S3 bucket, and make it public
+ Log into Cloud9 Workspace Create an S3 bucket. S3 bucketnames are globally unique, so use your initials combined with a timestamp
+INITIALS=&amp;lt;your initial&amp;gt; BUCKETNAME=$INITIALS-$(date +%s) aws s3api create-bucket --bucket $BUCKETNAME --acl public-read  Now delete the S3 bucket&amp;rsquo;s encryption. This should be considered a potential security threat.</description>
+    </item>
+    
+    <item>
+      <title>Checking Security Findings in AWS Security Hub</title>
+      <link>//localhost:1313/50_module_3/53_checking_security_findings_in_the_aws_security_hub.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/50_module_3/53_checking_security_findings_in_the_aws_security_hub.html</guid>
+      <description>You can check these events without leaving the AWS console. This is how findings reported by Sysdig CloudConnector look in the AWS Security Hub:
+ Browse to Security Hub and click &amp;lsquo;Findings&amp;rsquo; on the left.   Click on &amp;ldquo;Delete bucket encryption&amp;rdquo; to view all the information you need to take immediate action:   And they appear in JSON format in AWS CloudWatch log streams.
+Browse to CloudWatch, and click &amp;lsquo;Log groups &amp;gt; cloud-connector &amp;gt; alerts&amp;rsquo;</description>
+    </item>
+    
+  </channel>
+</rss>
