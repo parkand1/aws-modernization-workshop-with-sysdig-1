@@ -1,5 +1,5 @@
 ---
-title: "ON HOLD - Modifying a Falco Rule for CloudTrail"
+title: "Modifying a Falco Rule for CloudTrail"
 chapter: false
 weight: 54
 ---
