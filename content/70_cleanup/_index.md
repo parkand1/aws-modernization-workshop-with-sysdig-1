@@ -68,12 +68,13 @@ weight = 70
     ```
     docker registry rmi $IMAGE
     ``` -->
-
-- Remove Amazon ECR Integration
+- Remove Docker Node.JS Dockerfile & Source
 
     ```
-    aws cloudformation delete-stack --stack-name ECSImageScanning
+    rm -rf /home/ec2-user/environment/hello-world-node-vulnerable
+    rm -rf /home/ec2-user/environment/hello-world-node-vulnerable.zip
     ```
+
 <!-- **TrainingNote** Check This works. ECRImageScanning stack still in account
 https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml -->
 
@@ -87,12 +88,12 @@ https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml -->
 
     ```
 
-- Remove Docker Node.JS Dockerfile & Source
+- Remove Amazon ECR Integration
 
     ```
-    rm -rf /home/ec2-user/environment/hello-world-node-vulnerable
-    rm -rf /home/ec2-user/environment/hello-world-node-vulnerable.zip
+    aws cloudformation delete-stack --stack-name ECSImageScanning
     ```
+
 
 #### Introduction
 - Remove S3 Buckets
