@@ -12,20 +12,20 @@
     <title>Introduction :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603376876" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603376876" rel="stylesheet">
-    <link href="/css/hybrid.css?1603376876" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603376876" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603376876" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603376876" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603376876" rel="stylesheet">
-    <link href="/css/theme.css?1603376876" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603376876" rel="stylesheet">
+    <link href="/css/nucleus.css?1603549723" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603549723" rel="stylesheet">
+    <link href="/css/hybrid.css?1603549723" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603549723" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603549723" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603549723" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603549723" rel="stylesheet">
+    <link href="/css/theme.css?1603549723" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603549723" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603376876" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603549723" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603376876"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603549723"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603376876"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603376876"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603549723"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603549723"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603376876"></script>
+<script type="text/javascript" src="/js/search.js?1603549723"></script>
 
     
   </div>
@@ -94,25 +94,6 @@
           
           
         
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/00_introduction/01_workshop_overview.html" title="Workshop Overview" class="dd-item ">
-        <a href="/00_introduction/01_workshop_overview.html">
-        Workshop Overview
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
           
             
             
@@ -794,6 +775,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
+        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
+        Modifying a Falco Rule for CloudTrail
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -965,101 +965,21 @@
 
 	
 
-<h1 id="learning-objectives">Learning Objectives</h1>
+<h1 id="workshop-overview">Workshop Overview</h1>
 
-<p>Today we are going to learn the following topics:</p>
+<p>It is extremely important to maintain a high level of security in your entire application environment. Not doing so can result in your system being compromised. This can incur significant costs and can lead to commercial &amp; business issues, and failed compliance tests leading to a loss of trust with customers and monetary fines and/or settlement fees.</p>
 
+<p>In a cloud native environment, the security of your application is dependent largely upon the security of your containers, but not exclusively - it also depends upon the infrastructure upon which it runs.</p>
 
+<p>Sysdig Secure embeds security and compliance into the build, run and respond stages of the Kubernetes lifecycle. Manage cloud security risk by integrating image scanning, threat prevention, detection and incident response into your secure DevOps workflow.</p>
 
+<p>In this workshop, you will learn how <a href="https://sysdig.com/products/kubernetes-security/image-scanning/"><a href="https://sysdig.com/products/kubernetes-security/image-scanning/">image scanning</a></a> can provide the security insights you need without affecting the level of flexibility you desire.</p>
 
+<p><img src="/images/00_introduction/aliens.png" alt="Image Scanning" /></p>
 
+<p>In particular, we&rsquo;ll guide you on how to implement <strong>ECS Fargate image scanning</strong> with Sysdig Secure. The resulting solution will automatically scan any container image instance that is executed, and will warn you with reports about any vulnerabilities or misconfigurations in your workload. It will do this <strong>without leaving your AWS workflow</strong>, and without data leaving your AWS infrastructure.</p>
 
-
-
-<ul class="children children-li">
-	
-
-	
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/01_workshop_overview.html" >Workshop Overview</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/03_image_scanning.html" >Image Scanning</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/04_inline_scanning.html" >Inline Scanning</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/05_infra_runtime_sec.html" >Infrastructure Runtime Security</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/06_fargate_ecs_sec.html" >AWS Fargate and ECS Security</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-
-	
-</ul>
-
-
-
-
+<p>We will also look at how to use Falco to perform &lsquo;runtime&rsquo; security in the context of your AWS environment using Sysdig&rsquo;s CloudConnector&rsquo;s integration with AWS CloudTrail.</p>
 
 
 
@@ -1178,22 +1098,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1579,6 +1483,22 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1675,7 +1595,7 @@
 			<a class="nav nav-prev" href="/" title="Main Page"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/00_introduction/01_workshop_overview.html" title="Workshop Overview" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/00_introduction/03_image_scanning.html" title="Image Scanning" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1685,19 +1605,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603376876"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603376876"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603376876"></script>
-    <script src="/js/jquery.sticky.js?1603376876"></script>
-    <script src="/js/featherlight.min.js?1603376876"></script>
-    <script src="/js/highlight.pack.js?1603376876"></script>
+    <script src="/js/clipboard.min.js?1603549723"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603549723"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603549723"></script>
+    <script src="/js/jquery.sticky.js?1603549723"></script>
+    <script src="/js/featherlight.min.js?1603549723"></script>
+    <script src="/js/highlight.pack.js?1603549723"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603376876"></script>
-    <script src="/js/learn.js?1603376876"></script>
-    <script src="/js/hugo-learn.js?1603376876"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603549723"></script>
+    <script src="/js/learn.js?1603549723"></script>
+    <script src="/js/hugo-learn.js?1603549723"></script>
 
-    <link href="/mermaid/mermaid.css?1603376876" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603376876"></script>
+    <link href="/mermaid/mermaid.css?1603549723" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603549723"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

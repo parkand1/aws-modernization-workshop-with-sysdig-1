@@ -4,7 +4,7 @@ chapter = true
 weight = 10
 +++
 
-# Prerequisites
+# Workshop Prerequisites
 
 There are a few prerequisite tasks you must perform before getting started on this workshop.  These are:
 

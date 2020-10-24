@@ -54,7 +54,8 @@ ecs-cli configure --cluster tutorial --default-launch-type FARGATE --config-name
       <description>Now that a sample image has been deployed, the scanner should pick this up and scan it automatically
  Now go to CodeBuild &amp;gt; Build projects and see the task progress.
  Click on ECSInlineSecureScanning to drill down on it.
-   Click &amp;lsquo;Build run&amp;rsquo; link and scroll down to see the scan details  </description>
+ Click &amp;lsquo;Build run&amp;rsquo; link and scroll down to see the scan details
+  </description>
     </item>
     
     <item>

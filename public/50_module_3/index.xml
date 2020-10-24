@@ -42,5 +42,16 @@ INITIALS=&amp;lt;your initial&amp;gt; BUCKETNAME=$INITIALS-$(date +%s) aws s3api
 Browse to CloudWatch, and click &amp;lsquo;Log groups &amp;gt; cloud-connector &amp;gt; alerts&amp;rsquo;</description>
     </item>
     
+    <item>
+      <title>Modifying a Falco Rule for CloudTrail</title>
+      <link>//localhost:1313/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html</guid>
+      <description>Using Sysdig CloudConnector, you are not limited to the out-of-the-box rules provided. You can modify existing rules, or write your own tailored to your own needs.
+Let’s try first modifying a rule. The following rule checks if a resource is created in a region that you are not usually using. But to be active, you have to specify which regions you want to detect.
+- list: disallowed_aws_regions items: [] - rule: AWS command executed on unused region desc: Detect AWS command execution on unused regions condition: not jevt.</description>
+    </item>
+    
   </channel>
 </rss>

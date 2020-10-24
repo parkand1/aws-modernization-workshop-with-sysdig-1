@@ -11,16 +11,6 @@
     
     
     <item>
-      <title>Workshop Overview</title>
-      <link>//localhost:1313/00_introduction/01_workshop_overview.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/00_introduction/01_workshop_overview.html</guid>
-      <description>It is extremely important to maintain a high level of security in your entire application environment. Not doing so can result in your system being compromised. This can incur significant costs and can lead to commercial &amp;amp; business issues, and failed compliance tests leading to a loss of trust with customers and monetary fines and/or settlement fees.
-In a cloud native environment, the security of your application is dependent largely upon the security of your containers, but not exclusively - it also depends upon the infrastructure upon which it runs.</description>
-    </item>
-    
-    <item>
       <title>Image Scanning</title>
       <link>//localhost:1313/00_introduction/03_image_scanning.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -233,7 +223,8 @@ ecs-cli configure --cluster tutorial --default-launch-type FARGATE --config-name
       <description>Now that a sample image has been deployed, the scanner should pick this up and scan it automatically
  Now go to CodeBuild &amp;gt; Build projects and see the task progress.
  Click on ECSInlineSecureScanning to drill down on it.
-   Click &amp;lsquo;Build run&amp;rsquo; link and scroll down to see the scan details  </description>
+ Click &amp;lsquo;Build run&amp;rsquo; link and scroll down to see the scan details
+  </description>
     </item>
     
     <item>
@@ -278,6 +269,17 @@ INITIALS=&amp;lt;your initial&amp;gt; BUCKETNAME=$INITIALS-$(date +%s) aws s3api
       <description>You can check these events without leaving the AWS console. This is how findings reported by Sysdig CloudConnector look in the AWS Security Hub:
  Browse to Security Hub and click &amp;lsquo;Findings&amp;rsquo; on the left.   Click on &amp;ldquo;Delete bucket encryption&amp;rdquo; to view all the information you need to take immediate action:   And they appear in JSON format in AWS CloudWatch log streams.
 Browse to CloudWatch, and click &amp;lsquo;Log groups &amp;gt; cloud-connector &amp;gt; alerts&amp;rsquo;</description>
+    </item>
+    
+    <item>
+      <title>Modifying a Falco Rule for CloudTrail</title>
+      <link>//localhost:1313/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html</guid>
+      <description>Using Sysdig CloudConnector, you are not limited to the out-of-the-box rules provided. You can modify existing rules, or write your own tailored to your own needs.
+Let’s try first modifying a rule. The following rule checks if a resource is created in a region that you are not usually using. But to be active, you have to specify which regions you want to detect.
+- list: disallowed_aws_regions items: [] - rule: AWS command executed on unused region desc: Detect AWS command execution on unused regions condition: not jevt.</description>
     </item>
     
     <item>

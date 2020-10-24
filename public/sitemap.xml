@@ -7,10 +7,6 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/00_introduction/01_workshop_overview.html</loc>
-  </url>
-  
-  <url>
     <loc>//localhost:1313/00_introduction/03_image_scanning.html</loc>
   </url>
   
@@ -132,6 +128,10 @@
   
   <url>
     <loc>//localhost:1313/50_module_3/53_checking_security_findings_in_the_aws_security_hub.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html</loc>
   </url>
   
   <url>

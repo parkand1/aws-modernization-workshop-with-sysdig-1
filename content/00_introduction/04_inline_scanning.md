@@ -23,7 +23,7 @@ During the analysis phase of the scan, the worker first loads the image.  Each i
 
 This phase of the scan is quite process-heavy and accounts for approximately 90% of the Time/CPU consumed during the entire scan, and the output of this is a JSON document containing metadata on all aspects of the image.
 
-During an inline scan this phase happens in the image's environment - in a CI/CD pipeline, by an Admission Controller, or even on a Kubernetes worker node.
+During an inline scan, this phase happens in the image's environment - in a CI/CD pipeline, by an Admission Controller, or even on a Kubernetes worker node.
 
 #### Going A Little Deeper...
 
