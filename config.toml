@@ -75,10 +75,11 @@ order = [".jpg$", ".gif$"]
 
 [[deployment.targets]]
 # An arbitrary name for this target.
-name = "draios-dev-s3"
+name = "johnf-s3"
 # S3; see https://gocloud.dev/howto/blob/#s3
 # For S3-compatible endpoints, see https://gocloud.dev/howto/blob/#s3-compatible
-# URL = "s3://<Bucket Name>?region=<AWS region>"
+URL = "s3://sysdigworkshop?region=us-west-2"
+
 
 # You can use a "prefix=" query parameter to target a subfolder of the bucket:
 # URL = "gs://<Bucket Name>?prefix=a/subfolder/"
