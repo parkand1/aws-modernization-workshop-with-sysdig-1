@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Prework on AWS Modernization Workshop with Sysdig</title>
@@ -20,7 +20,7 @@
  Step 1. Enable AWS Security Hub To enable AWS Security Hub:
  Log into your Cloud9 Workspace
  Run the following command (no output will be generated)
-aws securityhub enable-security-hub --enable-default-standards  Log into your AWS account with your browser and then browse to the AWS Security Hub.</description>
+aws securityhub enable-security-hub --enable-default-standards Log into your AWS account with your browser and then browse to the AWS Security Hub.</description>
     </item>
     
   </channel>

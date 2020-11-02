@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="generator" content="Hugo 0.71.0" />
     <meta name="description" content="AWS Modernization Workshop with Sysdig">
 <meta name="author" content="Sysdig Training and CNATIVE Teams">
 
@@ -12,20 +12,20 @@
     <title>Push and Scan an Image from the Registry :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603546176" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603546176" rel="stylesheet">
-    <link href="/css/hybrid.css?1603546176" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603546176" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603546176" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603546176" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603546176" rel="stylesheet">
-    <link href="/css/theme.css?1603546176" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603546176" rel="stylesheet">
+    <link href="/css/nucleus.css?1604335337" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604335337" rel="stylesheet">
+    <link href="/css/hybrid.css?1604335337" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604335337" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604335337" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604335337" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604335337" rel="stylesheet">
+    <link href="/css/theme.css?1604335337" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604335337" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603546176" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604335337" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603546176"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604335337"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603546176"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603546176"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604335337"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604335337"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603546176"></script>
+<script type="text/javascript" src="/js/search.js?1604335337"></script>
 
     
   </div>
@@ -233,9 +233,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Workshop AWS Environment..." class="dd-item ">
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Access AWS Account..." class="dd-item ">
         <a href="/10_prerequisites/12_start_workshop.html">
-        2. Workshop AWS Environment...
+        2. Access AWS Account...
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -555,6 +555,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/34_review.html" title="Module Review" class="dd-item ">
+        <a href="/30_module_1/34_review.html">
+        Module Review
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -684,6 +703,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/45_review.html" title="Module Review" class="dd-item ">
+        <a href="/40_module_2/45_review.html">
+        Module Review
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -785,6 +823,25 @@
       <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
         <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
         Modifying a Falco Rule for CloudTrail
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/55_review.html" title="Module Review" class="dd-item ">
+        <a href="/50_module_3/55_review.html">
+        Module Review
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -997,33 +1054,27 @@
 
 <p>Now that our automatic scanner is in place, we can test it by pushing a Docker container, and check if it scans.</p>
 
-<p>To illustrate the images scanning we will build an example Node.JS application based on the official “hello world” example described in <a href="https://nodejs.org/de/docs/guides/nodejs-docker-webapp/">their website</a>.</p>
+<p>To illustrate the images scanning we will build an example Node.JS application based on the official “hello world” example described in <a href="https://nodejs.org/de/docs/guides/nodejs-docker-webapp/" target="_blank">their website</a>.</p>
 
 <ol>
 <li><p>Go to your Cloud9 Workspace and download and uncompress example container files</p>
-
-<pre><code class="language-bash">wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download/v1.0/hello-world-node-vulnerable.zip
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download/v1.0/hello-world-node-vulnerable.zip
 unzip hello-world-node-vulnerable.zip
-cd hello-world-node-vulnerable/
-</code></pre></li>
+cd hello-world-node-vulnerable/</code></pre></div></li>
 
 <li><p>And build and push the image to ECR</p>
-
-<pre><code class="language-bash">export IMAGE=$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$ECR_NAME
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export IMAGE<span style="color:#f92672">=</span>$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$ECR_NAME
 docker build . -t $IMAGE
-docker push $IMAGE
-</code></pre></li>
+docker push $IMAGE</code></pre></div></li>
 
-<li><p>Check that an image scan is automatically triggered in <a href="https://console.aws.amazon.com/ecr/repositories/aws-workshop/?region=us-east-1">Amazon ECR</a></p>
-
-<pre><code>![Trigger Scan](/images/30_module_1/triggerscan.png)
-</code></pre></li>
+<li><p>Check that an image scan is automatically triggered in <a href="https://console.aws.amazon.com/ecr/repositories/aws-workshop/?region=us-east-1" target="_blank">Amazon ECR</a></p>
+<pre><code>![Trigger Scan](/images/30_module_1/triggerscan.png)</code></pre></li>
 
 <li><p>Once complete you will see that this image has some issues <img src="/images/30_module_1/scannissues.png" alt="Stack details" /></p></li>
 
 <li><p>As soon as the image finishes being pushed to the registry, a new <strong>Amazon CodeBuild pipeline</strong> will be automatically created that executes an image scan using the integrated Sysdig Inline Scanner.</p>
 
-<p>If you wish, you can check the CodeBuild pipeline status by visiting: <a href="https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1">Developer Tools &gt; CodeBuild</a> <img src="/images/30_module_1/CodeBuild-InProgress.png" alt="Stack details" /></p>
+<p>If you wish, you can check the CodeBuild pipeline status by visiting: <a href="https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1" target="_blank">Developer Tools &gt; CodeBuild</a> <img src="/images/30_module_1/CodeBuild-InProgress.png" alt="Stack details" /></p>
 
 <p>If you wish, you can drill down to tail the logs as the scan proceeds</p>
 
@@ -1033,14 +1084,11 @@ docker push $IMAGE
 <p>Once complete the scan will show the status &lsquo;<strong>Failed</strong>&rsquo;. <img src="/images/30_module_1/CodeBuild-ScanComplete-Fail.png" alt="Build Complete" /></p>
 
 <p><strong>Important</strong> This means the image has failed the scan, <strong>and not</strong> that the image scan process itself failed.  The Inline Scanner script returns the following exit codes:</p>
-
-<pre><code class="language-text">0  -&gt; Scan result &quot;pass&quot;
-1  -&gt; Scan result &quot;fail&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">0  -&gt; Scan result &#34;pass&#34;
+1  -&gt; Scan result &#34;fail&#34;
 2  -&gt; Wrong script invocation
-3  -&gt; Runtime error
-</code></pre>
-
-<p>You can see a complete log of the scan process by clicking <a href="https://gist.githubusercontent.com/johnfitzpatrick/369c1f9df765be68ba2d83cbe37f6eb3/raw/421fe8d829ad74cd406d09ca6625283e4020751b/gistfile1.txt">ECS Scan log</a>.  This shows</p>
+3  -&gt; Runtime error</code></pre></div>
+<p>You can see a complete log of the scan process by clicking <a href="https://gist.githubusercontent.com/johnfitzpatrick/369c1f9df765be68ba2d83cbe37f6eb3/raw/421fe8d829ad74cd406d09ca6625283e4020751b/gistfile1.txt" target="_blank">ECS Scan log</a>.  This shows</p>
 
 <!-- https://gist.github.com/johnfitzpatrick/369c1f9df765be68ba2d83cbe37f6eb3 -->
 
@@ -1469,22 +1517,6 @@ docker push $IMAGE
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
             
             
@@ -1501,6 +1533,9 @@ docker push $IMAGE
             
         
                     
+            
+        
+                    
                         
             
             
@@ -1513,9 +1548,6 @@ docker push $IMAGE
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -1565,6 +1597,19 @@ docker push $IMAGE
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -1580,6 +1625,57 @@ docker push $IMAGE
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1702,24 +1798,24 @@ docker push $IMAGE
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603546176"></script>
-    <script src="/js/jquery.sticky.js?1603546176"></script>
-    <script src="/js/featherlight.min.js?1603546176"></script>
-    <script src="/js/highlight.pack.js?1603546176"></script>
+    <script src="/js/clipboard.min.js?1604335337"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604335337"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604335337"></script>
+    <script src="/js/jquery.sticky.js?1604335337"></script>
+    <script src="/js/featherlight.min.js?1604335337"></script>
+    <script src="/js/highlight.pack.js?1604335337"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603546176"></script>
-    <script src="/js/learn.js?1603546176"></script>
-    <script src="/js/hugo-learn.js?1603546176"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604335337"></script>
+    <script src="/js/learn.js?1604335337"></script>
+    <script src="/js/hugo-learn.js?1604335337"></script>
 
-    <link href="/mermaid/mermaid.css?1603546176" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603546176"></script>
+    <link href="/mermaid/mermaid.css?1604335337" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604335337"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

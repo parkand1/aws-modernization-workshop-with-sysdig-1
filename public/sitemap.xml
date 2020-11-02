@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -91,6 +91,10 @@
   </url>
   
   <url>
+    <loc>//localhost:1313/30_module_1/34_review.html</loc>
+  </url>
+  
+  <url>
     <loc>//localhost:1313/40_module_2/40_install_amazon_ecs_cli.html</loc>
   </url>
   
@@ -115,6 +119,10 @@
   </url>
   
   <url>
+    <loc>//localhost:1313/40_module_2/45_review.html</loc>
+  </url>
+  
+  <url>
     <loc>//localhost:1313/50_module_3.html</loc>
   </url>
   
@@ -135,6 +143,10 @@
   </url>
   
   <url>
+    <loc>//localhost:1313/50_module_3/55_review.html</loc>
+  </url>
+  
+  <url>
     <loc>//localhost:1313/60_conclusions.html</loc>
   </url>
   
@@ -148,12 +160,10 @@
   
   <url>
     <loc>//localhost:1313/categories.html</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>//localhost:1313/tags.html</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>

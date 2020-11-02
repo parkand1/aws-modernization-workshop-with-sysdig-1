@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="generator" content="Hugo 0.71.0" />
     <meta name="description" content="AWS Modernization Workshop with Sysdig">
 <meta name="author" content="Sysdig Training and CNATIVE Teams">
 
@@ -12,20 +12,20 @@
     <title>Configure workspace for Sysdig Workshop :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603546176" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603546176" rel="stylesheet">
-    <link href="/css/hybrid.css?1603546176" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603546176" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603546176" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603546176" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603546176" rel="stylesheet">
-    <link href="/css/theme.css?1603546176" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603546176" rel="stylesheet">
+    <link href="/css/nucleus.css?1603815780" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603815780" rel="stylesheet">
+    <link href="/css/hybrid.css?1603815780" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603815780" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603815780" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603815780" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603815780" rel="stylesheet">
+    <link href="/css/theme.css?1603815780" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603815780" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603546176" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603815780" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603546176"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603815780"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603546176"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603546176"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603815780"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603815780"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603546176"></script>
+<script type="text/javascript" src="/js/search.js?1603815780"></script>
 
     
   </div>
@@ -1006,22 +1006,19 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 </ol>
 
 <p><img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" ></p>
-
-<pre><code class="language-sh">sudo yum -y install jq
-rm -vf ${HOME}/.aws/credentials
-export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
-export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
-test -n &quot;$AWS_REGION&quot; &amp;&amp; echo AWS_REGION is &quot;$AWS_REGION&quot; || echo AWS_REGION is not set
-echo &quot;export ACCOUNT_ID=${ACCOUNT_ID}&quot; | tee -a ~/.bash_profile
-echo &quot;export AWS_REGION=${AWS_REGION}&quot; |
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo yum -y install jq
+rm -vf <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/.aws/credentials
+export ACCOUNT_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws sts get-caller-identity --output text --query Account<span style="color:#66d9ef">)</span>
+export AWS_REGION<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r <span style="color:#e6db74">&#39;.region&#39;</span><span style="color:#66d9ef">)</span>
+test -n <span style="color:#e6db74">&#34;</span>$AWS_REGION<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> echo AWS_REGION is <span style="color:#e6db74">&#34;</span>$AWS_REGION<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> echo AWS_REGION is not set
+echo <span style="color:#e6db74">&#34;export ACCOUNT_ID=</span><span style="color:#e6db74">${</span>ACCOUNT_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | tee -a ~/.bash_profile
+echo <span style="color:#e6db74">&#34;export AWS_REGION=</span><span style="color:#e6db74">${</span>AWS_REGION<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> |
 tee -a ~/.bash_profile
-aws configure set default.region ${AWS_REGION}
+aws configure set default.region <span style="color:#e6db74">${</span>AWS_REGION<span style="color:#e6db74">}</span>
 aws configure get default.region
 curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh &gt; deploy-amazon-ecs-sample.sh
 chmod +x deploy-amazon-ecs-sample.sh
-aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q &amp;&amp; echo &quot;IAM role valid&quot; || echo &quot;IAM role NOT valid&quot;
-</code></pre>
-
+aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;IAM role valid&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;IAM role NOT valid&#34;</span></code></pre></div>
 
 <div class="notices warning" ><p>If the IAM role is not valid, <span style="color: red;"><strong>DO NOT PROCEED</strong></span>. Go back and confirm the steps on this page.</p>
 </div>
@@ -1664,24 +1661,24 @@ aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q &amp;&am
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603546176"></script>
-    <script src="/js/jquery.sticky.js?1603546176"></script>
-    <script src="/js/featherlight.min.js?1603546176"></script>
-    <script src="/js/highlight.pack.js?1603546176"></script>
+    <script src="/js/clipboard.min.js?1603815780"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603815780"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603815780"></script>
+    <script src="/js/jquery.sticky.js?1603815780"></script>
+    <script src="/js/featherlight.min.js?1603815780"></script>
+    <script src="/js/highlight.pack.js?1603815780"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603546176"></script>
-    <script src="/js/learn.js?1603546176"></script>
-    <script src="/js/hugo-learn.js?1603546176"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603815780"></script>
+    <script src="/js/learn.js?1603815780"></script>
+    <script src="/js/hugo-learn.js?1603815780"></script>
 
-    <link href="/mermaid/mermaid.css?1603546176" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603546176"></script>
+    <link href="/mermaid/mermaid.css?1603815780" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603815780"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

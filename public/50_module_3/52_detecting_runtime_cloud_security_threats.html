@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="generator" content="Hugo 0.71.0" />
     <meta name="description" content="AWS Modernization Workshop with Sysdig">
 <meta name="author" content="Sysdig Training and CNATIVE Teams">
 
@@ -12,20 +12,20 @@
     <title>Detecting Runtime Cloud Security Threats :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603546176" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603546176" rel="stylesheet">
-    <link href="/css/hybrid.css?1603546176" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603546176" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603546176" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603546176" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603546176" rel="stylesheet">
-    <link href="/css/theme.css?1603546176" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603546176" rel="stylesheet">
+    <link href="/css/nucleus.css?1604335337" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604335337" rel="stylesheet">
+    <link href="/css/hybrid.css?1604335337" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604335337" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604335337" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604335337" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604335337" rel="stylesheet">
+    <link href="/css/theme.css?1604335337" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604335337" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603546176" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604335337" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603546176"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604335337"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603546176"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603546176"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604335337"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604335337"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603546176"></script>
+<script type="text/javascript" src="/js/search.js?1604335337"></script>
 
     
   </div>
@@ -233,9 +233,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Workshop AWS Environment..." class="dd-item ">
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Access AWS Account..." class="dd-item ">
         <a href="/10_prerequisites/12_start_workshop.html">
-        2. Workshop AWS Environment...
+        2. Access AWS Account...
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -555,6 +555,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/34_review.html" title="Module Review" class="dd-item ">
+        <a href="/30_module_1/34_review.html">
+        Module Review
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -684,6 +703,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/45_review.html" title="Module Review" class="dd-item ">
+        <a href="/40_module_2/45_review.html">
+        Module Review
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -785,6 +823,25 @@
       <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
         <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
         Modifying a Falco Rule for CloudTrail
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/55_review.html" title="Module Review" class="dd-item ">
+        <a href="/50_module_3/55_review.html">
+        Module Review
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -986,18 +1043,14 @@
 <li>Log into Cloud9 Workspace</li>
 
 <li><p>Create an S3 bucket. S3 bucketnames are globally unique, so <strong>use your initials</strong> combined with a timestamp</p>
-
 <pre><code>INITIALS=&lt;your initial&gt;
 BUCKETNAME=$INITIALS-$(date +%s)
-aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
-</code></pre></li>
+aws s3api create-bucket --bucket $BUCKETNAME --acl public-read</code></pre></li>
 
 <li><p>Now delete the S3 bucket&rsquo;s encryption.  This should be considered a potential security threat.</p>
+<pre><code>aws s3api delete-bucket-encryption --bucket $BUCKETNAME</code></pre></li>
 
-<pre><code>aws s3api delete-bucket-encryption --bucket $BUCKETNAME
-</code></pre></li>
-
-<li><p>To view details of this event, browse to <a href="https://console.aws.amazon.com/cloudtrail/home">CloudTrail</a> then &lsquo;Event History&rsquo;</p>
+<li><p>To view details of this event, browse to <a href="https://console.aws.amazon.com/cloudtrail/home" target="_blank">CloudTrail</a> then &lsquo;Event History&rsquo;</p>
 
 <p><img src="/images/50_module_3/cloudtrail01.png" alt="CloudTrail" /></p>
 
@@ -1010,59 +1063,56 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
 <div class="notices info" ><p>It can take several minutes for new events to appear in CloudTrail. In the meantime you can browse the existing events created earlier from earlier activity in the account.</p>
 </div>
 
-
-<pre><code class="language-JSON">{
-&quot;eventVersion&quot;: &quot;1.05&quot;,
-&quot;userIdentity&quot;: {
-    &quot;type&quot;: &quot;AssumedRole&quot;,
-    &quot;principalId&quot;: &quot;AROJ2JML2BN4IFASO2OGL:MasterKey&quot;,
-    &quot;arn&quot;: &quot;arn:aws:sts::161134881107:assumed-role/TeamRole/MasterKey&quot;,
-    &quot;accountId&quot;: &quot;161134881107&quot;,
-    &quot;accessKeyId&quot;: &quot;ASIAJRUKKVSOVIBJRNLA&quot;,
-    &quot;sessionContext&quot;: {
-        &quot;sessionIssuer&quot;: {
-            &quot;type&quot;: &quot;Role&quot;,
-            &quot;principalId&quot;: &quot;AROJ2JML2BN4IFASO2OGL&quot;,
-            &quot;arn&quot;: &quot;arn:aws:iam::161134881107:role/TeamRole&quot;,
-            &quot;accountId&quot;: &quot;161134881107&quot;,
-            &quot;userName&quot;: &quot;TeamRole&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON">{
+<span style="color:#f92672">&#34;eventVersion&#34;</span>: <span style="color:#e6db74">&#34;1.05&#34;</span>,
+<span style="color:#f92672">&#34;userIdentity&#34;</span>: {
+    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;AssumedRole&#34;</span>,
+    <span style="color:#f92672">&#34;principalId&#34;</span>: <span style="color:#e6db74">&#34;AROJ2JML2BN4IFASO2OGL:MasterKey&#34;</span>,
+    <span style="color:#f92672">&#34;arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:sts::161134881107:assumed-role/TeamRole/MasterKey&#34;</span>,
+    <span style="color:#f92672">&#34;accountId&#34;</span>: <span style="color:#e6db74">&#34;161134881107&#34;</span>,
+    <span style="color:#f92672">&#34;accessKeyId&#34;</span>: <span style="color:#e6db74">&#34;ASIAJRUKKVSOVIBJRNLA&#34;</span>,
+    <span style="color:#f92672">&#34;sessionContext&#34;</span>: {
+        <span style="color:#f92672">&#34;sessionIssuer&#34;</span>: {
+            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Role&#34;</span>,
+            <span style="color:#f92672">&#34;principalId&#34;</span>: <span style="color:#e6db74">&#34;AROJ2JML2BN4IFASO2OGL&#34;</span>,
+            <span style="color:#f92672">&#34;arn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::161134881107:role/TeamRole&#34;</span>,
+            <span style="color:#f92672">&#34;accountId&#34;</span>: <span style="color:#e6db74">&#34;161134881107&#34;</span>,
+            <span style="color:#f92672">&#34;userName&#34;</span>: <span style="color:#e6db74">&#34;TeamRole&#34;</span>
         },
-        &quot;webIdFederationData&quot;: {},
-        &quot;attributes&quot;: {
-            &quot;mfaAuthenticated&quot;: &quot;false&quot;,
-            &quot;creationDate&quot;: &quot;2020-10-19T15:06:44Z&quot;
+        <span style="color:#f92672">&#34;webIdFederationData&#34;</span>: {},
+        <span style="color:#f92672">&#34;attributes&#34;</span>: {
+            <span style="color:#f92672">&#34;mfaAuthenticated&#34;</span>: <span style="color:#e6db74">&#34;false&#34;</span>,
+            <span style="color:#f92672">&#34;creationDate&#34;</span>: <span style="color:#e6db74">&#34;2020-10-19T15:06:44Z&#34;</span>
         }
     },
-    &quot;invokedBy&quot;: &quot;cloudformation.amazonaws.com&quot;
+    <span style="color:#f92672">&#34;invokedBy&#34;</span>: <span style="color:#e6db74">&#34;cloudformation.amazonaws.com&#34;</span>
 },
-&quot;eventTime&quot;: &quot;2020-10-19T17:24:16Z&quot;,
-&quot;eventSource&quot;: &quot;kms.amazonaws.com&quot;,
-&quot;eventName&quot;: &quot;ScheduleKeyDeletion&quot;,
-&quot;awsRegion&quot;: &quot;us-east-1&quot;,
-&quot;sourceIPAddress&quot;: &quot;cloudformation.amazonaws.com&quot;,
-&quot;userAgent&quot;: &quot;cloudformation.amazonaws.com&quot;,
-&quot;requestParameters&quot;: {
-    &quot;keyId&quot;: &quot;d3914791-8d06-47b5-a976-2fae1851a848&quot;
+<span style="color:#f92672">&#34;eventTime&#34;</span>: <span style="color:#e6db74">&#34;2020-10-19T17:24:16Z&#34;</span>,
+<span style="color:#f92672">&#34;eventSource&#34;</span>: <span style="color:#e6db74">&#34;kms.amazonaws.com&#34;</span>,
+<span style="color:#f92672">&#34;eventName&#34;</span>: <span style="color:#e6db74">&#34;ScheduleKeyDeletion&#34;</span>,
+<span style="color:#f92672">&#34;awsRegion&#34;</span>: <span style="color:#e6db74">&#34;us-east-1&#34;</span>,
+<span style="color:#f92672">&#34;sourceIPAddress&#34;</span>: <span style="color:#e6db74">&#34;cloudformation.amazonaws.com&#34;</span>,
+<span style="color:#f92672">&#34;userAgent&#34;</span>: <span style="color:#e6db74">&#34;cloudformation.amazonaws.com&#34;</span>,
+<span style="color:#f92672">&#34;requestParameters&#34;</span>: {
+    <span style="color:#f92672">&#34;keyId&#34;</span>: <span style="color:#e6db74">&#34;d3914791-8d06-47b5-a976-2fae1851a848&#34;</span>
 },
-&quot;responseElements&quot;: {
-    &quot;keyId&quot;: &quot;arn:aws:kms:us-east-1:168110711348:key/d4739191-8d06-47b5-a976-21a8fe1854a8&quot;,
-    &quot;deletionDate&quot;: &quot;Nov 19, 2020 12:00:00 AM&quot;
+<span style="color:#f92672">&#34;responseElements&#34;</span>: {
+    <span style="color:#f92672">&#34;keyId&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:kms:us-east-1:168110711348:key/d4739191-8d06-47b5-a976-21a8fe1854a8&#34;</span>,
+    <span style="color:#f92672">&#34;deletionDate&#34;</span>: <span style="color:#e6db74">&#34;Nov 19, 2020 12:00:00 AM&#34;</span>
 },
-&quot;requestID&quot;: &quot;a9667575-e5b2-488a-b2bf-a3c335887d51&quot;,
-&quot;eventID&quot;: &quot;78c15027-2ad8-492e-a26f-058a0ce48e96&quot;,
-&quot;readOnly&quot;: false,
-&quot;resources&quot;: [
+<span style="color:#f92672">&#34;requestID&#34;</span>: <span style="color:#e6db74">&#34;a9667575-e5b2-488a-b2bf-a3c335887d51&#34;</span>,
+<span style="color:#f92672">&#34;eventID&#34;</span>: <span style="color:#e6db74">&#34;78c15027-2ad8-492e-a26f-058a0ce48e96&#34;</span>,
+<span style="color:#f92672">&#34;readOnly&#34;</span>: <span style="color:#66d9ef">false</span>,
+<span style="color:#f92672">&#34;resources&#34;</span>: [
     {
-        &quot;accountId&quot;: &quot;161134881107&quot;,
-        &quot;type&quot;: &quot;AWS::KMS::Key&quot;,
-        &quot;ARN&quot;: &quot;arn:aws:kms:us-east-1:161134881107:key/d4739191-8d06-47b5-a976-21a8fe1854a8&quot;
+        <span style="color:#f92672">&#34;accountId&#34;</span>: <span style="color:#e6db74">&#34;161134881107&#34;</span>,
+        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;AWS::KMS::Key&#34;</span>,
+        <span style="color:#f92672">&#34;ARN&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:kms:us-east-1:161134881107:key/d4739191-8d06-47b5-a976-21a8fe1854a8&#34;</span>
     }
 ],
-&quot;eventType&quot;: &quot;AwsApiCall&quot;,
-&quot;recipientAccountId&quot;: &quot;161134881107&quot;
-}
-</code></pre>
-
+<span style="color:#f92672">&#34;eventType&#34;</span>: <span style="color:#e6db74">&#34;AwsApiCall&#34;</span>,
+<span style="color:#f92672">&#34;recipientAccountId&#34;</span>: <span style="color:#e6db74">&#34;161134881107&#34;</span>
+}</code></pre></div>
 
 <div class="notices info" ><p>Please note that all data in the JSON doc above is fictitious.</p>
 </div>
@@ -1081,11 +1131,10 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
 <p>In this case, we can see how a policy has just been attached (<strong>AttachUserPolicy</strong>) to a user (<strong>admin_test</strong>) with administrator access (<strong>arn:aws:iam::aws:policy/AdministratorAccess</strong>).</p>
 
 <p>A Falco rule to detect this elevation of privileges would look like this:</p>
-
 <pre><code>- rule: Delete bucket encryption
   desc: Detect deleting configuration to use encryption for bucket storage
   condition:
-    jevt.value[/eventName]=&quot;DeleteBucketEncryption&quot; and not jevt.value[/errorCode] exists
+    jevt.value[/eventName]=&#34;DeleteBucketEncryption&#34; and not jevt.value[/errorCode] exists
   output:
     A encryption configuration for a bucket has been deleted
     (requesting user=%jevt.value[/userIdentity/arn],
@@ -1094,13 +1143,11 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
      bucket=%jevt.value[/requestParameters/bucketName])
   priority: CRITICAL
   tags: [cloud, source=cloudtrail, aws, NIST800_53, NIST800_53_AU8]
-  source: k8s_audit
-</code></pre>
-
+  source: k8s_audit</code></pre>
 <p>Some points to note about this rule:</p>
 
 <ul>
-<li><p>The <strong>jevt.value</strong> contains the JSON content of the event, and we are using it in the <strong>condition</strong>. Using the <a href="https://jsonpath.com/">jsonpath</a> format, we can indicate what parts of the event we want to evaluate.</p></li>
+<li><p>The <strong>jevt.value</strong> contains the JSON content of the event, and we are using it in the <strong>condition</strong>. Using the <a href="https://jsonpath.com/" target="_blank">jsonpath</a> format, we can indicate what parts of the event we want to evaluate.</p></li>
 
 <li><p>The <strong>output</strong> will provide context information including the requester <strong>username</strong> and <strong>IP address</strong> - this is what will be sent through all of the enabled notification channels.</p></li>
 </ul>
@@ -1492,86 +1539,6 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -1625,6 +1592,118 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -1644,6 +1723,22 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1729,24 +1824,24 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603546176"></script>
-    <script src="/js/jquery.sticky.js?1603546176"></script>
-    <script src="/js/featherlight.min.js?1603546176"></script>
-    <script src="/js/highlight.pack.js?1603546176"></script>
+    <script src="/js/clipboard.min.js?1604335337"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604335337"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604335337"></script>
+    <script src="/js/jquery.sticky.js?1604335337"></script>
+    <script src="/js/featherlight.min.js?1604335337"></script>
+    <script src="/js/highlight.pack.js?1604335337"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603546176"></script>
-    <script src="/js/learn.js?1603546176"></script>
-    <script src="/js/hugo-learn.js?1603546176"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604335337"></script>
+    <script src="/js/learn.js?1604335337"></script>
+    <script src="/js/hugo-learn.js?1604335337"></script>
 
-    <link href="/mermaid/mermaid.css?1603546176" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603546176"></script>
+    <link href="/mermaid/mermaid.css?1604335337" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604335337"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

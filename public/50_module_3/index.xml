@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Module 3 on AWS Modernization Workshop with Sysdig</title>
@@ -28,7 +28,7 @@ To check it has been deployed successfully, navigate to https://console.aws.amaz
       <guid>//localhost:1313/50_module_3/52_detecting_runtime_cloud_security_threats.html</guid>
       <description>Let&amp;rsquo;s look at an example of AWS threat detection in action with CloudTrail and the Sysdig CloudConnector. To do so we&amp;rsquo;ll create an S3 bucket, and make it public
  Log into Cloud9 Workspace Create an S3 bucket. S3 bucketnames are globally unique, so use your initials combined with a timestamp
-INITIALS=&amp;lt;your initial&amp;gt; BUCKETNAME=$INITIALS-$(date +%s) aws s3api create-bucket --bucket $BUCKETNAME --acl public-read  Now delete the S3 bucket&amp;rsquo;s encryption. This should be considered a potential security threat.</description>
+INITIALS=&amp;lt;your initial&amp;gt; BUCKETNAME=$INITIALS-$(date +%s) aws s3api create-bucket --bucket $BUCKETNAME --acl public-read Now delete the S3 bucket&amp;rsquo;s encryption. This should be considered a potential security threat.</description>
     </item>
     
     <item>
@@ -51,6 +51,15 @@ Browse to CloudWatch, and click &amp;lsquo;Log groups &amp;gt; cloud-connector &
       <description>Using Sysdig CloudConnector, you are not limited to the out-of-the-box rules provided. You can modify existing rules, or write your own tailored to your own needs.
 Let’s try first modifying a rule. The following rule checks if a resource is created in a region that you are not usually using. But to be active, you have to specify which regions you want to detect.
 - list: disallowed_aws_regions items: [] - rule: AWS command executed on unused region desc: Detect AWS command execution on unused regions condition: not jevt.</description>
+    </item>
+    
+    <item>
+      <title>Module Review</title>
+      <link>//localhost:1313/50_module_3/55_review.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/50_module_3/55_review.html</guid>
+      <description>In this module we looked at how to audit AWS CloudTrail events with Sysdig CloudConnector. The Sysdig CloudConnector analyzes every CloudTrail entry in real time, and provides runtime protection using a flexible set of Falco rules, and can forward findings to AWS Security Hub, AWS CloudWatch, as well as to Sysdig Secure.</description>
     </item>
     
   </channel>

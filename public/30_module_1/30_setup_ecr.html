@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="generator" content="Hugo 0.71.0" />
     <meta name="description" content="AWS Modernization Workshop with Sysdig">
 <meta name="author" content="Sysdig Training and CNATIVE Teams">
 
@@ -12,20 +12,20 @@
     <title>Setup Amazon ECR Registry :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603546176" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603546176" rel="stylesheet">
-    <link href="/css/hybrid.css?1603546176" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603546176" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603546176" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603546176" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603546176" rel="stylesheet">
-    <link href="/css/theme.css?1603546176" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603546176" rel="stylesheet">
+    <link href="/css/nucleus.css?1604335337" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604335337" rel="stylesheet">
+    <link href="/css/hybrid.css?1604335337" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604335337" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604335337" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604335337" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604335337" rel="stylesheet">
+    <link href="/css/theme.css?1604335337" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604335337" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603546176" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604335337" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603546176"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604335337"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603546176"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603546176"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604335337"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604335337"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603546176"></script>
+<script type="text/javascript" src="/js/search.js?1604335337"></script>
 
     
   </div>
@@ -233,9 +233,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Workshop AWS Environment..." class="dd-item ">
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Access AWS Account..." class="dd-item ">
         <a href="/10_prerequisites/12_start_workshop.html">
-        2. Workshop AWS Environment...
+        2. Access AWS Account...
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -555,6 +555,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/34_review.html" title="Module Review" class="dd-item ">
+        <a href="/30_module_1/34_review.html">
+        Module Review
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -684,6 +703,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/45_review.html" title="Module Review" class="dd-item ">
+        <a href="/40_module_2/45_review.html">
+        Module Review
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -785,6 +823,25 @@
       <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
         <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
         Modifying a Falco Rule for CloudTrail
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/55_review.html" title="Module Review" class="dd-item ">
+        <a href="/50_module_3/55_review.html">
+        Module Review
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -997,33 +1054,28 @@
 <ol>
 <li><p>Log into your Cloud9 Workspace</p></li>
 
-<li><p>Run the following command to create a repository. The name is arbitrary, but for continuity in the lab please use <code>aws-workshop</code></p></li>
+<li><p>Run the following command to create a repository. The name is arbitrary, but for continuity in the lab please use <code>aws-workshop</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">aws ecr create-repository --repository-name aws-workshop  --image-scanning-configuration scanOnPush<span style="color:#f92672">=</span>true</code></pre></div></li>
 </ol>
 
-<pre><code class="language-sh">aws ecr create-repository --repository-name aws-workshop  --image-scanning-configuration scanOnPush=true
-</code></pre>
-
 <p>The output will be as follows</p>
-
-<pre><code class="language-JSON">{
-    &quot;repository&quot;: {
-        &quot;repositoryArn&quot;: &quot;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&quot;,
-        &quot;registryId&quot;: &quot;845151661675&quot;,
-        &quot;repositoryName&quot;: &quot;aws-workshop&quot;,
-        &quot;repositoryUri&quot;: &quot;845151661675.dkr.ecr.us-east-1.amazonaws.com/aws-workshop&quot;,
-        &quot;createdAt&quot;: 1602848100.0,
-        &quot;imageTagMutability&quot;: &quot;MUTABLE&quot;,
-        &quot;imageScanningConfiguration&quot;: {
-            &quot;scanOnPush&quot;: true
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON">{
+    <span style="color:#f92672">&#34;repository&#34;</span>: {
+        <span style="color:#f92672">&#34;repositoryArn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&#34;</span>,
+        <span style="color:#f92672">&#34;registryId&#34;</span>: <span style="color:#e6db74">&#34;845151661675&#34;</span>,
+        <span style="color:#f92672">&#34;repositoryName&#34;</span>: <span style="color:#e6db74">&#34;aws-workshop&#34;</span>,
+        <span style="color:#f92672">&#34;repositoryUri&#34;</span>: <span style="color:#e6db74">&#34;845151661675.dkr.ecr.us-east-1.amazonaws.com/aws-workshop&#34;</span>,
+        <span style="color:#f92672">&#34;createdAt&#34;</span>: <span style="color:#ae81ff">1602848100.0</span>,
+        <span style="color:#f92672">&#34;imageTagMutability&#34;</span>: <span style="color:#e6db74">&#34;MUTABLE&#34;</span>,
+        <span style="color:#f92672">&#34;imageScanningConfiguration&#34;</span>: {
+            <span style="color:#f92672">&#34;scanOnPush&#34;</span>: <span style="color:#66d9ef">true</span>
         },
-        &quot;encryptionConfiguration&quot;: {
-            &quot;encryptionType&quot;: &quot;AES256&quot;
+        <span style="color:#f92672">&#34;encryptionConfiguration&#34;</span>: {
+            <span style="color:#f92672">&#34;encryptionType&#34;</span>: <span style="color:#e6db74">&#34;AES256&#34;</span>
         }
     }
-}
-</code></pre>
-
-<p>You can view the repository in <a href="https://console.aws.amazon.com/ecr/repositories?region=us-east-1">Amazon UI</a></p>
+}</code></pre></div>
+<p>You can view the repository in <a href="https://console.aws.amazon.com/ecr/repositories?region=us-east-1" target="_blank">Amazon UI</a></p>
 
 <p><img src="/images/30_module_1/Amazon_ECR01.png" alt="ECR" /></p>
 
@@ -1034,28 +1086,23 @@
 <ol>
 <li><p>Log into your Cloud9 workspace</p></li>
 
-<li><p>Authenticate the Docker command line tool to this Amazon ECR registry, using AWS CLI tool as follows</p></li>
+<li><p>Authenticate the Docker command line tool to this Amazon ECR registry, using AWS CLI tool as follows</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export ECR_NAME<span style="color:#f92672">=</span>aws-workshop
+export REGION<span style="color:#f92672">=</span>us-east-1
+export AWS_ACCOUNT<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws sts get-caller-identity | jq <span style="color:#e6db74">&#39;.Account&#39;</span> | xargs<span style="color:#66d9ef">)</span>
+echo <span style="color:#e6db74">&#34;</span>$ECR_NAME<span style="color:#e6db74">, </span>$REGION<span style="color:#e6db74">, </span>$AWS_ACCOUNT<span style="color:#e6db74">&#34;</span>
+aws ecr get-login-password --region $REGION | <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>docker login --username AWS --password-stdin <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com</code></pre></div></li>
 </ol>
 
-<pre><code class="language-bash">export ECR_NAME=aws-workshop
-export REGION=us-east-1
-export AWS_ACCOUNT=$(aws sts get-caller-identity | jq '.Account' | xargs)
-echo &quot;$ECR_NAME, $REGION, $AWS_ACCOUNT&quot;
-aws ecr get-login-password --region $REGION | \
-  docker login --username AWS --password-stdin \
-  $AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com
-</code></pre>
-
 <p>The output should look similar to the following</p>
-
-<pre><code class="language-bash">WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
 Configure a credential helper to remove this warning. See
 https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 
-Login Succeeded
-</code></pre>
-
-<p><em>Note</em> For more details on this procedure, please refer to <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html"><a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html">Amazon ECR registries - Amazon ECR</a></a></p>
+Login Succeeded</code></pre></div>
+<p><em>Note</em> For more details on this procedure, please refer to <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html" target="_blank"><a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html" target="_blank">Amazon ECR registries - Amazon ECR</a></a></p>
 
 
 <footer class="footline">
@@ -1446,22 +1493,6 @@ Login Succeeded
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
             
             
@@ -1478,6 +1509,9 @@ Login Succeeded
             
         
                     
+            
+        
+                    
                         
             
             
@@ -1490,9 +1524,6 @@ Login Succeeded
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -1542,6 +1573,19 @@ Login Succeeded
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -1557,6 +1601,57 @@ Login Succeeded
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1679,24 +1774,24 @@ Login Succeeded
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603546176"></script>
-    <script src="/js/jquery.sticky.js?1603546176"></script>
-    <script src="/js/featherlight.min.js?1603546176"></script>
-    <script src="/js/highlight.pack.js?1603546176"></script>
+    <script src="/js/clipboard.min.js?1604335337"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604335337"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604335337"></script>
+    <script src="/js/jquery.sticky.js?1604335337"></script>
+    <script src="/js/featherlight.min.js?1604335337"></script>
+    <script src="/js/highlight.pack.js?1604335337"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603546176"></script>
-    <script src="/js/learn.js?1603546176"></script>
-    <script src="/js/hugo-learn.js?1603546176"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604335337"></script>
+    <script src="/js/learn.js?1604335337"></script>
+    <script src="/js/hugo-learn.js?1604335337"></script>
 
-    <link href="/mermaid/mermaid.css?1603546176" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603546176"></script>
+    <link href="/mermaid/mermaid.css?1604335337" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604335337"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

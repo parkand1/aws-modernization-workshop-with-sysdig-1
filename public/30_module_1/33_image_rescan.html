@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="generator" content="Hugo 0.71.0" />
     <meta name="description" content="AWS Modernization Workshop with Sysdig">
 <meta name="author" content="Sysdig Training and CNATIVE Teams">
 
@@ -12,20 +12,20 @@
     <title>Modify the image and trigger a second scan :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603546176" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603546176" rel="stylesheet">
-    <link href="/css/hybrid.css?1603546176" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603546176" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603546176" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603546176" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603546176" rel="stylesheet">
-    <link href="/css/theme.css?1603546176" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603546176" rel="stylesheet">
+    <link href="/css/nucleus.css?1604335337" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604335337" rel="stylesheet">
+    <link href="/css/hybrid.css?1604335337" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604335337" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604335337" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604335337" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604335337" rel="stylesheet">
+    <link href="/css/theme.css?1604335337" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604335337" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603546176" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604335337" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603546176"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604335337"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603546176"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603546176"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604335337"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604335337"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603546176"></script>
+<script type="text/javascript" src="/js/search.js?1604335337"></script>
 
     
   </div>
@@ -233,9 +233,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Workshop AWS Environment..." class="dd-item ">
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Access AWS Account..." class="dd-item ">
         <a href="/10_prerequisites/12_start_workshop.html">
-        2. Workshop AWS Environment...
+        2. Access AWS Account...
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -555,6 +555,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/34_review.html" title="Module Review" class="dd-item ">
+        <a href="/30_module_1/34_review.html">
+        Module Review
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -684,6 +703,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/45_review.html" title="Module Review" class="dd-item ">
+        <a href="/40_module_2/45_review.html">
+        Module Review
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -785,6 +823,25 @@
       <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
         <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
         Modifying a Falco Rule for CloudTrail
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/55_review.html" title="Module Review" class="dd-item ">
+        <a href="/50_module_3/55_review.html">
+        Module Review
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -986,17 +1043,10 @@
 <li>Go back into Cloud9 Workspace</li>
 
 <li><p>Edit the <code>Dockerfile</code> and in the first line update the base image from</p>
-
-<pre><code>FROM node:12
-</code></pre>
-
+<pre><code>FROM node:12</code></pre>
 <p>to</p>
-
-<pre><code>FROM bitnami/node:12
-</code></pre>
-
+<pre><code>FROM bitnami/node:12</code></pre>
 <p>The file should look like this</p>
-
 <pre><code>FROM bitnami/node:12
 
 # Create app directory
@@ -1015,21 +1065,15 @@ RUN npm install
 COPY . .
 
 EXPOSE 8080
-CMD [ &quot;node&quot;, &quot;server.js&quot; ]
-</code></pre></li>
+CMD [ &#34;node&#34;, &#34;server.js&#34; ]</code></pre></li>
 
 <li><p>Now rebuild and push the image again with:</p>
-
 <pre><code>docker build . -t $IMAGE
-docker push $IMAGE
-</code></pre>
-
+docker push $IMAGE</code></pre>
 <p>The image will automatically be scanned, as before.</p>
 
 <p><strong>Troubleshooting</strong> If the build fails reporting no space left on device, then you can delete the older <code>node</code> image, as follows.</p>
-
-<pre><code>docker rmi $(docker images | grep node | grep -v lambda | awk '{print $3}')
-</code></pre></li>
+<pre><code>docker rmi $(docker images | grep node | grep -v lambda | awk &#39;{print $3}&#39;)</code></pre></li>
 
 <li><p>Once completed, you will see that the scan result now shows a more recent image (based on debian/10) with fewer vulnerabilities. <img src="/images/30_module_1/securescann03.png" alt="Sysdig Secure" /></p></li>
 </ol>
@@ -1420,37 +1464,24 @@ docker push $IMAGE
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -1467,9 +1498,6 @@ docker push $IMAGE
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -1519,6 +1547,19 @@ docker push $IMAGE
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -1534,6 +1575,57 @@ docker push $IMAGE
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1646,7 +1738,7 @@ docker push $IMAGE
 			<a class="nav nav-prev" href="/30_module_1/32_image_from_registry.html" title="Push and Scan an Image from the Registry"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/40_module_2.html" title="Module 2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/30_module_1/34_review.html" title="Module Review" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1656,24 +1748,24 @@ docker push $IMAGE
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603546176"></script>
-    <script src="/js/jquery.sticky.js?1603546176"></script>
-    <script src="/js/featherlight.min.js?1603546176"></script>
-    <script src="/js/highlight.pack.js?1603546176"></script>
+    <script src="/js/clipboard.min.js?1604335337"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604335337"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604335337"></script>
+    <script src="/js/jquery.sticky.js?1604335337"></script>
+    <script src="/js/featherlight.min.js?1604335337"></script>
+    <script src="/js/highlight.pack.js?1604335337"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603546176"></script>
-    <script src="/js/learn.js?1603546176"></script>
-    <script src="/js/hugo-learn.js?1603546176"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604335337"></script>
+    <script src="/js/learn.js?1604335337"></script>
+    <script src="/js/hugo-learn.js?1604335337"></script>
 
-    <link href="/mermaid/mermaid.css?1603546176" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603546176"></script>
+    <link href="/mermaid/mermaid.css?1604335337" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604335337"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

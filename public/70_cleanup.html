@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="generator" content="Hugo 0.71.0" />
     <meta name="description" content="AWS Modernization Workshop with Sysdig">
 <meta name="author" content="Sysdig Training and CNATIVE Teams">
 
@@ -12,20 +12,20 @@
     <title>Cleanup :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603549723" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603549723" rel="stylesheet">
-    <link href="/css/hybrid.css?1603549723" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603549723" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603549723" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603549723" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603549723" rel="stylesheet">
-    <link href="/css/theme.css?1603549723" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603549723" rel="stylesheet">
+    <link href="/css/nucleus.css?1603815781" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603815781" rel="stylesheet">
+    <link href="/css/hybrid.css?1603815781" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603815781" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603815781" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603815781" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603815781" rel="stylesheet">
+    <link href="/css/theme.css?1603815781" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603815781" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603549723" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603815781" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603549723"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603815781"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603549723"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603549723"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603815781"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603815781"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603549723"></script>
+<script type="text/javascript" src="/js/search.js?1603815781"></script>
 
     
   </div>
@@ -971,58 +971,46 @@
 
 <ul>
 <li><p>Delete the log group created to test the Falco rule modification</p>
-
-<pre><code>aws logs delete-log-group --log-group-name &quot;test_unused_region&quot; --region=&quot;us-west-2&quot;
-</code></pre></li>
+<pre><code>aws logs delete-log-group --log-group-name &#34;test_unused_region&#34; --region=&#34;us-west-2&#34;</code></pre></li>
 
 <li><p>Delete an S3 bucket</p>
-
-<pre><code>aws s3api delete-bucket --bucket $BUCKETNAME
-</code></pre></li>
+<pre><code>aws s3api delete-bucket --bucket $BUCKETNAME</code></pre></li>
 </ul>
 
 <h4 id="module-2">Module 2</h4>
 
 <ul>
 <li><p>Remove <code>ecsTaskExecutionRole</code></p>
-
 <pre><code>aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy --region us-east-1
 
-aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
-</code></pre></li>
+aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole</code></pre></li>
 
 <li><p>Remove ECS Cluster</p>
-
 <pre><code>stack=tutorial
-services=&quot;$(aws ecs list-services --cluster &quot;$stack&quot; | grep &quot;$stack&quot; | sed -e 's/&quot;//g' -e 's/,//')&quot;
+services=&#34;$(aws ecs list-services --cluster &#34;$stack&#34; | grep &#34;$stack&#34; | sed -e &#39;s/&#34;//g&#39; -e &#39;s/,//&#39;)&#34;
 for service in $services; do
-    aws ecs update-service --cluster &quot;$stack&quot; --service &quot;$service&quot; --desired-count 0
-    aws ecs delete-service --cluster &quot;$stack&quot; --service &quot;$service&quot;
+    aws ecs update-service --cluster &#34;$stack&#34; --service &#34;$service&#34; --desired-count 0
+    aws ecs delete-service --cluster &#34;$stack&#34; --service &#34;$service&#34;
 done
 
-for id in $(aws ecs list-container-instances --cluster &quot;$stack&quot; | grep container-instance | sed -e 's/&quot;//g' -e 's/,//'); do
-    aws ecs deregister-container-instance --cluster &quot;$stack&quot; --container-instance &quot;$id&quot; --force
+for id in $(aws ecs list-container-instances --cluster &#34;$stack&#34; | grep container-instance | sed -e &#39;s/&#34;//g&#39; -e &#39;s/,//&#39;); do
+    aws ecs deregister-container-instance --cluster &#34;$stack&#34; --container-instance &#34;$id&#34; --force
 done
 
 for service in $services; do
-    aws ecs wait services-inactive --cluster &quot;$stack&quot; --services &quot;$service&quot;
+    aws ecs wait services-inactive --cluster &#34;$stack&#34; --services &#34;$service&#34;
 done
 
-aws ecs delete-cluster --cluster &quot;$stack&quot;
-aws cloudformation delete-stack --stack-name &quot;$stack&quot;
-</code></pre></li>
+aws ecs delete-cluster --cluster &#34;$stack&#34;
+aws cloudformation delete-stack --stack-name &#34;$stack&#34;</code></pre></li>
 
 <li><p>Delete log group created with <code>ecs-cli compose</code></p>
-
-<pre><code>aws logs delete-log-group --log-group-name tutorial
-</code></pre></li>
+<pre><code>aws logs delete-log-group --log-group-name tutorial</code></pre></li>
 
 <li><p>Remove Image Scanner Integration for Fargate</p>
-
 <pre><code>aws cloudformation delete-stack --stack-name ECSImageScanning
 
-aws cloudformation delete-stack --stack-name amazon-ecs-cli-setup-tutorial
-</code></pre></li>
+aws cloudformation delete-stack --stack-name amazon-ecs-cli-setup-tutorial</code></pre></li>
 </ul>
 
 <h4 id="module-1">Module 1</h4>
@@ -1034,10 +1022,8 @@ aws cloudformation delete-stack --stack-name amazon-ecs-cli-setup-tutorial
 
 <ul>
 <li><p>Remove Docker Node.JS Dockerfile &amp; Source</p>
-
 <pre><code>rm -rf /home/ec2-user/environment/hello-world-node-vulnerable
-rm -rf /home/ec2-user/environment/hello-world-node-vulnerable.zip
-</code></pre></li>
+rm -rf /home/ec2-user/environment/hello-world-node-vulnerable.zip</code></pre></li>
 </ul>
 
 <!-- **TrainingNote** Check This works. ECRImageScanning stack still in account
@@ -1045,47 +1031,34 @@ https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml -->
 
 <ul>
 <li><p>Remove Amazon ECR Registry</p>
-
 <pre><code>aws ecr delete-repository --repository-name aws-workshop --force
 
-aws cloudformation delete-stack --stack-name ECRImageScanning
-
-</code></pre></li>
+aws cloudformation delete-stack --stack-name ECRImageScanning</code></pre></li>
 
 <li><p>Remove Amazon ECR Integration</p>
-
-<pre><code>aws cloudformation delete-stack --stack-name ECSImageScanning
-</code></pre></li>
+<pre><code>aws cloudformation delete-stack --stack-name ECSImageScanning</code></pre></li>
 </ul>
 
 <h4 id="introduction">Introduction</h4>
 
 <ul>
 <li><p>Remove S3 Buckets</p>
-
-<pre><code>CCBUCKET=$(aws s3 ls|grep 'cloud-connector' | awk '{print $3}')
+<pre><code>CCBUCKET=$(aws s3 ls|grep &#39;cloud-connector&#39; | awk &#39;{print $3}&#39;)
 aws s3 rm s3://$CCBUCKET --recursive
 aws s3api delete-bucket --bucket $CCBUCKET
 
-CFBUCKET=$(aws s3 ls|grep 'cf-templates' | awk '{print $3}')
+CFBUCKET=$(aws s3 ls|grep &#39;cf-templates&#39; | awk &#39;{print $3}&#39;)
 aws s3 rm s3://$CFBUCKET --recursive
-aws s3api delete-bucket --bucket $CFBUCKET
-</code></pre></li>
+aws s3api delete-bucket --bucket $CFBUCKET</code></pre></li>
 
 <li><p>Remove CloudConnector ECS Cluster</p>
-
-<pre><code>aws ecs delete-cluster --cluster CloudConnector
-</code></pre></li>
+<pre><code>aws ecs delete-cluster --cluster CloudConnector</code></pre></li>
 
 <li><p>Installing the CloudConnector CloudFormation Template</p>
-
-<pre><code>aws cloudformation delete-stack --stack-name CloudConnector
-</code></pre></li>
+<pre><code>aws cloudformation delete-stack --stack-name CloudConnector</code></pre></li>
 
 <li><p>Disable Security Hub</p>
-
-<pre><code>aws securityhub disable-security-hub
-</code></pre></li>
+<pre><code>aws securityhub disable-security-hub</code></pre></li>
 </ul>
 
 <!-- - Remove IAM Role `Sysdig-Workshop-Admin` used for Cloud9 Workspace
@@ -1099,11 +1072,9 @@ aws s3api delete-bucket --bucket $CFBUCKET
 
 <ul>
 <li><p>Delete <code>Sysdig-Workshop-Admin</code> IAM role</p>
-
 <pre><code> aws iam detach-role-policy --role-name Sysdig-Workshop-Admin --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
 
- aws iam delete-role --role-name Sysdig-Workshop-Admin
-</code></pre></li>
+ aws iam delete-role --role-name Sysdig-Workshop-Admin</code></pre></li>
 </ul>
 
 
@@ -1119,42 +1090,37 @@ aws ec2 stop-instances --instance-ids $(curl -s 169.254.169.254/latest/dynamic/i
 ```
 
 Or this? -->
-
-<pre><code>  aws cloud9 delete-environment --environment-id $(aws cloud9 list-environments | jq '.environmentIds[]' | xargs)
-</code></pre></li>
-</ul>
-
+<pre><code>  aws cloud9 delete-environment --environment-id $(aws cloud9 list-environments | jq &#39;.environmentIds[]&#39; | xargs)</code></pre>
 <!-- arn:aws:iam::168110711348:role/Sysdig-Workshop-Admin -->
 
-<!-- ___
+<p>&lt;!&ndash; ___</p>
 
-#### Delete images pushed and ECR registry
+<h4 id="delete-images-pushed-and-ecr-registry">Delete images pushed and ECR registry</h4>
 
-Go to ECR dashboard on AWS, and remove all repositories \
-[https://console.aws.amazon.com/ecr/repositories?region=us-east-1](https://console.aws.amazon.com/ecr/repositories?region=us-east-1)
+<p>Go to ECR dashboard on AWS, and remove all repositories <br />
+<a href="https://console.aws.amazon.com/ecr/repositories?region=us-east-1" target="_blank">https://console.aws.amazon.com/ecr/repositories?region=us-east-1</a></p>
 
+<h4 id="delete-ecs-fargate-cluster">Delete ECS Fargate cluster</h4>
 
-#### Delete ECS Fargate cluster
+<p><em>[Use CloudFormation stack delete]</em></p>
 
-_[Use CloudFormation stack delete]_
+<h4 id="delete-cloudformation-stacks-only-if-you-are-not-going-to-use-them">Delete CloudFormation stacks (only if you are not going to use them)</h4>
 
+<p>Go to the CloudFormation dashboard on AWS, select and delete each of the stacks. <br />
+<a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1" target="_blank">https://console.aws.amazon.com/cloudformation/home?region=us-east-1</a></p>
 
-#### Delete CloudFormation stacks (only if you are not going to use them)
+<p>[Insert screenshot with all stacks deployed when service role conflict is resolved]</p>
 
-Go to the CloudFormation dashboard on AWS, select and delete each of the stacks. \
-[https://console.aws.amazon.com/cloudformation/home?region=us-east-1](https://console.aws.amazon.com/cloudformation/home?region=us-east-1)
+<h4 id="delete-other-resources">Delete other resources</h4>
 
-[Insert screenshot with all stacks deployed when service role conflict is resolved]
+<p>Delete the log group create to test the Falco rule modification</p>
 
+<p>```</p></li>
+</ul>
 
-#### Delete other resources
-
-Delete the log group create to test the Falco rule modification
-
+<p>aws logs delete-log-group &ndash;log-group-name &ldquo;test_unused_region&rdquo; &ndash;region=&ldquo;us-west-2&rdquo;
   ```
-  aws logs delete-log-group --log-group-name "test_unused_region" --region="us-west-2"
-  ```
-____ -->
+____ &ndash;&gt;</p>
 
 
 
@@ -1780,23 +1746,23 @@ ____ -->
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603549723"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603549723"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603549723"></script>
-    <script src="/js/jquery.sticky.js?1603549723"></script>
-    <script src="/js/featherlight.min.js?1603549723"></script>
-    <script src="/js/highlight.pack.js?1603549723"></script>
+    <script src="/js/clipboard.min.js?1603815781"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603815781"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603815781"></script>
+    <script src="/js/jquery.sticky.js?1603815781"></script>
+    <script src="/js/featherlight.min.js?1603815781"></script>
+    <script src="/js/highlight.pack.js?1603815781"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603549723"></script>
-    <script src="/js/learn.js?1603549723"></script>
-    <script src="/js/hugo-learn.js?1603549723"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603815781"></script>
+    <script src="/js/learn.js?1603815781"></script>
+    <script src="/js/hugo-learn.js?1603815781"></script>
 
-    <link href="/mermaid/mermaid.css?1603549723" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603549723"></script>
+    <link href="/mermaid/mermaid.css?1603815781" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603815781"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Module 2 on AWS Modernization Workshop with Sysdig</title>
@@ -19,8 +19,8 @@
       <description>We will use the Amazon ECS CLI tool to deploy an example ECS cluster, so we&amp;rsquo;ll need to install it on our Cloud9 Workspace. To install Amazon ECS CLI, follow the steps below
  Log into your Cloud9 Workspace
  Download the Amazon ECS CLI binary and make it executable .
-sudo curl -Lo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest sudo chmod +x /usr/local/bin/ecs-cli  Check installation
-ecs-cli --version  Now create a file named task-execution-assume-role.</description>
+sudo curl -Lo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest sudo chmod +x /usr/local/bin/ecs-cli Check installation
+ecs-cli --version Now create a file named task-execution-assume-role.json for our IAM role as follows</description>
     </item>
     
     <item>
@@ -31,7 +31,8 @@ ecs-cli --version  Now create a file named task-execution-assume-role.</descript
       <guid>//localhost:1313/40_module_2/41_deploy_image_scanner_for_fargate.html</guid>
       <description>To deploy the Sysdig image scanner for Fargate, we&amp;rsquo;ll again use Amazon CloudFormation. The procedure is identical to how we installed Amazon ECR Integration in the previous lab, so this time we&amp;rsquo;ll use the AWS CLI instead.
 Note You can find instructions on using the CLI on the Sysdig Fargate scanning installation page
- First we&amp;rsquo;ll set a couple of environment parameters to simplify the actual aws command. For the SecureEndpoint value, enter the value in your Sysdig Secure URL similar to before, i.</description>
+ First we&amp;rsquo;ll set a couple of environment parameters to simplify the actual aws command.
+SecureAPIToken=&amp;#34;F4k3F4k3-F4k3-F4k3-F4k3-F4k3F4k3F4k3&amp;#34; SecureEndpoint=&amp;#34;http://us2.app.sysdig.com&amp;#34; CFURI=&amp;#34;https://cf-templates-secure-scanning-ecs.</description>
     </item>
     
     <item>
@@ -42,7 +43,7 @@ Note You can find instructions on using the CLI on the Sysdig Fargate scanning i
       <guid>//localhost:1313/40_module_2/42_deploy_an_ecs_cluster.html</guid>
       <description>To illustrate automatic scanning, we will now deploy a sample ECS cluster that scales using Fargate. For the purposes of the lab this will consist of this sample PHP appliction running in a Docker Compose environment - https://hub.docker.com/r/amazon/amazon-ecs-sample.
  Create a cluster configuration and create a cluster
-ecs-cli configure --cluster tutorial --default-launch-type FARGATE --config-name tutorial --region us-east-1 ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile  The output should show a VPC and two Subnets have been created:-</description>
+ecs-cli configure --cluster tutorial --default-launch-type FARGATE --config-name tutorial --region us-east-1 ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile The output should show a VPC and two Subnets have been created:-</description>
     </item>
     
     <item>
@@ -68,6 +69,18 @@ ecs-cli configure --cluster tutorial --default-launch-type FARGATE --config-name
  Log into Sysdig Secure, and Browse to &amp;lsquo;Image Scanning &amp;gt; Scan Results&amp;rsquo;.
  You can drill into amazon/amazon-ecs-sample to see details results of the scan
   </description>
+    </item>
+    
+    <item>
+      <title>Module Review</title>
+      <link>//localhost:1313/40_module_2/45_review.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/40_module_2/45_review.html</guid>
+      <description>In this module we saw how to use Sysdig&amp;rsquo;s AWS ECS/Fargate integration to automatically scan deployed images.
+We first deployed Sysdig&amp;rsquo;s AWS ECS/Fargate integration using a CloudFormation template.
+In particular we looked at how to deploy the Amazon ECR Integration. Then we deployed an ECS cluster using Fargate and watched as CodeBuild pipelines are automatically created to scan the images.
+Finally we saw how to view the scan results on the Sysdig Secure dashboard.</description>
     </item>
     
   </channel>

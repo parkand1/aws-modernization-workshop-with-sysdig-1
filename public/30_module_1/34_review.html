@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Deploy Sysdig Secure Automatic Image Scanner for Fargate :: AWS Modernization Workshop with Sysdig</title>
+    <title>Module Review :: AWS Modernization Workshop with Sysdig</title>
 
     
     <link href="/css/nucleus.css?1604335337" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/40_module_2/41_deploy_image_scanner_for_fargate.html">
+  <body class="" data-url="/30_module_1/34_review.html">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -460,7 +460,7 @@
   
     
     <li data-nav-id="/30_module_1.html" title="Module 1" class="dd-item 
-        
+        parent
         
         
         ">
@@ -562,7 +562,7 @@
  
   
     
-      <li data-nav-id="/30_module_1/34_review.html" title="Module Review" class="dd-item ">
+      <li data-nav-id="/30_module_1/34_review.html" title="Module Review" class="dd-item active">
         <a href="/30_module_1/34_review.html">
         Module Review
         <i class="fas fa-check read-icon"></i>
@@ -589,7 +589,7 @@
   
     
     <li data-nav-id="/40_module_2.html" title="Module 2" class="dd-item 
-        parent
+        
         
         
         ">
@@ -634,7 +634,7 @@
  
   
     
-      <li data-nav-id="/40_module_2/41_deploy_image_scanner_for_fargate.html" title="Deploy Sysdig Secure Automatic Image Scanner for Fargate" class="dd-item active">
+      <li data-nav-id="/40_module_2/41_deploy_image_scanner_for_fargate.html" title="Deploy Sysdig Secure Automatic Image Scanner for Fargate" class="dd-item ">
         <a href="/40_module_2/41_deploy_image_scanner_for_fargate.html">
         Deploy Sysdig Secure Automatic Image Scanner for Fargate
         <i class="fas fa-check read-icon"></i>
@@ -969,7 +969,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/40_module_2/41_deploy_image_scanner_for_fargate.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/30_module_1/34_review.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -1000,7 +1000,7 @@
             
           
           
-            <a href='/'>Main Page</a> > <a href='/40_module_2.html'>Module 2</a> > Deploy Sysdig Secure Automatic Image Scanner for Fargate
+            <a href='/'>Main Page</a> > <a href='/30_module_1.html'>Module 1</a> > Module Review
           
          
           
@@ -1029,7 +1029,7 @@
           
             <h1>
               
-              Deploy Sysdig Secure Automatic Image Scanner for Fargate
+              Module Review
             </h1>
           
 
@@ -1037,47 +1037,13 @@
 
 
 
-<p>To deploy the Sysdig image scanner for Fargate, we&rsquo;ll again use Amazon CloudFormation.  The procedure is identical to how we installed Amazon ECR Integration in the previous lab, so this time we&rsquo;ll use the AWS CLI instead.</p>
+<p>In this module we saw how to use Sysdig&rsquo;s AWS ECR integration to automatically scan images upon being added to Amazon ECR.</p>
 
-<p><strong><em>Note</em></strong> You can find instructions on using the CLI on the <a href="https://sysdiglabs.github.io/ecs-image-scanning/install.html" target="_blank"><a href="https://sysdiglabs.github.io/ecs-image-scanning/install.html" target="_blank">Sysdig Fargate scanning installation page</a></a></p>
+<p>In particular we looked at how to deploy the Amazon ECR Integration using AWS CloudFormation template. Then we saw how to setup the Amazon ECR Registry and push images to the it and observe them being scanned.</p>
 
-<ol>
-<li><p>First we&rsquo;ll set a couple of environment parameters to simplify the actual <code>aws</code> command.</p>
-<pre><code>SecureAPIToken=&#34;F4k3F4k3-F4k3-F4k3-F4k3-F4k3F4k3F4k3&#34;
+<p>Finally we looked at how to view the scan results on the Sysdig Secure dashboard.</p>
 
-SecureEndpoint=&#34;http://us2.app.sysdig.com&#34;
-
-CFURI=&#34;https://cf-templates-secure-scanning-ecs.s3.amazonaws.com/ecs-image-scanning.template&#34;</code></pre>
-<p>For the <code>SecureEndpoint</code> value, enter the value in your Sysdig Secure URL similar to before, i.e.</p>
-
-<ul>
-<li><a href="https://secure.sysdig.com" target="_blank">https://secure.sysdig.com</a></li>
-<li><a href="https://eu1.app.sysdig.com" target="_blank">https://eu1.app.sysdig.com</a></li>
-<li><a href="https://us2.app.sysdig.com" target="_blank">https://us2.app.sysdig.com</a></li>
-</ul></li>
-
-<li><p>Then run the the following AWS CloudFormation command (which uses those environment parameters)</p>
-<pre><code>aws cloudformation create-stack \
---stack-name ECSImageScanning \
---template-body $CFURI \
---parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=ECSInlineSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
---capabilities &#34;CAPABILITY_NAMED_IAM&#34;</code></pre>
-<!-- ```
-aws cloudformation create-stack \
---stack-name ECSImageScanning \
---template-body $CFURI \
---parameters ParameterKey=SysdigSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=SysdigSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
---capabilities "CAPABILITY_NAMED_IAM"
-``` -->
-
-<p>You can check the status of the CloudFormation task by browsing to the <a href="https://console.aws.amazon.com/cloudformation/" target="_blank">CloudFormation UI</a></p>
-
-<p><img src="/images/40_module_2/image3.png" alt="CloudFormation" /></p>
-
-<p>Wait until the CloudFormation task completes, which may take several minutes.</p>
-
-<p>Once all stacks are created, you will be ready to deploy our ECS tasks in a Fargate cluster securely, as all images will be scanned automatically.  In the next steps we will see this scanning as it happens.</p></li>
-</ol>
+<p>In the next module we will look at how to scan images automatically in AWS ECS and Fargate.</p>
 
 
 <footer class="footline">
@@ -1469,37 +1435,6 @@ aws cloudformation create-stack \
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1512,11 +1447,29 @@ aws cloudformation create-stack \
             
         
                     
+            
+        
+                    
                         
             
             
                 
                     
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1534,8 +1487,21 @@ aws cloudformation create-stack \
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -1736,10 +1702,10 @@ aws cloudformation create-stack \
 	 
 	 
 		
-			<a class="nav nav-prev" href="/40_module_2/40_install_amazon_ecs_cli.html" title="Install Amazon ECS CLI"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/30_module_1/33_image_rescan.html" title="Modify the image and trigger a second scan"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/40_module_2/42_deploy_an_ecs_cluster.html" title="Deploy an ECS cluster using Fargate" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/40_module_2.html" title="Module 2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

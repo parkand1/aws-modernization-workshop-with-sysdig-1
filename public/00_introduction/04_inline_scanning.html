@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="generator" content="Hugo 0.71.0" />
     <meta name="description" content="AWS Modernization Workshop with Sysdig">
 <meta name="author" content="Sysdig Training and CNATIVE Teams">
 
@@ -12,20 +12,20 @@
     <title>Inline Scanning :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603549723" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603549723" rel="stylesheet">
-    <link href="/css/hybrid.css?1603549723" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603549723" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603549723" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603549723" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603549723" rel="stylesheet">
-    <link href="/css/theme.css?1603549723" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603549723" rel="stylesheet">
+    <link href="/css/nucleus.css?1603815780" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603815780" rel="stylesheet">
+    <link href="/css/hybrid.css?1603815780" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603815780" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603815780" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603815780" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603815780" rel="stylesheet">
+    <link href="/css/theme.css?1603815780" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603815780" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603549723" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603815780" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603549723"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603815780"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603549723"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603549723"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603815780"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603815780"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603549723"></script>
+<script type="text/javascript" src="/js/search.js?1603815780"></script>
 
     
   </div>
@@ -1028,42 +1028,39 @@
 <!-- <details>
 <summary>Expand here to view some some sample output to give you some visualisation of how this looks
 </summary> -->
-
 <pre><code>{
-  &quot;document&quot;: [
+  &#34;document&#34;: [
     {
-      &quot;image&quot;: {
-        &quot;imageId&quot;: &quot;f35646e83998b844c3f067e5a2cff84cdf0967627031aeda3042d78996b68d35&quot;,
-        &quot;imagedata&quot;: {
-          &quot;analysis_report&quot;: {
-            &quot;analyzer_meta&quot;: {
-              &quot;analyzer_meta&quot;: {
-                &quot;base&quot;: {
-                  &quot;DISTRO&quot;: &quot;debian&quot;,
-                  &quot;DISTROVERS&quot;: &quot;10&quot;,
-                  &quot;LIKEDISTRO&quot;: &quot;debian&quot;
+      &#34;image&#34;: {
+        &#34;imageId&#34;: &#34;f35646e83998b844c3f067e5a2cff84cdf0967627031aeda3042d78996b68d35&#34;,
+        &#34;imagedata&#34;: {
+          &#34;analysis_report&#34;: {
+            &#34;analyzer_meta&#34;: {
+              &#34;analyzer_meta&#34;: {
+                &#34;base&#34;: {
+                  &#34;DISTRO&#34;: &#34;debian&#34;,
+                  &#34;DISTROVERS&#34;: &#34;10&#34;,
+                  &#34;LIKEDISTRO&#34;: &#34;debian&#34;
                 }
               }
             },
-            &quot;file_checksums&quot;: {
-              &quot;files.md5sums&quot;: {
-                &quot;base&quot;: {
-                  &quot;/bin&quot;: &quot;DIRECTORY_OR_OTHER&quot;,
-                  &quot;/bin/bash&quot;: &quot;4600132e6a7ae0d451566943a9e79736&quot;,
-                  &quot;/bin/cat&quot;: &quot;44b8726219e0d2929e9150210bfbb544&quot;,
-                  &quot;/bin/chgrp&quot;: &quot;2befb2d66eee50af3fd5eb0b30102841&quot;,
-                  &quot;/bin/chmod&quot;: &quot;737ae4345da6e93c44fe9b11b12defe1&quot;,
-                  &quot;/bin/chown&quot;: &quot;8680c8e619194af847c009a97fd4ebe2&quot;,
-                  &quot;/bin/cp&quot;: &quot;d38d5be99452fb23cce11fc7756c1594&quot;,
-                  &quot;/bin/dash&quot;: &quot;895aea5b87d9d6cbd73537a9b2d45cff&quot;,
-                  &quot;/bin/date&quot;: &quot;b175b76c42bf04d764f3f5d7e4f3c69c&quot;,
-                  &quot;/bin/dd&quot;: &quot;1f90de0a1b75febeda1936a1ed9e1066&quot;,
-                  &quot;/bin/df&quot;: &quot;b50d93d2ab75977d129baf0078becb96&quot;,
-                  &quot;/bin/dir&quot;: &quot;3c76bcda677ed3ff9901d6e770ebca3d&quot;,
-                  &quot;/bin/dmesg&quot;: &quot;ea95ebcd2794014a5f933f7b6434e31c&quot;,
-...
-</code></pre>
-
+            &#34;file_checksums&#34;: {
+              &#34;files.md5sums&#34;: {
+                &#34;base&#34;: {
+                  &#34;/bin&#34;: &#34;DIRECTORY_OR_OTHER&#34;,
+                  &#34;/bin/bash&#34;: &#34;4600132e6a7ae0d451566943a9e79736&#34;,
+                  &#34;/bin/cat&#34;: &#34;44b8726219e0d2929e9150210bfbb544&#34;,
+                  &#34;/bin/chgrp&#34;: &#34;2befb2d66eee50af3fd5eb0b30102841&#34;,
+                  &#34;/bin/chmod&#34;: &#34;737ae4345da6e93c44fe9b11b12defe1&#34;,
+                  &#34;/bin/chown&#34;: &#34;8680c8e619194af847c009a97fd4ebe2&#34;,
+                  &#34;/bin/cp&#34;: &#34;d38d5be99452fb23cce11fc7756c1594&#34;,
+                  &#34;/bin/dash&#34;: &#34;895aea5b87d9d6cbd73537a9b2d45cff&#34;,
+                  &#34;/bin/date&#34;: &#34;b175b76c42bf04d764f3f5d7e4f3c69c&#34;,
+                  &#34;/bin/dd&#34;: &#34;1f90de0a1b75febeda1936a1ed9e1066&#34;,
+                  &#34;/bin/df&#34;: &#34;b50d93d2ab75977d129baf0078becb96&#34;,
+                  &#34;/bin/dir&#34;: &#34;3c76bcda677ed3ff9901d6e770ebca3d&#34;,
+                  &#34;/bin/dmesg&#34;: &#34;ea95ebcd2794014a5f933f7b6434e31c&#34;,
+...</code></pre>
 <!-- </details> -->
 
 <p>You can see each binary, file etc is specifically referenced with a md5 hash next to each entry which relates to its version etc.</p>
@@ -1726,24 +1723,24 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603549723"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603549723"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603549723"></script>
-    <script src="/js/jquery.sticky.js?1603549723"></script>
-    <script src="/js/featherlight.min.js?1603549723"></script>
-    <script src="/js/highlight.pack.js?1603549723"></script>
+    <script src="/js/clipboard.min.js?1603815780"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603815780"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603815780"></script>
+    <script src="/js/jquery.sticky.js?1603815780"></script>
+    <script src="/js/featherlight.min.js?1603815780"></script>
+    <script src="/js/highlight.pack.js?1603815780"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603549723"></script>
-    <script src="/js/learn.js?1603549723"></script>
-    <script src="/js/hugo-learn.js?1603549723"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603815780"></script>
+    <script src="/js/learn.js?1603815780"></script>
+    <script src="/js/hugo-learn.js?1603815780"></script>
 
-    <link href="/mermaid/mermaid.css?1603549723" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603549723"></script>
+    <link href="/mermaid/mermaid.css?1603815780" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603815780"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 

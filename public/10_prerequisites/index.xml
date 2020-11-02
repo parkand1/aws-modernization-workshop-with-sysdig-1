@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Prerequisites on AWS Modernization Workshop with Sysdig</title>
@@ -23,13 +23,13 @@
     </item>
     
     <item>
-      <title>2. Workshop AWS Environment...</title>
+      <title>2. Access AWS Account...</title>
       <link>//localhost:1313/10_prerequisites/12_start_workshop.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/10_prerequisites/12_start_workshop.html</guid>
-      <description>Getting Started To start the workshop, follow one of the following depending on whether you are&amp;hellip;
- &amp;hellip;attending an AWS hosted event, or &amp;hellip;running the workshop on your own  Once you have completed with either setup, continue with Install the required tools</description>
+      <description>Access an AWS account To start the workshop, follow one of the following depending on whether you are&amp;hellip;
+ &amp;hellip;attending an AWS hosted event, or &amp;hellip;running the workshop on your own  Once you have completed with either setup, continue with launching a Cloud9 IDE Workspace</description>
     </item>
     
     <item>

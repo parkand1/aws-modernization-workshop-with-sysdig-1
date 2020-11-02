@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Module 1 on AWS Modernization Workshop with Sysdig</title>
@@ -19,8 +19,8 @@
       <description>For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
  Log into your Cloud9 Workspace
  Run the following command to create a repository. The name is arbitrary, but for continuity in the lab please use aws-workshop
-  aws ecr create-repository --repository-name aws-workshop --image-scanning-configuration scanOnPush=true  The output will be as follows
-{ &amp;quot;repository&amp;quot;: { &amp;quot;repositoryArn&amp;quot;: &amp;quot;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&amp;quot;, &amp;quot;registryId&amp;quot;: &amp;quot;845151661675&amp;quot;, &amp;quot;repositoryName&amp;quot;: &amp;quot;aws-workshop&amp;quot;, &amp;quot;repositoryUri&amp;quot;: &amp;quot;845151661675.</description>
+aws ecr create-repository --repository-name aws-workshop --image-scanning-configuration scanOnPush=true  The output will be as follows
+{ &amp;#34;repository&amp;#34;: { &amp;#34;repositoryArn&amp;#34;: &amp;#34;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&amp;#34;, &amp;#34;registryId&amp;#34;: &amp;#34;845151661675&amp;#34;, &amp;#34;repositoryName&amp;#34;: &amp;#34;aws-workshop&amp;#34;, &amp;#34;repositoryUri&amp;#34;: &amp;#34;845151661675.</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@ For the purposes of this exercise we will be using AWS Region us-east-1
       <description>Download Example Dockerfile and Sources Now that our automatic scanner is in place, we can test it by pushing a Docker container, and check if it scans.
 To illustrate the images scanning we will build an example Node.JS application based on the official “hello world” example described in their website.
  Go to your Cloud9 Workspace and download and uncompress example container files
-wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download/v1.0/hello-world-node-vulnerable.zip unzip hello-world-node-vulnerable.zip cd hello-world-node-vulnerable/  And build and push the image to ECR</description>
+wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download/v1.0/hello-world-node-vulnerable.zip unzip hello-world-node-vulnerable.zip cd hello-world-node-vulnerable/ And build and push the image to ECR</description>
     </item>
     
     <item>
@@ -55,9 +55,20 @@ wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download
       <guid>//localhost:1313/30_module_1/33_image_rescan.html</guid>
       <description>For illustration purposes, let&amp;rsquo;s rebuild our image and make it more secure by starting with a different Base image. To do so:
  Go back into Cloud9 Workspace Edit the Dockerfile and in the first line update the base image from
-FROM node:12  to
-FROM bitnami/node:12  The file should look like this
+FROM node:12 to
+FROM bitnami/node:12 The file should look like this
 FROM bitnami/node:12 # Create app directory WORKDIR /usr/src/app # Install app dependencies # A wildcard is used to ensure both package.</description>
+    </item>
+    
+    <item>
+      <title>Module Review</title>
+      <link>//localhost:1313/30_module_1/34_review.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/30_module_1/34_review.html</guid>
+      <description>In this module we saw how to use Sysdig&amp;rsquo;s AWS ECR integration to automatically scan images upon being added to Amazon ECR.
+In particular we looked at how to deploy the Amazon ECR Integration using AWS CloudFormation template. Then we saw how to setup the Amazon ECR Registry and push images to the it and observe them being scanned.
+Finally we looked at how to view the scan results on the Sysdig Secure dashboard.</description>
     </item>
     
   </channel>

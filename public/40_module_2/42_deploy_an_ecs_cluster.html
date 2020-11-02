@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/livereload.js?port=1313&mindelay=10&v=2" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="generator" content="Hugo 0.71.0" />
     <meta name="description" content="AWS Modernization Workshop with Sysdig">
 <meta name="author" content="Sysdig Training and CNATIVE Teams">
 
@@ -12,20 +12,20 @@
     <title>Deploy an ECS cluster using Fargate :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603546176" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603546176" rel="stylesheet">
-    <link href="/css/hybrid.css?1603546176" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603546176" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603546176" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603546176" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603546176" rel="stylesheet">
-    <link href="/css/theme.css?1603546176" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603546176" rel="stylesheet">
+    <link href="/css/nucleus.css?1604335337" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604335337" rel="stylesheet">
+    <link href="/css/hybrid.css?1604335337" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604335337" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604335337" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604335337" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604335337" rel="stylesheet">
+    <link href="/css/theme.css?1604335337" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604335337" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603546176" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604335337" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603546176"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604335337"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603546176"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603546176"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604335337"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604335337"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603546176"></script>
+<script type="text/javascript" src="/js/search.js?1604335337"></script>
 
     
   </div>
@@ -233,9 +233,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Workshop AWS Environment..." class="dd-item ">
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Access AWS Account..." class="dd-item ">
         <a href="/10_prerequisites/12_start_workshop.html">
-        2. Workshop AWS Environment...
+        2. Access AWS Account...
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -555,6 +555,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/30_module_1/34_review.html" title="Module Review" class="dd-item ">
+        <a href="/30_module_1/34_review.html">
+        Module Review
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -684,6 +703,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40_module_2/45_review.html" title="Module Review" class="dd-item ">
+        <a href="/40_module_2/45_review.html">
+        Module Review
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -785,6 +823,25 @@
       <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
         <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
         Modifying a Falco Rule for CloudTrail
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/55_review.html" title="Module Review" class="dd-item ">
+        <a href="/50_module_3/55_review.html">
+        Module Review
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -980,18 +1037,14 @@
 
 
 
-<p>To illustrate automatic scanning, we will now deploy a sample ECS cluster that scales using Fargate.  For the purposes of the lab this will consist of this sample PHP appliction running in a Docker Compose environment - <a href="https://hub.docker.com/r/amazon/amazon-ecs-sample">https://hub.docker.com/r/amazon/amazon-ecs-sample</a>.</p>
+<p>To illustrate automatic scanning, we will now deploy a sample ECS cluster that scales using Fargate.  For the purposes of the lab this will consist of this sample PHP appliction running in a Docker Compose environment - <a href="https://hub.docker.com/r/amazon/amazon-ecs-sample" target="_blank">https://hub.docker.com/r/amazon/amazon-ecs-sample</a>.</p>
 
 <ol>
 <li><p>Create a cluster configuration and create a cluster</p>
-
 <pre><code>ecs-cli configure --cluster tutorial --default-launch-type FARGATE --config-name tutorial --region us-east-1
 
-ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile
-</code></pre>
-
+ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile</code></pre>
 <p>The output should show a VPC and two Subnets have been created:-</p>
-
 <pre><code>INFO[0000] Created cluster                    cluster=tutorial region=us-east-1
 INFO[0000] Waiting for your cluster resources to be created...
 INFO[0000] Cloudformation stack status       stackStatus=CREATE_IN_PROGRESS
@@ -999,17 +1052,13 @@ INFO[0060] Cloudformation stack status       stackStatus=CREATE_IN_PROGRESS
 VPC created: vpc-046ed77edcd796e19
 Subnet created: subnet-045df8f58a51b2291
 Subnet created: subnet-0e4623283c4907ea7
-Cluster creation succeeded.
-</code></pre></li>
+Cluster creation succeeded.</code></pre></li>
 
 <li><p>Set the names of the VPC and Subnets <strong>from the output above</strong> as an environment variables, as follows</p>
-
-<pre><code class="language-bash">export VPC=vpc-046ed77edcd796e19
-export SUBNET1=subnet-045df8f58a51b2291
-export SUBNET2=subnet-0e4623283c4907ea7
-</code></pre>
-
-<p><strong>Note</strong> You can subsequently get these details from the <a href="https://console.aws.amazon.com/cloudformation/home">CloudFormation UI</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export VPC<span style="color:#f92672">=</span>vpc-046ed77edcd796e19
+export SUBNET1<span style="color:#f92672">=</span>subnet-045df8f58a51b2291
+export SUBNET2<span style="color:#f92672">=</span>subnet-0e4623283c4907ea7</code></pre></div>
+<p><strong>Note</strong> You can subsequently get these details from the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">CloudFormation UI</a></p>
 
 <p><img src="/images/40_module_2/image7.png" alt="ECS Cluster" /></p>
 
@@ -1024,25 +1073,22 @@ export SUBNET2=subnet-0e4623283c4907ea7
 </ul></li>
 
 <li><p>Run the script <code>deploy-amazon-ecs-sample.sh</code></p>
-
-<pre><code class="language-bash">cd /home/ec2-user/environment
-./deploy-amazon-ecs-sample.sh
-</code></pre>
-
-<p><details>
-<summary>Expand for details of script <code>deploy-amazon-ecs-sample.sh</code></summary></p>
-
-<pre><code>  1  export group_id=$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$VPC --region us-east-1 | jq '.SecurityGroups[0].GroupId' | xargs)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /home/ec2-user/environment
+./deploy-amazon-ecs-sample.sh</code></pre></div>
+<details>
+<summary>Expand for details of script `deploy-amazon-ecs-sample.sh`</summary>
+  ```
+  1  export group_id=$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$VPC --region us-east-1 | jq '.SecurityGroups[0].GroupId' | xargs)
   2
   3  aws ec2 authorize-security-group-ingress --group-id $group_id --protocol tcp --port 80 --cidr 0.0.0.0/0 --region us-east-1
   4
-  5  cat &lt;&lt;- 'EOF' &gt; &quot;docker-compose.yml&quot;
+  5  cat <<- 'EOF' > "docker-compose.yml"
   6  version: '3'
   7  services:
   8    web:
   9      image: amazon/amazon-ecs-sample
  10      ports:
- 11        - &quot;80:80&quot;
+ 11        - "80:80"
  12      logging:
  13        driver: awslogs
  14        options:
@@ -1051,7 +1097,7 @@ export SUBNET2=subnet-0e4623283c4907ea7
  17          awslogs-stream-prefix: web
  18  EOF
  19
- 20  cat &lt;&lt;- 'EOF' &gt; &quot;ecs-params.yml&quot;
+ 20  cat <<- 'EOF' > "ecs-params.yml"
  21  version: 1
  22  task_definition:
  23    task_execution_role: ecsTaskExecutionRole
@@ -1063,23 +1109,22 @@ export SUBNET2=subnet-0e4623283c4907ea7
  29    network_configuration:
  30      awsvpc_configuration:
  31        subnets:
- 32          - &quot;subnet1&quot;
- 33          - &quot;subnet2&quot;
+ 32          - "subnet1"
+ 33          - "subnet2"
  34        security_groups:
- 35          - &quot;sg1&quot;
+ 35          - "sg1"
  36        assign_public_ip: ENABLED
  37  EOF
  38
- 39  sed -i &quot;s/subnet1/$SUBNET1/g&quot; ecs-params.yml
- 40  sed -i &quot;s/subnet2/$SUBNET2/g&quot; ecs-params.yml
- 41  sed -i &quot;s/sg1/$group_id/g&quot; ecs-params.yml
+ 39  sed -i "s/subnet1/$SUBNET1/g" ecs-params.yml
+ 40  sed -i "s/subnet2/$SUBNET2/g" ecs-params.yml
+ 41  sed -i "s/sg1/$group_id/g" ecs-params.yml
  42
  43  ecs-cli compose --project-name tutorial service up --create-log-groups --cluster-config tutorial --ecs-profile tutorial-profile
-</code></pre>
+ ```
+</details></li>
 
-<p></details></p></li>
-
-<li><p>Once completed you can see on the <a href="https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/tutorial/services">Amazon ECS UI</a></p></li>
+<li><p>Once completed you can see on the <a href="https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/tutorial/services" target="_blank">Amazon ECS UI</a></p></li>
 </ol>
 
 <p><img src="/images/40_module_2/image5.png" alt="Cluster Tutorial" /></p>
@@ -1469,90 +1514,6 @@ export SUBNET2=subnet-0e4623283c4907ea7
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -1584,6 +1545,138 @@ export SUBNET2=subnet-0e4623283c4907ea7
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1706,24 +1799,24 @@ export SUBNET2=subnet-0e4623283c4907ea7
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603546176"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603546176"></script>
-    <script src="/js/jquery.sticky.js?1603546176"></script>
-    <script src="/js/featherlight.min.js?1603546176"></script>
-    <script src="/js/highlight.pack.js?1603546176"></script>
+    <script src="/js/clipboard.min.js?1604335337"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604335337"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604335337"></script>
+    <script src="/js/jquery.sticky.js?1604335337"></script>
+    <script src="/js/featherlight.min.js?1604335337"></script>
+    <script src="/js/highlight.pack.js?1604335337"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603546176"></script>
-    <script src="/js/learn.js?1603546176"></script>
-    <script src="/js/hugo-learn.js?1603546176"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604335337"></script>
+    <script src="/js/learn.js?1604335337"></script>
+    <script src="/js/hugo-learn.js?1604335337"></script>
 
-    <link href="/mermaid/mermaid.css?1603546176" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603546176"></script>
+    <link href="/mermaid/mermaid.css?1604335337" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604335337"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
-  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
+  </body>
 </html>
 
