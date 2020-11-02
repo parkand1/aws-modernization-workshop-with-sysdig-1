@@ -59,6 +59,16 @@ name = "<i class='far fa-lightbulb'></i> Modernization with AWS"
 url = "https://aws.amazon.com/blogs/modernizing-with-aws/"
 weight = 20
 
+[[menu.shortcuts]]
+name = "<i class='far fa-lightbulb'></i> Sysdig on AWS Marketplace"
+url = "https://aws.amazon.com/marketplace/seller-profile?id=649de783-b546-4795-8891-8002dbaf19b8"
+weight = 30
+
+[[menu.shortcuts]]
+name = "<i class='far fa-lightbulb'></i> Signup for Sysdig Trial Account"
+url = "https://sysdig.com/company/free-trial/"
+weight = 40
+
 [markup]
   defaultMarkdownHandler = "blackfriday"
   [markup.blackFriday]
