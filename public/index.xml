@@ -92,8 +92,8 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
       <description>1 . Within the AWS console, use the region drop list to select us-east-1 (N. Virginia). This will ensure the workshop script provisions the resources in this same region..
 2 . Navigate to the cloud9 console or just search for it under the AWS console services menu.
 3 . Click the Create environment button
-4 . For the name use sysdig-workshop
-5 . Select the default instance type t3.medium</description>
+4 . For the name use sysdig-workshop, then click Next step
+5 . Select the default instance type t3.</description>
     </item>
     
     <item>
@@ -112,10 +112,10 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/10_prerequisites/15_workspace_setup/22_workspaceiam.html</guid>
-      <description> Follow this deep link to find your Cloud9 EC2 instance
- Select the instance, then choose Actions / Instance Settings / Modify IAM role
+      <description>Follow this deep link to find your Cloud9 EC2 instance
+ Select the instance, then choose Actions / Security / Modify IAM role
  Choose Sysdig-Workshop-Admin from the IAM Role drop down, and select Save
-  </description>
+  DRYRUN: GIF being updated</description>
     </item>
     
     <item>
@@ -125,7 +125,9 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
       
       <guid>//localhost:1313/10_prerequisites/15_workspace_setup/23_cloud.html</guid>
       <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
-  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS and turn off AWS managed temporary credentials Close the Preferences tab And copy and run (paste with Ctrl+P) the command below.</description>
+  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo;
+ Select AWS SETTINGS and turn off AWS managed temporary credentials
+ Close the Preferences tab</description>
     </item>
     
     <item>
@@ -134,10 +136,11 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/30_module_1/30_setup_ecr.html</guid>
-      <description>For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
+      <description>DRYRUN: Formatting!!!! in this section
+For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
  Log into your Cloud9 Workspace
  Run the following command to create a repository. The name is arbitrary, but for continuity in the lab please use aws-workshop
-aws ecr create-repository --repository-name aws-workshop --image-scanning-configuration scanOnPush=true  The output will be as follows
+aws ecr create-repository --repository-name aws-workshop --image-scanning-configuration scanOnPush=true The output will be as follows
 { &amp;#34;repository&amp;#34;: { &amp;#34;repositoryArn&amp;#34;: &amp;#34;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&amp;#34;, &amp;#34;registryId&amp;#34;: &amp;#34;845151661675&amp;#34;, &amp;#34;repositoryName&amp;#34;: &amp;#34;aws-workshop&amp;#34;, &amp;#34;repositoryUri&amp;#34;: &amp;#34;845151661675.</description>
     </item>
     
@@ -320,7 +323,8 @@ Let’s try first modifying a rule. The following rule checks if a resource is c
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/25_prework/241_enable_aws_security_hub.html</guid>
-      <description>If you prefer learning by watching over reading, you can find an animated image at the bottom with all the steps listed below.
+      <description>DRYRUN: Need to include check book checker in
+If you prefer learning by watching over reading, you can find an animated image at the bottom with all the steps listed below.
  Step 1. Enable AWS Security Hub To enable AWS Security Hub:
  Log into your Cloud9 Workspace
  Run the following command (no output will be generated)

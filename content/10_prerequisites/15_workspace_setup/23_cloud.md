@@ -9,12 +9,16 @@ Cloud9 normally manages IAM credentials dynamically. This isn't currently compat
 the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
 {{% /notice %}}
 
-1. Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose "Open Preferences"
-2. Select **AWS SETTINGS** and turn off **AWS managed temporary credentials**
-3. Close the Preferences tab
-4. And copy and run (paste with **Ctrl+P**) the command below. Before running it, review what it does at the end of this step.
+  1. Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose "Open Preferences"
 
-<img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" >
+  2. Select **AWS SETTINGS** and turn off **AWS managed temporary credentials**
+
+  3. Close the Preferences tab
+
+     <img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" >
+
+  4. And copy and run (paste with **Ctrl+P**) the command below. Before running it, review what it does at the end of this step.
+
 
 ```sh
 sudo yum -y install jq

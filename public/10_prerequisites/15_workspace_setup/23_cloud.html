@@ -12,20 +12,20 @@
     <title>Configure workspace for Sysdig Workshop :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1604398686" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1604398686" rel="stylesheet">
-    <link href="/css/hybrid.css?1604398686" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1604398686" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1604398686" rel="stylesheet">
-    <link href="/css/auto-complete.css?1604398686" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1604398686" rel="stylesheet">
-    <link href="/css/theme.css?1604398686" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1604398686" rel="stylesheet">
+    <link href="/css/nucleus.css?1604421047" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604421047" rel="stylesheet">
+    <link href="/css/hybrid.css?1604421047" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604421047" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604421047" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604421047" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604421047" rel="stylesheet">
+    <link href="/css/theme.css?1604421047" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604421047" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1604398686" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604421047" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1604398686"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604421047"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1604398686"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1604398686"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604421047"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604421047"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1604398686"></script>
+<script type="text/javascript" src="/js/search.js?1604421047"></script>
 
     
   </div>
@@ -1064,13 +1064,15 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 
 
 <ol>
-<li>Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &ldquo;Open Preferences&rdquo;</li>
-<li>Select <strong>AWS SETTINGS</strong> and turn off <strong>AWS managed temporary credentials</strong></li>
-<li>Close the Preferences tab</li>
-<li>And copy and run (paste with <strong>Ctrl+P</strong>) the command below. Before running it, review what it does at the end of this step.</li>
-</ol>
+<li><p>Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &ldquo;Open Preferences&rdquo;</p></li>
 
-<p><img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" ></p>
+<li><p>Select <strong>AWS SETTINGS</strong> and turn off <strong>AWS managed temporary credentials</strong></p></li>
+
+<li><p>Close the Preferences tab</p>
+
+<p><img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" ></p></li>
+
+<li><p>And copy and run (paste with <strong>Ctrl+P</strong>) the command below. Before running it, review what it does at the end of this step.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo yum -y install jq
 rm -vf <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/.aws/credentials
 export ACCOUNT_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws sts get-caller-identity --output text --query Account<span style="color:#66d9ef">)</span>
@@ -1083,7 +1085,9 @@ aws configure set default.region <span style="color:#e6db74">${</span>AWS_REGION
 aws configure get default.region
 curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh &gt; deploy-amazon-ecs-sample.sh
 chmod +x deploy-amazon-ecs-sample.sh
-aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;IAM role valid&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;IAM role NOT valid&#34;</span></code></pre></div>
+aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;IAM role valid&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;IAM role NOT valid&#34;</span></code></pre></div></li>
+</ol>
+
 
 <div class="notices warning" ><p>If the IAM role is not valid, <span style="color: red;"><strong>DO NOT PROCEED</strong></span>. Go back and confirm the steps on this page.</p>
 </div>
@@ -1774,19 +1778,19 @@ aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q <span st
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1604398686"></script>
-    <script src="/js/perfect-scrollbar.min.js?1604398686"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1604398686"></script>
-    <script src="/js/jquery.sticky.js?1604398686"></script>
-    <script src="/js/featherlight.min.js?1604398686"></script>
-    <script src="/js/highlight.pack.js?1604398686"></script>
+    <script src="/js/clipboard.min.js?1604421047"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604421047"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604421047"></script>
+    <script src="/js/jquery.sticky.js?1604421047"></script>
+    <script src="/js/featherlight.min.js?1604421047"></script>
+    <script src="/js/highlight.pack.js?1604421047"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1604398686"></script>
-    <script src="/js/learn.js?1604398686"></script>
-    <script src="/js/hugo-learn.js?1604398686"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604421047"></script>
+    <script src="/js/learn.js?1604421047"></script>
+    <script src="/js/hugo-learn.js?1604421047"></script>
 
-    <link href="/mermaid/mermaid.css?1604398686" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1604398686"></script>
+    <link href="/mermaid/mermaid.css?1604421047" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604421047"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -4,17 +4,19 @@ chapter: false
 weight: 30
 ---
 
+**DRYRUN: Formatting!!!! in this section**
+
 For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
 
 1. Log into your Cloud9 Workspace
 
 2. Run the following command to create a repository. The name is arbitrary, but for continuity in the lab please use `aws-workshop`
 
-```sh
-aws ecr create-repository --repository-name aws-workshop  --image-scanning-configuration scanOnPush=true
-```
+      ```sh
+      aws ecr create-repository --repository-name aws-workshop  --image-scanning-configuration scanOnPush=true
+      ```
 
-The output will be as follows
+      The output will be as follows
 
 ```JSON
 {
@@ -35,7 +37,7 @@ The output will be as follows
 }
 ```
 
-You can view the repository in [Amazon UI](https://console.aws.amazon.com/ecr/repositories?region=us-east-1)
+3. You can view the repository in [Amazon UI](https://console.aws.amazon.com/ecr/repositories?region=us-east-1)
 
 ![ECR](/images/30_module_1/Amazon_ECR01.png)
 
@@ -57,15 +59,15 @@ aws ecr get-login-password --region $REGION | \
   $AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com
 ```
 
-The output should look similar to the following
+      The output should look similar to the following
 
-```bash
-WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+      ```bash
+      WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
+      Configure a credential helper to remove this warning. See
+      https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 
-Login Succeeded
-```
+      Login Succeeded
+      ```
 
 
-*Note* For more details on this procedure, please refer to [[Amazon ECR registries - Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html)](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html)
+**Note** For more details on this procedure, please refer to [[Amazon ECR registries - Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html)](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html)

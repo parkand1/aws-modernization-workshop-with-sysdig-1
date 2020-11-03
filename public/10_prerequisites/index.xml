@@ -51,8 +51,8 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
       <description>1 . Within the AWS console, use the region drop list to select us-east-1 (N. Virginia). This will ensure the workshop script provisions the resources in this same region..
 2 . Navigate to the cloud9 console or just search for it under the AWS console services menu.
 3 . Click the Create environment button
-4 . For the name use sysdig-workshop
-5 . Select the default instance type t3.medium</description>
+4 . For the name use sysdig-workshop, then click Next step
+5 . Select the default instance type t3.</description>
     </item>
     
     <item>
@@ -71,10 +71,10 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/10_prerequisites/15_workspace_setup/22_workspaceiam.html</guid>
-      <description> Follow this deep link to find your Cloud9 EC2 instance
- Select the instance, then choose Actions / Instance Settings / Modify IAM role
+      <description>Follow this deep link to find your Cloud9 EC2 instance
+ Select the instance, then choose Actions / Security / Modify IAM role
  Choose Sysdig-Workshop-Admin from the IAM Role drop down, and select Save
-  </description>
+  DRYRUN: GIF being updated</description>
     </item>
     
     <item>
@@ -84,7 +84,9 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
       
       <guid>//localhost:1313/10_prerequisites/15_workspace_setup/23_cloud.html</guid>
       <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
-  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS and turn off AWS managed temporary credentials Close the Preferences tab And copy and run (paste with Ctrl+P) the command below.</description>
+  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo;
+ Select AWS SETTINGS and turn off AWS managed temporary credentials
+ Close the Preferences tab</description>
     </item>
     
   </channel>

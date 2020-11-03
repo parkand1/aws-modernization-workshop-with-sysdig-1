@@ -30,7 +30,7 @@ To illustrate the images scanning we will build an example Node.JS application b
 
 3. Check that an image scan is automatically triggered in [Amazon ECR](https://console.aws.amazon.com/ecr/repositories/aws-workshop/?region=us-east-1)
 
-		![Trigger Scan](/images/30_module_1/triggerscan.png)
+	![Trigger Scan](/images/30_module_1/triggerscan.png)
 
 4. Once complete you will see that this image has some issues ![Stack details](/images/30_module_1/scannissues.png)
 

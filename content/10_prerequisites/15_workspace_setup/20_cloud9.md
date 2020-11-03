@@ -10,11 +10,11 @@ weight: 20
 
 3 . Click the **Create environment** button
 
-4 . For the name use `sysdig-workshop`
+4 . For the name use `sysdig-workshop`, then click **Next step**
 
 5 . Select the default instance type **t3.medium**
 
-6 . Leave all the other settings as default
+6 . Leave all the other settings as default and click **Next step** followed by **Create environment**
 
 <!-- ![Deploy Cloud9](/images/10_prerequisites/cloud9.gif) -->
 <img src=/images/10_prerequisites/cloud9.gif width="75%" height="57%">

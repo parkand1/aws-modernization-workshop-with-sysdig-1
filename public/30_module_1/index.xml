@@ -16,10 +16,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/30_module_1/30_setup_ecr.html</guid>
-      <description>For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
+      <description>DRYRUN: Formatting!!!! in this section
+For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
  Log into your Cloud9 Workspace
  Run the following command to create a repository. The name is arbitrary, but for continuity in the lab please use aws-workshop
-aws ecr create-repository --repository-name aws-workshop --image-scanning-configuration scanOnPush=true  The output will be as follows
+aws ecr create-repository --repository-name aws-workshop --image-scanning-configuration scanOnPush=true The output will be as follows
 { &amp;#34;repository&amp;#34;: { &amp;#34;repositoryArn&amp;#34;: &amp;#34;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&amp;#34;, &amp;#34;registryId&amp;#34;: &amp;#34;845151661675&amp;#34;, &amp;#34;repositoryName&amp;#34;: &amp;#34;aws-workshop&amp;#34;, &amp;#34;repositoryUri&amp;#34;: &amp;#34;845151661675.</description>
     </item>
     

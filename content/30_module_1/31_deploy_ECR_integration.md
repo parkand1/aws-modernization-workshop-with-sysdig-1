@@ -20,9 +20,11 @@ This integration enables the Amazon Elastic Container Registry (ECR) to automati
  - For **'SysdigSecureAPIToken'**, enter your 'Sysdig Secure API Token' for the Sysdig Secure account you created earlier. You can find in your User Profile. ![API token](/images/30_module_1/sysdig_api.png)
  - For '**SysdigSecureEndpoint**', enter the value in your Sysdig Secure URL, i.e.
 
-       - https://secure.sysdig.com
-       - https://eu1.app.sysdig.com
-       - https://us2.app.sysdig.com
+ **DRYRUN:  ensure these are not links - no https://**
+
+       - secure.sysdig.com
+       - eu1.app.sysdig.com
+       - us2.app.sysdig.com
 
 5. Click '**Next**'. You will be presented with 'Configure stack options' page.
 

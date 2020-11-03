@@ -20,9 +20,9 @@ To deploy the Sysdig image scanner for Fargate, we'll again use Amazon CloudForm
     ```
     For the `SecureEndpoint` value, enter the value in your Sysdig Secure URL similar to before, i.e.
 
-    - https://secure.sysdig.com
-    - https://eu1.app.sysdig.com
-    - https://us2.app.sysdig.com
+    - secure.sysdig.com
+    - eu1.app.sysdig.com
+    - us2.app.sysdig.com
 
 
 2. Then run the the following AWS CloudFormation command (which uses those environment parameters)
