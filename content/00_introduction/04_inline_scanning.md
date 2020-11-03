@@ -7,15 +7,14 @@ weight = 04
 
 There are two general approaches to scanning images in Sysdig - backend scanning or inline scanning.  The reasons why you might choose one over the other is best explained by an understanding of how scanning works under the hood.
 
-![Inline Scanning](/images/00_introduction/inline_scanning02.png)
 <!-- <img src=/images/00_introduction/inline_scanning01.png width="50%" height="50%"> -->
 
 <!-- ## Scanning Under the Hood -->
 
 With Sysdig, there are two phases in scanning an image
 
-1. Analysis of contents
-2. Evaluation against policies and vulnerabilities
+  1. Analysis of contents
+  2. Evaluation against policies and vulnerabilities
 
 ### Phase 1 - Analysis of Contents
 
@@ -23,7 +22,7 @@ During the analysis phase of the scan, the worker first loads the image.  Each i
 
 This phase of the scan is quite process-heavy and accounts for approximately 90% of the Time/CPU consumed during the entire scan, and the output of this is a JSON document containing metadata on all aspects of the image.
 
-During an inline scan, this phase happens in the image's environment - in a CI/CD pipeline, by an Admission Controller, or even on a Kubernetes worker node.
+During an inline scan, this phase happens in the image's environment - in a CI/CD pipeline, by an Admission Controller, or even on a Kubernetes worker node, as illustrated below.
 
 #### Going A Little Deeper...
 
@@ -88,16 +87,20 @@ Individual policy rules may relate to
  - Exposed passwords
  - etc
 
-A number of policies are delivered out-of-the-box and can be used as-is, duplicated, or edited as needed. These relate specifially to 'PCI' and 'NIST 800-190', as well as general Dockerfile best practices.  You can also create policies from scratch, using either predefined rules or creating custom rules.
+A number of policies are delivered out-of-the-box and can be used as-is, duplicated, or edited as needed. These relate specifically to 'PCI' and 'NIST 800-190' compliance, as well as general Dockerfile best practices.  You can also create policies from scratch, using either predefined rules or creating custom rules.
 
 
 ## Inline Scanning vs Backend Scanning
 
-Inline Scanning is considered best practice and the better approach to scanning over backend scanning. Backend scanning requires that images be transferred to the Sysdig Backend to be scanned and evaluated.  With this method Sysdig must access your image repository and pull down the actual image to scan it. This requires Sysdig to store the credentials of your repository. This be problematic in a secure environment and/or when you're using SaaS.
+With Backend Scanning, both phases of the scan, i.e. the analysis of contents followed by the evaluation against policies and vulnerabilities, are performed on Sysdig's servers.  This requires that images be transferred to Sysdig to be scanned and evaluated, therefore Sysdig must store your repository's credentials in order to have access to it. This may be problematic in a secure environment and/or when you're using SaaS.
+
+![Backend Scanning](/images/00_introduction/backend_scanning02.png)
 
 However, with Inline Scanning the scan and subsequent analysis occur where the image resides, maybe as part of a CI/CD pipeline, or within your cloud environment, for example with ECR. In this case Sysdig does not need access to your repository and only the metadata is sent back to the Sysdig backend, hence no registry keys are exposed to Sysdig.
 
-The benefits of scanning inline include
+![Inline Scanning](/images/00_introduction/inline_scanning03.png)
+
+Inline Scanning is considered best practice and the better approach to scanning over backend scanning.  The benefits of scanning inline include
 
  - Images don't leave their own environment
  - SaaS users don't send images and proprietary code to Sysdig's SaaS service

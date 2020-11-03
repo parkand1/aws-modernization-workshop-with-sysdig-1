@@ -5,11 +5,11 @@ weight: 13
 ---
 
 
-To complete this workshop, you are provided with an AWS account via the AWS Event Engine service. A team hash will be provided to you by event staff. 
+To complete this workshop, you are provided with an AWS account via the AWS Event Engine service. A team hash will be provided to you by event staff.
 
 {{% notice warning %}}
-If you are currently logged in to an AWS Account, you can logout using this [link](https://console.aws.amazon.com/console/logout!doLogout) 
-{{% /notice %}} 
+If you are currently logged in to an AWS Account, you can logout using this [link](https://console.aws.amazon.com/console/logout!doLogout)
+{{% /notice %}}
 
 
 ### Create AWS Account

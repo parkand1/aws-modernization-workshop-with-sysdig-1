@@ -21,6 +21,6 @@ A set of out-of-the-box Falco rules for CloudTrail is packaged with the Sysdig C
 
 You can also complement these with your own custom rules.
 
-The Falco rules are also mapped against **NIST 800-190** security standard controls. More compliance mapping for additional security standards like PCI or CIS will be provided in the future
+The Falco rules are also mapped against **NIST 800-190** compliance standard controls. More compliance mapping for additional compliance standards like PCI or CIS will be provided in the future
 
 Using Falco to detect and alert on AWS configuration changes is similar to runtime detections of your application stack.  This makes Sysdig Secure your central location to detect and alert on all aspects of your security posture.

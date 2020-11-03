@@ -84,4 +84,4 @@ To see the scan results on Sysdig Secure Dashboard,
 
 ![Sysdig Secure](/images/30_module_1/securescann02.png)
 
-With Sysdig Secure you have full visibility of the security posture across your entire estate, in a single pane of glass, and as a central location for all security profiles and policies.
+With Sysdig Secure you have full visibility of the security and compliance posture across your entire estate, in a single pane of glass, and as a central location for all security profiles and policies.

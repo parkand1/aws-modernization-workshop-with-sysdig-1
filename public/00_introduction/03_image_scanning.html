@@ -12,20 +12,20 @@
     <title>Image Scanning :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1604339558" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1604339558" rel="stylesheet">
-    <link href="/css/hybrid.css?1604339558" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1604339558" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1604339558" rel="stylesheet">
-    <link href="/css/auto-complete.css?1604339558" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1604339558" rel="stylesheet">
-    <link href="/css/theme.css?1604339558" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1604339558" rel="stylesheet">
+    <link href="/css/nucleus.css?1604398686" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604398686" rel="stylesheet">
+    <link href="/css/hybrid.css?1604398686" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604398686" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604398686" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604398686" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604398686" rel="stylesheet">
+    <link href="/css/theme.css?1604398686" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604398686" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1604339558" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604398686" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1604339558"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604398686"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1604339558"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1604339558"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604398686"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604398686"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1604339558"></script>
+<script type="text/javascript" src="/js/search.js?1604398686"></script>
 
     
   </div>
@@ -1045,23 +1045,25 @@
 
 
 
-<p>Sysdig&rsquo;s ImageVision provides a comprehensive suite of tools to enhance security across your application&rsquo;s ecosystem.   One critical part of this is scanning the images in your registry.</p>
+<p>Sysdig Secure provides a comprehensive suite of tools to enhance and compliance across your application&rsquo;s ecosystem.   One critical part of this is scanning the images in your registry.</p>
 
-<p><img src="/images/00_introduction/image_scanning.png" alt="Image Scanning" /></p>
+<p>Sysdig’s <strong>ImageVision</strong> technology identifies vulnerabilities and misconfigurations by automating scanning within CI/CD pipelines and registries, as well as implementing registry scanning inline. It also blocks vulnerabilities pre-production, monitors for new CVEs at runtime, and helps you map a critical vulnerability back to an application and dev team.</p>
+
+<p><img src="/images/00_introduction/image_scanning01.png" alt="Image Scanning" /></p>
 
 <p>An image scanner inspects a container&rsquo;s content to <strong>detect threats</strong> such as unencrypted passwords, known vulnerabilities, exposed ports, etc.  You can implement <a href="https://sysdig.com/blog/image-scanning-best-practices/" target="_blank">scanning best practices</a> on several phases of your <strong>DevOps pipeline</strong>, blocking threats before they are deployed into production, and without adding extra overhead.</p>
 
 <p>Sysdig Secure manages every aspect of the container scan. With Sysdig you can define <strong>image scanning policies</strong> to validate a container&rsquo;s content against <strong>vulnerability databases</strong>, and search for <strong>misconfigurations</strong> like running as a privileged user, unnecessary open ports, or leaked credentials.</p>
 
-<p>Not only can you create multiple policies that determine what the scan is looking for, but also <em>when</em> to implement it. For example, in your CI/CD pipeline you may wish to use the test site <strong><a href="https://sandbox.payment-engine.com/" target="_blank">https://sandbox.payment-engine.com/</a></strong> during your automated QA tests, but when building containers for production this must be the live <strong><a href="https://payment-engine.com" target="_blank">https://payment-engine.com</a></strong>.  Or, you may wish to scan specifically for PSI or NIST compliance in a production site.</p>
+<p>Not only can you create multiple policies that determine what the scan is looking for, but also <em>when</em> to implement it. For example, in your CI/CD pipeline you may wish to use the test site <strong><a href="https://sandbox.payment-engine.com/" target="_blank">https://sandbox.payment-engine.com/</a></strong> during your automated QA tests, but when building containers for production this must be the live <strong><a href="https://live.payment-engine.com" target="_blank">https://live.payment-engine.com</a></strong>.  Or, you may wish to scan specifically for PSI or NIST compliance in a production site.</p>
 
-<p>Further, you may wish to scan existing running containers for &lsquo;zero day&rsquo; vulnerabilities that have recently been detected.</p>
+<p>Further, you may wish to scan existing running containers for <strong>zero day</strong> vulnerabilities that have recently been detected.</p>
 
 <p>In either case, the output of the scan will be sent back to Sysdig from where you can browse the results or run reports.</p>
 
 <p>Although containers may be ingested into another system in order to be scanned, for example a Sysdig Secure backend, it&rsquo;s considered best practice to scan the image &lsquo;inline&rsquo;, i.e. locally in its current location.</p>
 
-<p>With inline scanning the contents of your containers will never leave your infrastructure. This protects your privacy and prevents credentials for repositories from leaking. It may also be a requirement when security concerns require an air-gapped environment.</p>
+<p>With inline scanning, the contents of your containers will never leave your infrastructure. This protects your privacy and prevents credentials for repositories from leaking. It may also be a requirement when security concerns require an air-gapped environment.</p>
 
 <p><img src="/images/00_introduction/inline_scanning.png" alt="Fargate Inline Scanning" /></p>
 
@@ -1737,19 +1739,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1604339558"></script>
-    <script src="/js/perfect-scrollbar.min.js?1604339558"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1604339558"></script>
-    <script src="/js/jquery.sticky.js?1604339558"></script>
-    <script src="/js/featherlight.min.js?1604339558"></script>
-    <script src="/js/highlight.pack.js?1604339558"></script>
+    <script src="/js/clipboard.min.js?1604398686"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604398686"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604398686"></script>
+    <script src="/js/jquery.sticky.js?1604398686"></script>
+    <script src="/js/featherlight.min.js?1604398686"></script>
+    <script src="/js/highlight.pack.js?1604398686"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1604339558"></script>
-    <script src="/js/learn.js?1604339558"></script>
-    <script src="/js/hugo-learn.js?1604339558"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604398686"></script>
+    <script src="/js/learn.js?1604398686"></script>
+    <script src="/js/hugo-learn.js?1604398686"></script>
 
-    <link href="/mermaid/mermaid.css?1604339558" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1604339558"></script>
+    <link href="/mermaid/mermaid.css?1604398686" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604398686"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

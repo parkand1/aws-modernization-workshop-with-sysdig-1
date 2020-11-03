@@ -16,8 +16,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/00_introduction/03_image_scanning.html</guid>
-      <description>Sysdig&amp;rsquo;s ImageVision provides a comprehensive suite of tools to enhance security across your application&amp;rsquo;s ecosystem. One critical part of this is scanning the images in your registry.
-An image scanner inspects a container&amp;rsquo;s content to detect threats such as unencrypted passwords, known vulnerabilities, exposed ports, etc. You can implement scanning best practices on several phases of your DevOps pipeline, blocking threats before they are deployed into production, and without adding extra overhead.</description>
+      <description>Sysdig Secure provides a comprehensive suite of tools to enhance and compliance across your application&amp;rsquo;s ecosystem. One critical part of this is scanning the images in your registry.
+Sysdig’s ImageVision technology identifies vulnerabilities and misconfigurations by automating scanning within CI/CD pipelines and registries, as well as implementing registry scanning inline. It also blocks vulnerabilities pre-production, monitors for new CVEs at runtime, and helps you map a critical vulnerability back to an application and dev team.</description>
     </item>
     
     <item>
@@ -27,8 +27,7 @@ An image scanner inspects a container&amp;rsquo;s content to detect threats such
       
       <guid>//localhost:1313/00_introduction/04_inline_scanning.html</guid>
       <description>There are two general approaches to scanning images in Sysdig - backend scanning or inline scanning. The reasons why you might choose one over the other is best explained by an understanding of how scanning works under the hood.
---
-With Sysdig, there are two phases in scanning an image
+-- With Sysdig, there are two phases in scanning an image
  Analysis of contents Evaluation against policies and vulnerabilities  Phase 1 - Analysis of Contents During the analysis phase of the scan, the worker first loads the image.</description>
     </item>
     
