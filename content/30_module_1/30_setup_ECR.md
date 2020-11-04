@@ -4,40 +4,39 @@ chapter: false
 weight: 30
 ---
 
-**DRYRUN: Formatting!!!! in this section**
-
 For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
 
 1. Log into your Cloud9 Workspace
 
 2. Run the following command to create a repository. The name is arbitrary, but for continuity in the lab please use `aws-workshop`
 
-      ```sh
-      aws ecr create-repository --repository-name aws-workshop  --image-scanning-configuration scanOnPush=true
-      ```
+  ```
+  aws ecr create-repository --repository-name aws-workshop  --image-scanning-configuration scanOnPush=true
+  ```
 
-      The output will be as follows
+    The output will be as follows
 
-```JSON
-{
-    "repository": {
-        "repositoryArn": "arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop",
-        "registryId": "845151661675",
-        "repositoryName": "aws-workshop",
-        "repositoryUri": "845151661675.dkr.ecr.us-east-1.amazonaws.com/aws-workshop",
-        "createdAt": 1602848100.0,
-        "imageTagMutability": "MUTABLE",
-        "imageScanningConfiguration": {
-            "scanOnPush": true
-        },
-        "encryptionConfiguration": {
-            "encryptionType": "AES256"
-        }
-    }
-}
-```
+  ```
+  {
+      "repository": {
+          "repositoryArn": "arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop",
+          "registryId": "845151661675",
+          "repositoryName": "aws-workshop",
+          "repositoryUri": "845151661675.dkr.ecr.us-east-1.amazonaws.com/aws-workshop",
+          "createdAt": 1602848100.0,
+          "imageTagMutability": "MUTABLE",
+          "imageScanningConfiguration": {
+              "scanOnPush": true
+          },
+          "encryptionConfiguration": {
+              "encryptionType": "AES256"
+          }
+      }
+  }
+  ```
 
 3. You can view the repository in [Amazon UI](https://console.aws.amazon.com/ecr/repositories?region=us-east-1)
+
 
 ![ECR](/images/30_module_1/Amazon_ECR01.png)
 

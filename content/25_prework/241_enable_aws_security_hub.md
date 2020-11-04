@@ -4,9 +4,6 @@ chapter: false
 weight: 241
 ---
 
-**DRYRUN:  Need to include check book checker in**
-
-
 {{% notice tip %}}
 If you prefer learning by watching over reading, you can find an animated image at the bottom with all the steps listed below.
 {{% /notice %}}
@@ -69,8 +66,12 @@ You can optionally add tag keys and values to the deployment, but no further con
 
 	<!-- ![cf4](/images/20_workshop_setup/cf4.png) -->
 
-5. Once you are happy with the plan, acknowledge it by marking the checkbox, and then press the **Create stack** button.
-	<!-- ![cf5](/images/20_workshop_setup/cf5.png) -->
+5. Once you are happy with the plan, acknowledge it by marking the checkbox
+
+	![cf5](/images/20_workshop_setup/cf5.png)
+
+6. Then press the **Create stack** button
+
 <!-- DevNote: Update this screenshot to have consistent arrow -->
 
 ## All ready!

@@ -10,6 +10,4 @@ weight: 22
 
 3. Choose **Sysdig-Workshop-Admin** from the **IAM Role** drop down, and select **Save**
 
-<img src=/images/10_prerequisites/iamRoleAttach.gif width="75%" height="57%">
-
-**DRYRUN: GIF being updated**
+<img src=/images/10_prerequisites/attachIAMRole.gif width="75%" height="57%">

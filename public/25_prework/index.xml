@@ -16,8 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/25_prework/241_enable_aws_security_hub.html</guid>
-      <description>DRYRUN: Need to include check book checker in
-If you prefer learning by watching over reading, you can find an animated image at the bottom with all the steps listed below.
+      <description>If you prefer learning by watching over reading, you can find an animated image at the bottom with all the steps listed below.
  Step 1. Enable AWS Security Hub To enable AWS Security Hub:
  Log into your Cloud9 Workspace
  Run the following command (no output will be generated)

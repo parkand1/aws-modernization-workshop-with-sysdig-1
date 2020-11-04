@@ -8,7 +8,9 @@ In the same way image scanning gives you visibility of vulnerabilities and threa
 
 AWS provides a rich environment upon which to base your application, but it's not without its risks.  There are many places where bad actors can create harm, for example exposing data by making S3 buckets public, deleting bucket encryption, disabling MFA for an account, adding/removing IAM policies.
 
-Falco is an open source threat detection language that is widely used to detect and alert on runtime abnormalities.  This tool can also be used to detect changes within the AWS environment.
+Falco is an open source threat detection language that is widely used to detect and alert on runtime abnormalities, and can also be used to detect changes within the AWS environment.
+
+Falco was created by Sysdig in 2016 and is the first runtime security project to join CNCF as an incubation-level project.
 
 A set of out-of-the-box Falco rules for CloudTrail is packaged with the Sysdig CloudConnector allowing you to easily generate detections and alerts on abnormal behavior changes. The included out-of-the-box CloudTrail rules can detect events like:
 
