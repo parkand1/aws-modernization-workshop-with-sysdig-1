@@ -9,14 +9,16 @@ To deploy the Sysdig image scanner for Fargate, we'll again use Amazon CloudForm
 ***Note*** You can find instructions on using the CLI on the [[Sysdig Fargate scanning installation page](https://sysdiglabs.github.io/ecs-image-scanning/install.html)](https://sysdiglabs.github.io/ecs-image-scanning/install.html)
 
 
-1. First, make sure your Sysdig `SecureAPIToken` and `SecureEndpoint` environment variables are set. You would have set these when setting up your [Cloud9 Workspace]({{< ref "/10_prerequisites/15_workspace_setup/23_cloud.md" >}}).
+1. First, make sure your Sysdig `SecureAPIToken` and `SecureEndpoint` environment variables are set.
 
     ```
     echo $SecureAPIToken
     echo $SecureEndpoint
     ```
 
-    If these variable are not set, then you can set them manually using the information you noted from [here]({{< ref "/10_prerequisites/11_sysdig.md" >}})
+    You would have set these environment variables when setting up your [Cloud9 Workspace]({{< ref "/10_prerequisites/15_workspace_setup/23_cloud.md" >}}).
+
+    **IMPORTANT** If these variable are not set, then you can set them manually using the information you noted from [here]({{< ref "/10_prerequisites/11_sysdig.md" >}}).
 
 1. Let's set our CloudFormation template URL as an environment variable to simplify the actual `aws` command.  
 
@@ -30,17 +32,27 @@ To deploy the Sysdig image scanner for Fargate, we'll again use Amazon CloudForm
     aws cloudformation create-stack \
     --stack-name ECSImageScanning \
     --template-body $CFURI \
-    --parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=ECSInlineSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
+    --parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=ECSInlineSecureEndpoint,ParameterValue=https://$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
     --capabilities "CAPABILITY_NAMED_IAM"
     ```
 
-    <!-- ```
-    aws cloudformation create-stack \
-    --stack-name ECSImageScanning \
-    --template-body $CFURI \
-    --parameters ParameterKey=SysdigSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=SysdigSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
-    --capabilities "CAPABILITY_NAMED_IAM"
-    ``` -->
+
+<!--
+aws cloudformation create-stack \
+--stack-name ECSImageScanning \
+--template-body $CFURI \
+--parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=ECSInlineSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
+--capabilities "CAPABILITY_NAMED_IAM"
+-->
+
+
+<!-- ```
+aws cloudformation create-stack \
+--stack-name ECSImageScanning \
+--template-body $CFURI \
+--parameters ParameterKey=SysdigSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=SysdigSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
+--capabilities "CAPABILITY_NAMED_IAM"
+``` -->
 
 
 You can check the status of the CloudFormation task by browsing to the [CloudFormation UI](https://console.aws.amazon.com/cloudformation/)

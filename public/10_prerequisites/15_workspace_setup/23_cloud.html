@@ -12,20 +12,20 @@
     <title>Configure workspace for Sysdig Workshop :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1604516563" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1604516563" rel="stylesheet">
-    <link href="/css/hybrid.css?1604516563" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1604516563" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1604516563" rel="stylesheet">
-    <link href="/css/auto-complete.css?1604516563" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1604516563" rel="stylesheet">
-    <link href="/css/theme.css?1604516563" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1604516563" rel="stylesheet">
+    <link href="/css/nucleus.css?1604530006" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604530006" rel="stylesheet">
+    <link href="/css/hybrid.css?1604530006" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604530006" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604530006" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604530006" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604530006" rel="stylesheet">
+    <link href="/css/theme.css?1604530006" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604530006" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1604516563" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604530006" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1604516563"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604530006"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1604516563"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1604516563"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604530006"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604530006"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1604516563"></script>
+<script type="text/javascript" src="/js/search.js?1604530006"></script>
 
     
   </div>
@@ -1074,7 +1074,7 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 
 <li><p>Copy paste the following two commands to configure your <strong>Secure API Token</strong> and  <strong>Secure API Endpoint</strong> environment variables (these are the values you made a note of <a href="/10_prerequisites/11_sysdig.html" target="_blank">here</a>)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#34;Enter your **Sysdig Secure API Token**&#34;</span>; read SecureAPIToken 
-export SecureAPIToken </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#34;Enter your **Sysdig Secure API Endpoint**&#34;</span>; read SecureEndpoint
+export SecureAPIToken</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#34;Enter your **Sysdig Secure API Endpoint**&#34;</span>; read SecureEndpoint
 export SecureEndpoint</code></pre></div></li>
 
 <li><p>And copy and run (paste with <strong>Ctrl+P</strong>) the command below. Before running it, review what it does at the end of this step.</p>
@@ -1088,10 +1088,8 @@ echo <span style="color:#e6db74">&#34;export AWS_REGION=</span><span style="colo
 tee -a ~/.bash_profile
 aws configure set default.region <span style="color:#e6db74">${</span>AWS_REGION<span style="color:#e6db74">}</span>
 aws configure get default.region
-curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh &gt; deploy-amazon-ecs-sample.sh
+curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/272b0f1a45fa8a54571ebb707b7e7d51e4db0fb5/deploy-amazon-ecs-sample.sh &gt; deploy-amazon-ecs-sample.sh
 chmod +x deploy-amazon-ecs-sample.sh
-curl -s https://gist.githubusercontent.com/johnfitzpatrick/95ecc8853764785a6033fd920ada1b3a/raw/92ff710c1f0622210b4a9917d2f775089f193073/ecs-cluster-env-vars.sh &gt; ecs-cluster-env-vars.sh
-chmod +x ecs-cluster-env-vars.sh
 aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;IAM role valid&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;IAM role NOT valid&#34;</span></code></pre></div></li>
 </ol>
 
@@ -1785,19 +1783,19 @@ aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q <span st
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1604516563"></script>
-    <script src="/js/perfect-scrollbar.min.js?1604516563"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1604516563"></script>
-    <script src="/js/jquery.sticky.js?1604516563"></script>
-    <script src="/js/featherlight.min.js?1604516563"></script>
-    <script src="/js/highlight.pack.js?1604516563"></script>
+    <script src="/js/clipboard.min.js?1604530006"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604530006"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604530006"></script>
+    <script src="/js/jquery.sticky.js?1604530006"></script>
+    <script src="/js/featherlight.min.js?1604530006"></script>
+    <script src="/js/highlight.pack.js?1604530006"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1604516563"></script>
-    <script src="/js/learn.js?1604516563"></script>
-    <script src="/js/hugo-learn.js?1604516563"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604530006"></script>
+    <script src="/js/learn.js?1604530006"></script>
+    <script src="/js/hugo-learn.js?1604530006"></script>
 
-    <link href="/mermaid/mermaid.css?1604516563" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1604516563"></script>
+    <link href="/mermaid/mermaid.css?1604530006" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604530006"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

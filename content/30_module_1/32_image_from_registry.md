@@ -32,9 +32,7 @@ To illustrate the images scanning we will build an example Node.JS application b
 
 	![Trigger Scan](/images/30_module_1/triggerscan.png)
 
-4. Once complete you will see that this image has some issues ![Stack details](/images/30_module_1/scannissues.png)
-
-5. As soon as the image finishes being pushed to the registry, a new **Amazon CodeBuild pipeline** will be automatically created that executes an image scan using the integrated Sysdig Inline Scanner.
+4. As soon as the image has been pushed to the registry, a new **Amazon CodeBuild pipeline** will be automatically created that executes an image scan using the integrated Sysdig Inline Scanner.
 
 	If you wish, you can check the CodeBuild pipeline status by visiting: [Developer Tools > CodeBuild](https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1) ![Stack details](/images/30_module_1/CodeBuild-InProgress.png)
 
@@ -44,7 +42,7 @@ To illustrate the images scanning we will build an example Node.JS application b
 
 Once complete the scan will show the status '**Failed**'. ![Build Complete](/images/30_module_1/CodeBuild-ScanComplete-Fail.png)
 
-**Important** This means the image has failed the scan, **and not** that the image scan process itself failed.  The Inline Scanner script returns the following exit codes:
+**Important** This means the image has failed the scan, **and not** that the image scan process itself has failed.  The Inline Scanner script returns the following exit codes:
 
 ```text
 0  -> Scan result "pass"
@@ -52,6 +50,8 @@ Once complete the scan will show the status '**Failed**'. ![Build Complete](/ima
 2  -> Wrong script invocation
 3  -> Runtime error
 ```
+
+#### Optional: Further Information
 
 You can see a complete log of the scan process by clicking [ECS Scan log](https://gist.githubusercontent.com/johnfitzpatrick/369c1f9df765be68ba2d83cbe37f6eb3/raw/421fe8d829ad74cd406d09ca6625283e4020751b/gistfile1.txt).  This shows
 

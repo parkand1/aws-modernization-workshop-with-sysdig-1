@@ -15,6 +15,6 @@ You need a Sysdig Secure account and the associated API token
      - eu1.app.sysdig.com
      - us2.app.sysdig.com
 
-     This will be your **Sysdig Secure API Endpoint** - you'll need this later.
+     This will be your **Sysdig Secure API Endpoint** - you will need this later.
 
 <img src=/images/10_prerequisites/sysdigAPITokenBlur.gif width="100%" >

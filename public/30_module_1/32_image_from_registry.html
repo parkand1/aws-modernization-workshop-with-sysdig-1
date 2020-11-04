@@ -12,20 +12,20 @@
     <title>Push and Scan an Image from the Registry :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1604516563" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1604516563" rel="stylesheet">
-    <link href="/css/hybrid.css?1604516563" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1604516563" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1604516563" rel="stylesheet">
-    <link href="/css/auto-complete.css?1604516563" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1604516563" rel="stylesheet">
-    <link href="/css/theme.css?1604516563" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1604516563" rel="stylesheet">
+    <link href="/css/nucleus.css?1604530006" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604530006" rel="stylesheet">
+    <link href="/css/hybrid.css?1604530006" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604530006" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604530006" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604530006" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604530006" rel="stylesheet">
+    <link href="/css/theme.css?1604530006" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604530006" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1604516563" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604530006" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1604516563"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604530006"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1604516563"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1604516563"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604530006"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604530006"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1604516563"></script>
+<script type="text/javascript" src="/js/search.js?1604530006"></script>
 
     
   </div>
@@ -1027,7 +1027,10 @@
 <ul>
 <li>
 <ul>
-<li><a href="#download-example-dockerfile-and-sources">Download Example Dockerfile and Sources</a></li>
+<li><a href="#download-example-dockerfile-and-sources">Download Example Dockerfile and Sources</a>
+<ul>
+<li><a href="#optional-further-information">Optional: Further Information</a></li>
+</ul></li>
 <li><a href="#see-scan-results-on-sysdig-secure-dashboard">See Scan Results on Sysdig Secure Dashboard</a></li>
 </ul></li>
 </ul></li>
@@ -1079,9 +1082,7 @@ docker push $IMAGE</code></pre></div></li>
 
 <p><img src="/images/30_module_1/triggerscan.png" alt="Trigger Scan" /></p></li>
 
-<li><p>Once complete you will see that this image has some issues <img src="/images/30_module_1/scannissues.png" alt="Stack details" /></p></li>
-
-<li><p>As soon as the image finishes being pushed to the registry, a new <strong>Amazon CodeBuild pipeline</strong> will be automatically created that executes an image scan using the integrated Sysdig Inline Scanner.</p>
+<li><p>As soon as the image has been pushed to the registry, a new <strong>Amazon CodeBuild pipeline</strong> will be automatically created that executes an image scan using the integrated Sysdig Inline Scanner.</p>
 
 <p>If you wish, you can check the CodeBuild pipeline status by visiting: <a href="https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1" target="_blank">Developer Tools &gt; CodeBuild</a> <img src="/images/30_module_1/CodeBuild-InProgress.png" alt="Stack details" /></p>
 
@@ -1092,11 +1093,13 @@ docker push $IMAGE</code></pre></div></li>
 
 <p>Once complete the scan will show the status &lsquo;<strong>Failed</strong>&rsquo;. <img src="/images/30_module_1/CodeBuild-ScanComplete-Fail.png" alt="Build Complete" /></p>
 
-<p><strong>Important</strong> This means the image has failed the scan, <strong>and not</strong> that the image scan process itself failed.  The Inline Scanner script returns the following exit codes:</p>
+<p><strong>Important</strong> This means the image has failed the scan, <strong>and not</strong> that the image scan process itself has failed.  The Inline Scanner script returns the following exit codes:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">0  -&gt; Scan result &#34;pass&#34;
 1  -&gt; Scan result &#34;fail&#34;
 2  -&gt; Wrong script invocation
 3  -&gt; Runtime error</code></pre></div>
+<h4 id="optional-further-information">Optional: Further Information</h4>
+
 <p>You can see a complete log of the scan process by clicking <a href="https://gist.githubusercontent.com/johnfitzpatrick/369c1f9df765be68ba2d83cbe37f6eb3/raw/421fe8d829ad74cd406d09ca6625283e4020751b/gistfile1.txt" target="_blank">ECS Scan log</a>.  This shows</p>
 
 <!-- https://gist.github.com/johnfitzpatrick/369c1f9df765be68ba2d83cbe37f6eb3 -->
@@ -1807,19 +1810,19 @@ docker push $IMAGE</code></pre></div></li>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1604516563"></script>
-    <script src="/js/perfect-scrollbar.min.js?1604516563"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1604516563"></script>
-    <script src="/js/jquery.sticky.js?1604516563"></script>
-    <script src="/js/featherlight.min.js?1604516563"></script>
-    <script src="/js/highlight.pack.js?1604516563"></script>
+    <script src="/js/clipboard.min.js?1604530006"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604530006"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604530006"></script>
+    <script src="/js/jquery.sticky.js?1604530006"></script>
+    <script src="/js/featherlight.min.js?1604530006"></script>
+    <script src="/js/highlight.pack.js?1604530006"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1604516563"></script>
-    <script src="/js/learn.js?1604516563"></script>
-    <script src="/js/hugo-learn.js?1604516563"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604530006"></script>
+    <script src="/js/learn.js?1604530006"></script>
+    <script src="/js/hugo-learn.js?1604530006"></script>
 
-    <link href="/mermaid/mermaid.css?1604516563" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1604516563"></script>
+    <link href="/mermaid/mermaid.css?1604530006" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604530006"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

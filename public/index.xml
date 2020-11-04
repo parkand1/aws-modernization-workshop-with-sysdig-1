@@ -200,7 +200,7 @@ Finally we looked at how to view the scan results on the Sysdig Secure dashboard
       <description>We will use the Amazon ECS CLI tool to deploy an example ECS cluster, so we&amp;rsquo;ll need to install it on our Cloud9 Workspace. To install Amazon ECS CLI, follow the steps below
  Log into your Cloud9 Workspace
  Download the Amazon ECS CLI binary and make it executable .
-sudo curl -Lo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest sudo chmod +x /usr/local/bin/ecs-cli Check installation
+sudo curl -sLo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest sudo chmod +x /usr/local/bin/ecs-cli Check installation
 ecs-cli --version Now create a file named task-execution-assume-role.json for our IAM role as follows</description>
     </item>
     
@@ -212,7 +212,8 @@ ecs-cli --version Now create a file named task-execution-assume-role.json for ou
       <guid>//localhost:1313/40_module_2/41_deploy_image_scanner_for_fargate.html</guid>
       <description>To deploy the Sysdig image scanner for Fargate, we&amp;rsquo;ll again use Amazon CloudFormation. The procedure is identical to how we installed Amazon ECR Integration in the previous lab, so this time we&amp;rsquo;ll use the AWS CLI instead.
 Note You can find instructions on using the CLI on the Sysdig Fargate scanning installation page
- First, make sure your Sysdig SecureAPIToken and SecureEndpoint environment variables are set. You would have set these when setting up your Cloud9 Workspace.</description>
+ First, make sure your Sysdig SecureAPIToken and SecureEndpoint environment variables are set.
+echo $SecureAPIToken echo $SecureEndpoint You would have set these environment variables when setting up your Cloud9 Workspace.</description>
     </item>
     
     <item>
@@ -234,8 +235,8 @@ ecs-cli configure --cluster tutorial --default-launch-type FARGATE --config-name
       <guid>//localhost:1313/40_module_2/43_initiate_scan.html</guid>
       <description>Now that a sample image has been deployed, the scanner should pick this up and scan it automatically
  Now go to CodeBuild &amp;gt; Build projects and see the task progress.
- Click on ECSInlineSecureScanning to drill down on it.
- Click &amp;lsquo;Build run&amp;rsquo; link and scroll down to see the scan details
+ Click on &amp;lsquo;Failed&amp;rsquo; next to ECSInlineSecureScanning to drill down on it.
+ Click &amp;lsquo;Failed&amp;rsquo; link and scroll down to see the scan details
   </description>
     </item>
     

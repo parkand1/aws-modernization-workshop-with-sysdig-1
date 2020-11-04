@@ -21,7 +21,7 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 
 ```sh
 echo "Enter your **Sysdig Secure API Token**"; read SecureAPIToken 
-export SecureAPIToken 
+export SecureAPIToken
 ```
 
 ```sh
@@ -43,10 +43,8 @@ echo "export AWS_REGION=${AWS_REGION}" |
 tee -a ~/.bash_profile
 aws configure set default.region ${AWS_REGION}
 aws configure get default.region
-curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh > deploy-amazon-ecs-sample.sh
+curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/272b0f1a45fa8a54571ebb707b7e7d51e4db0fb5/deploy-amazon-ecs-sample.sh > deploy-amazon-ecs-sample.sh
 chmod +x deploy-amazon-ecs-sample.sh
-curl -s https://gist.githubusercontent.com/johnfitzpatrick/95ecc8853764785a6033fd920ada1b3a/raw/92ff710c1f0622210b4a9917d2f775089f193073/ecs-cluster-env-vars.sh > ecs-cluster-env-vars.sh
-chmod +x ecs-cluster-env-vars.sh
 aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q && echo "IAM role valid" || echo "IAM role NOT valid"
 ```
 {{% notice warning %}}

@@ -11,7 +11,7 @@ We will use the Amazon ECS CLI tool to deploy an example ECS cluster, so we'll n
 2. Download the Amazon ECS CLI binary and make it executable .
 
     ```
-    sudo curl -Lo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest
+    sudo curl -sLo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest
     sudo chmod +x /usr/local/bin/ecs-cli
     ```
 
