@@ -12,20 +12,20 @@
     <title>Deploy an ECS cluster using Fargate :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1604421810" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1604421810" rel="stylesheet">
-    <link href="/css/hybrid.css?1604421810" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1604421810" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1604421810" rel="stylesheet">
-    <link href="/css/auto-complete.css?1604421810" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1604421810" rel="stylesheet">
-    <link href="/css/theme.css?1604421810" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1604421810" rel="stylesheet">
+    <link href="/css/nucleus.css?1604516563" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604516563" rel="stylesheet">
+    <link href="/css/hybrid.css?1604516563" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604516563" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604516563" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604516563" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604516563" rel="stylesheet">
+    <link href="/css/theme.css?1604516563" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604516563" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1604421810" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604516563" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1604421810"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604516563"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1604421810"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1604421810"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604516563"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604516563"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1604421810"></script>
+<script type="text/javascript" src="/js/search.js?1604516563"></script>
 
     
   </div>
@@ -1060,20 +1060,11 @@ INFO[0060] Cloudformation stack status       stackStatus=CREATE_IN_PROGRESS
 VPC created: vpc-046ed77edcd796e19
 Subnet created: subnet-045df8f58a51b2291
 Subnet created: subnet-0e4623283c4907ea7
-Cluster creation succeeded.</code></pre></li>
-
-<li><p>Set the names of the VPC and Subnets <strong>from the output above</strong> as an environment variables, as follows</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export VPC<span style="color:#f92672">=</span>vpc-046ed77edcd796e19
-export SUBNET1<span style="color:#f92672">=</span>subnet-045df8f58a51b2291
-export SUBNET2<span style="color:#f92672">=</span>subnet-0e4623283c4907ea7</code></pre></div>
-<p><strong>Note</strong> You can subsequently get these details from the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">CloudFormation UI</a></p>
-
-<p><img src="/images/40_module_2/image7.png" alt="ECS Cluster" /></p>
-
+Cluster creation succeeded.</code></pre>
 <p>We&rsquo;ll use a custom deployment script that will</p>
 
 <ul>
-<li><p>Retrieve the id of the default security group for the VPC creates, and allows inbound access on port 80</p></li>
+<li><p>Retrieve the id of the default security group for the VPC created, and allows inbound access on port 80</p></li>
 
 <li><p>Create a <code>ecs-params.yml</code> file using the subnets and security group already retrieved</p></li>
 
@@ -1083,54 +1074,12 @@ export SUBNET2<span style="color:#f92672">=</span>subnet-0e4623283c4907ea7</code
 <li><p>Run the script <code>deploy-amazon-ecs-sample.sh</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /home/ec2-user/environment
 ./deploy-amazon-ecs-sample.sh</code></pre></div>
-<details>
-<summary>Expand for details of script `deploy-amazon-ecs-sample.sh`</summary>
-  ```
-  1  export group_id=$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$VPC --region us-east-1 | jq '.SecurityGroups[0].GroupId' | xargs)
-  2
-  3  aws ec2 authorize-security-group-ingress --group-id $group_id --protocol tcp --port 80 --cidr 0.0.0.0/0 --region us-east-1
-  4
-  5  cat <<- 'EOF' > "docker-compose.yml"
-  6  version: '3'
-  7  services:
-  8    web:
-  9      image: amazon/amazon-ecs-sample
- 10      ports:
- 11        - "80:80"
- 12      logging:
- 13        driver: awslogs
- 14        options:
- 15          awslogs-group: tutorial
- 16          awslogs-region: us-east-1
- 17          awslogs-stream-prefix: web
- 18  EOF
- 19
- 20  cat <<- 'EOF' > "ecs-params.yml"
- 21  version: 1
- 22  task_definition:
- 23    task_execution_role: ecsTaskExecutionRole
- 24    ecs_network_mode: awsvpc
- 25    task_size:
- 26      mem_limit: 0.5GB
- 27      cpu_limit: 256
- 28  run_params:
- 29    network_configuration:
- 30      awsvpc_configuration:
- 31        subnets:
- 32          - "subnet1"
- 33          - "subnet2"
- 34        security_groups:
- 35          - "sg1"
- 36        assign_public_ip: ENABLED
- 37  EOF
- 38
- 39  sed -i "s/subnet1/$SUBNET1/g" ecs-params.yml
- 40  sed -i "s/subnet2/$SUBNET2/g" ecs-params.yml
- 41  sed -i "s/sg1/$group_id/g" ecs-params.yml
- 42
- 43  ecs-cli compose --project-name tutorial service up --create-log-groups --cluster-config tutorial --ecs-profile tutorial-profile
- ```
-</details></li>
+<p><strong>Note</strong> You can subsequently get the VPC and Subnet details requested from the <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">CloudFormation UI</a></p>
+
+<p><img src="/images/40_module_2/image7.png" alt="ECS Cluster" /></p>
+
+<p>Optionally, for details of this script you can run the following command</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat ./deploy-amazon-ecs-sample.sh</code></pre></div></li>
 
 <li><p>Once completed you can see on the <a href="https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/tutorial/services" target="_blank">Amazon ECS UI</a></p></li>
 </ol>
@@ -1807,19 +1756,19 @@ export SUBNET2<span style="color:#f92672">=</span>subnet-0e4623283c4907ea7</code
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1604421810"></script>
-    <script src="/js/perfect-scrollbar.min.js?1604421810"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1604421810"></script>
-    <script src="/js/jquery.sticky.js?1604421810"></script>
-    <script src="/js/featherlight.min.js?1604421810"></script>
-    <script src="/js/highlight.pack.js?1604421810"></script>
+    <script src="/js/clipboard.min.js?1604516563"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604516563"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604516563"></script>
+    <script src="/js/jquery.sticky.js?1604516563"></script>
+    <script src="/js/featherlight.min.js?1604516563"></script>
+    <script src="/js/highlight.pack.js?1604516563"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1604421810"></script>
-    <script src="/js/learn.js?1604421810"></script>
-    <script src="/js/hugo-learn.js?1604421810"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604516563"></script>
+    <script src="/js/learn.js?1604516563"></script>
+    <script src="/js/hugo-learn.js?1604516563"></script>
 
-    <link href="/mermaid/mermaid.css?1604421810" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1604421810"></script>
+    <link href="/mermaid/mermaid.css?1604516563" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604516563"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

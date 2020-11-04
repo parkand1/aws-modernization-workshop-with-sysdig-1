@@ -14,15 +14,17 @@ This integration enables the Amazon Elastic Container Registry (ECR) to automati
 
 3. Click **Next**. ![Stack details](/images/30_module_1/stack_details.png)
 
-4. There are two items to update on this screen:
+4. There are three items to update on this screen:
 
  - For **'ScanningType'** make sure the default value of 'Inline' is selected
- - For **'SysdigSecureAPIToken'**, enter your 'Sysdig Secure API Token' for the Sysdig Secure account you created earlier. You can find in your User Profile. ![API token](/images/30_module_1/sysdig_api.png)
+
  - For '**SysdigSecureEndpoint**', enter the value in your Sysdig Secure domain name, i.e. one of the following
 
-       - secure.sysdig.com
-       - eu1.app.sysdig.com
-       - us2.app.sysdig.com
+       - https://secure.sysdig.com
+       - https://eu1.app.sysdig.com
+       - https://us2.app.sysdig.com
+
+  - For **'SysdigSecureAPIToken'**, enter your 'Sysdig Secure API Token' for the Sysdig Secure account you created earlier. You can find in your Sysdig Secure User Profile (**Note** Please make sure you logged into Sysdig Secure, and not Sysdig Monitor). ![API token](/images/30_module_1/sysdig_api_01.png)
 
 5. Click '**Next**'. You will be presented with 'Configure stack options' page.
 

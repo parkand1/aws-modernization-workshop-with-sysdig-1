@@ -32,7 +32,7 @@ aws ecr create-repository --repository-name aws-workshop --image-scanning-config
       <description>This integration enables the Amazon Elastic Container Registry (ECR) to automatically trigger an action to scan every new container that is pushed into the registry.
  Log into your AWS Console and select &amp;lsquo;US East (N. Virginia) us-east-1&amp;rsquo; from the &amp;lsquo;Select a Region&amp;rsquo; dropdown on the top right.
 For the purposes of this exercise we will be using AWS Region us-east-1
- Navigate to this CloudFormation template.  Click Next.  There are two items to update on this screen:</description>
+ Navigate to this CloudFormation template.  Click Next.  There are three items to update on this screen:</description>
     </item>
     
     <item>

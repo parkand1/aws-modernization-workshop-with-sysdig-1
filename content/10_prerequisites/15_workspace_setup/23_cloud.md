@@ -17,7 +17,19 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 
      <img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" >
 
-  4. And copy and run (paste with **Ctrl+P**) the command below. Before running it, review what it does at the end of this step.
+  4. Copy paste the following two commands to configure your __Secure API Token__ and  __Secure API Endpoint__ environment variables (these are the values you made a note of [here]({{< ref "/10_prerequisites/11_sysdig.md" >}}))
+
+```sh
+echo "Enter your **Sysdig Secure API Token**"; read SecureAPIToken 
+export SecureAPIToken 
+```
+
+```sh
+echo "Enter your **Sysdig Secure API Endpoint**"; read SecureEndpoint
+export SecureEndpoint
+```
+
+  5. And copy and run (paste with **Ctrl+P**) the command below. Before running it, review what it does at the end of this step.
 
 
 ```sh
@@ -33,6 +45,8 @@ aws configure set default.region ${AWS_REGION}
 aws configure get default.region
 curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh > deploy-amazon-ecs-sample.sh
 chmod +x deploy-amazon-ecs-sample.sh
+curl -s https://gist.githubusercontent.com/johnfitzpatrick/95ecc8853764785a6033fd920ada1b3a/raw/92ff710c1f0622210b4a9917d2f775089f193073/ecs-cluster-env-vars.sh > ecs-cluster-env-vars.sh
+chmod +x ecs-cluster-env-vars.sh
 aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q && echo "IAM role valid" || echo "IAM role NOT valid"
 ```
 {{% notice warning %}}
@@ -42,7 +56,7 @@ If the IAM role is not valid, <span style="color: red;">**DO NOT PROCEED**</span
 ### Explanation of the commands:
 
 Actions executed:
-:small_blue_diamond: Install jq- jq is a command-line tool for parsing JSON
+:small_blue_diamond: Install jq - jq is a command-line tool for parsing JSON
 
 :small_blue_diamond: Ensure temporary credentials aren’t already in place.
 
@@ -52,4 +66,4 @@ Actions executed:
 
 :small_blue_diamond: Validate that our IAM role is valid.
 
-:small_blue_diamond: Copy a script into place for use later in the workshop.
+:small_blue_diamond: Copy two scripts into place for use later in the workshop.
