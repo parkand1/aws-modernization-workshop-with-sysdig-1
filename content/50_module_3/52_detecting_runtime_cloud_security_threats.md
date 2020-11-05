@@ -7,15 +7,23 @@ weight: 52
 Let's look at an example of AWS threat detection in action with CloudTrail and the Sysdig CloudConnector.  To do so we'll create an S3 bucket, and make it public
 
 1. Log into Cloud9 Workspace
-2. Create an S3 bucket. S3 bucketnames are globally unique, so **use your initials** combined with a timestamp
+
+      S3 bucket names are globally unique, so use **your initials** in **lower case** combined with a timestamp
+
+2. First set your initials as an environment variable
 
     ```
-    INITIALS=<your initial>
-    BUCKETNAME=$INITIALS-$(date +%s)
+    INITIALS=<your initials>
+    ```
+
+3. Now create the S3 bucket, ensuring the bucket name is in lowercase.
+
+    ```
+    BUCKETNAME="${INITIALS,,}"-$(date +%s)
     aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
     ```
 
-3. Now delete the S3 bucket's encryption.  This should be considered a potential security threat.
+4. Now delete the S3 bucket's encryption.  This should be considered a potential security threat.
 
     ```
     aws s3api delete-bucket-encryption --bucket $BUCKETNAME
