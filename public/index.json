@@ -46,7 +46,7 @@
 	"title": "1. Sign-up for a Sysdig Trial account",
 	"tags": [],
 	"description": "",
-	"content": "You need a Sysdig Secure account and the associated API token\n Sign-up for a free Sysdig trial here https://sysdig.com/company/free-trial/\n You will receive a confirmation email with a link Once registered, log in and click your initials on the left nav bar, click \u0026lsquo;Settings\u0026rsquo; and navigate to \u0026lsquo;User Profile\u0026rsquo; and make a note of\n Your \u0026lsquo;Sysdig Secure API Token\u0026rsquo;. The URL you are routed to in Sysdig secure  secure.sysdig.com eu1.app.sysdig.com us2.app.sysdig.com   This will be your Sysdig Secure API Endpoint - you will need this later.\n  "
+	"content": "You need a Sysdig Secure account to complete this workshop. In particular you will need to make a note of your account\u0026rsquo;s associated API token \u0026amp; API Endpoint to configure the integrations.\n Sign-up for a free Sysdig trial here https://sysdig.com/company/free-trial/\n You will receive a confirmation email with a confirmation link  Click the link and log into Sysdig, and make a note of the following two items\n The Sysdig Secure host you are routed to in the browser URL. This will be your Sysdig Secure API Endpoint - you will need this later. It should be one of the following\n secure.sysdig.com eu1.app.sysdig.com us2.app.sysdig.com  Your \u0026lsquo;Sysdig Secure API Token\u0026rsquo;. Click your initials on the left nav bar, click \u0026lsquo;Settings\u0026rsquo; and navigate to \u0026lsquo;User Profile\u0026lsquo;\n   "
 },
 {
 	"uri": "//localhost:1313/10_prerequisites.html",

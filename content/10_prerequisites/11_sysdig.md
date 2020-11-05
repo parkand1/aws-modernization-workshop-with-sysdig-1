@@ -4,17 +4,19 @@ chapter: false
 weight: 10
 ---
 
-You need a Sysdig Secure account and the associated API token
+You need a Sysdig Secure account to complete this workshop. In particular you will need to make a note of your account's associated API token & API Endpoint to configure the integrations.
 
 1. Sign-up for a free Sysdig trial here [https://sysdig.com/company/free-trial/](https://sysdig.com/company/free-trial/)  
-2. You will receive a confirmation email with a link
-3. Once registered, log in and click your initials on the left nav bar, click '**Settings**' and navigate to '**User Profile**' and make a note of
- - Your '**Sysdig Secure API Token**'.
- - The URL you are routed to in Sysdig secure
+
+    - You will receive a confirmation email with a confirmation link
+
+2. Click the link and log into Sysdig, and make a note of the following two items
+
+ - The Sysdig Secure host you are routed to in the browser URL.  This will be your **Sysdig Secure API Endpoint** - you will need this later. It should be one of the following
      - secure.sysdig.com
      - eu1.app.sysdig.com
      - us2.app.sysdig.com
 
-     This will be your **Sysdig Secure API Endpoint** - you will need this later.
+ - Your '**Sysdig Secure API Token**'. Click your initials on the left nav bar, click '**Settings**' and navigate to '**User Profile**'
 
 <img src=/images/10_prerequisites/sysdigAPITokenBlur.gif width="100%" >

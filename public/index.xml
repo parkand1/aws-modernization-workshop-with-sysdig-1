@@ -57,10 +57,10 @@ For example, think of some credentials mistakenly included in an image, later de
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/10_prerequisites/11_sysdig.html</guid>
-      <description>You need a Sysdig Secure account and the associated API token
+      <description>You need a Sysdig Secure account to complete this workshop. In particular you will need to make a note of your account&amp;rsquo;s associated API token &amp;amp; API Endpoint to configure the integrations.
  Sign-up for a free Sysdig trial here https://sysdig.com/company/free-trial/
- You will receive a confirmation email with a link Once registered, log in and click your initials on the left nav bar, click &amp;lsquo;Settings&amp;rsquo; and navigate to &amp;lsquo;User Profile&amp;rsquo; and make a note of
- Your &amp;lsquo;Sysdig Secure API Token&amp;rsquo;. The URL you are routed to in Sysdig secure  secure.</description>
+ You will receive a confirmation email with a confirmation link  Click the link and log into Sysdig, and make a note of the following two items
+ The Sysdig Secure host you are routed to in the browser URL.</description>
     </item>
     
     <item>
