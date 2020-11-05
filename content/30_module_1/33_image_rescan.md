@@ -4,10 +4,17 @@ chapter: false
 weight: 33
 ---
 
-For illustration purposes, let's rebuild our image and make it more secure by starting with a different Base image. To do so:
+For illustration purposes, let's rebuild our image and make it more secure by starting with a different Base image.
 
 1. Go back into Cloud9 Workspace
-2. Edit the `Dockerfile` and in the first line update the base image from
+
+2. As a bit of housekeeping, first lets delete the older `node` image as follows to free up space on our cloud9 workstation,
+
+	```
+	docker rmi $(docker images | grep node | grep -v lambda | awk '{print $3}')
+	```
+
+3. Edit the `Dockerfile` and in the first line update the base image from
 
 	```
 	FROM node:12
@@ -42,7 +49,7 @@ For illustration purposes, let's rebuild our image and make it more secure by st
 	CMD [ "node", "server.js" ]
 	```
 
-3. Now rebuild and push the image again with:
+4. Now rebuild and push the image again with:
 
 	```
 	docker build . -t $IMAGE
@@ -51,12 +58,5 @@ For illustration purposes, let's rebuild our image and make it more secure by st
 
 	The image will automatically be scanned, as before.
 
-	**Troubleshooting** If the build fails reporting no space left on device, then you can delete the older `node` image, as follows.
 
-	```
-	docker rmi $(docker images | grep node | grep -v lambda | awk '{print $3}')
-	```
-
-
-
-4. Once completed, you will see that the scan result now shows a more recent image (based on debian/10) with fewer vulnerabilities. ![Sysdig Secure](/images/30_module_1/securescann03.png)
+5. Once completed, you will see that the scan result now shows a more recent image (based on debian/10) with fewer vulnerabilities. ![Sysdig Secure](/images/30_module_1/securescann03.png)

@@ -20,7 +20,7 @@ To enable AWS Security Hub:
 
 3. Log into your AWS account with your browser and then browse to the [AWS Security Hub](https://console.aws.amazon.com/securityhub/home).
 
-If you see the Summary web page, it means that you enabled it before in your account. You can skip to the **Step2** below.
+	If you see the Summary web page, it means its enabled in your account. You can skip to the **Step2** below.
 
 {{% notice warning %}}
 You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made. It has no relation to the use of Sysdig CloudConnector.
@@ -66,7 +66,7 @@ You can optionally add tag keys and values to the deployment, but no further con
 
 	<!-- ![cf4](/images/20_workshop_setup/cf4.png) -->
 
-5. Once you are happy with the plan, acknowledge it by marking the checkbox
+5. Finaally click the checkbox
 
 	![cf5](/images/20_workshop_setup/cf5.png)
 

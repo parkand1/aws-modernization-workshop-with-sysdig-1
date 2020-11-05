@@ -20,13 +20,11 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
   4. Copy paste the following two commands to configure your __Secure API Token__ and  __Secure API Endpoint__ environment variables (these are the values you made a note of [here]({{< ref "/10_prerequisites/11_sysdig.md" >}}))
 
 ```sh
-echo "Enter your **Sysdig Secure API Token**"; read SecureAPIToken 
-export SecureAPIToken
+echo "Enter your 'Sysdig Secure API Token'"; read SecureAPIToken 
 ```
 
 ```sh
-echo "Enter your **Sysdig Secure API Endpoint**"; read SecureEndpoint
-export SecureEndpoint
+echo "Enter your 'Sysdig Secure API Endpoint'"; read SecureEndpoint
 ```
 
   5. And copy and run (paste with **Ctrl+P**) the command below. Before running it, review what it does at the end of this step.

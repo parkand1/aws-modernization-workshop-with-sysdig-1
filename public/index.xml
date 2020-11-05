@@ -173,11 +173,10 @@ wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/30_module_1/33_image_rescan.html</guid>
-      <description>For illustration purposes, let&amp;rsquo;s rebuild our image and make it more secure by starting with a different Base image. To do so:
- Go back into Cloud9 Workspace Edit the Dockerfile and in the first line update the base image from
-FROM node:12 to
-FROM bitnami/node:12 The file should look like this
-FROM bitnami/node:12 # Create app directory WORKDIR /usr/src/app # Install app dependencies # A wildcard is used to ensure both package.</description>
+      <description>For illustration purposes, let&amp;rsquo;s rebuild our image and make it more secure by starting with a different Base image.
+ Go back into Cloud9 Workspace
+ As a bit of housekeeping, first lets delete the older node image as follows to free up space on our cloud9 workstation,
+docker rmi $(docker images | grep node | grep -v lambda | awk &amp;#39;{print $3}&amp;#39;) Edit the Dockerfile and in the first line update the base image from</description>
     </item>
     
     <item>

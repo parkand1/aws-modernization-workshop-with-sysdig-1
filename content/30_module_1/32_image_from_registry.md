@@ -28,10 +28,6 @@ To illustrate the images scanning we will build an example Node.JS application b
 	docker push $IMAGE
 	```
 
-3. Check that an image scan is automatically triggered in [Amazon ECR](https://console.aws.amazon.com/ecr/repositories/aws-workshop/?region=us-east-1)
-
-	![Trigger Scan](/images/30_module_1/triggerscan.png)
-
 4. As soon as the image has been pushed to the registry, a new **Amazon CodeBuild pipeline** will be automatically created that executes an image scan using the integrated Sysdig Inline Scanner.
 
 	If you wish, you can check the CodeBuild pipeline status by visiting: [Developer Tools > CodeBuild](https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1) ![Stack details](/images/30_module_1/CodeBuild-InProgress.png)

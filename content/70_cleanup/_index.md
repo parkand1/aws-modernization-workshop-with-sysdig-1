@@ -83,9 +83,6 @@ weight = 70
 
     ```
     aws ecr delete-repository --repository-name aws-workshop --force
-
-    aws cloudformation delete-stack --stack-name ECRImageScanning
-
     ```
 
 1. Remove Amazon ECR Integration

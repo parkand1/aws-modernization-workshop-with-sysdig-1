@@ -35,7 +35,7 @@ To illustrate automatic scanning, we will now deploy a sample ECS cluster that s
 
   - Create a `docker-compose.yaml` to instantiate the image `amazon/amazon-ecs-sample`
 
-3. Run the script `deploy-amazon-ecs-sample.sh`
+3. Run the script `deploy-amazon-ecs-sample.sh`, copying and pasting the VPC & Subnet values from the above out when prompted
 
     ```bash
     cd /home/ec2-user/environment

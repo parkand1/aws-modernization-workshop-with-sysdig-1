@@ -13,10 +13,12 @@ You need a Sysdig Secure account to complete this workshop. In particular you wi
 2. Click the link and log into Sysdig, and make a note of the following two items
 
  - The Sysdig Secure host you are routed to in the browser URL.  This will be your **Sysdig Secure API Endpoint** - you will need this later. It should be one of the following
-     - secure.sysdig.com
-     - eu1.app.sysdig.com
-     - us2.app.sysdig.com
+     - https://secure.sysdig.com
+     - https://eu1.app.sysdig.com
+     - https://us2.app.sysdig.com
 
- - Your '**Sysdig Secure API Token**'. Click your initials on the left nav bar, click '**Settings**' and navigate to '**User Profile**'
+ - Your '**Sysdig Secure API Token**'. Click your initials on the left nav bar, click '**Settings**' and navigate to '**User Profile**'.
+
+        **IMPORTANT:** Make sure you DO NOT use the **Sysdig Monitor** API Token, or the **Access Token**!
 
 <img src=/images/10_prerequisites/sysdigAPITokenBlur.gif width="100%" >

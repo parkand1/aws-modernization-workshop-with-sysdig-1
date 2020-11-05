@@ -12,20 +12,20 @@
     <title>Modify the image and trigger a second scan :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1604540408" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1604540408" rel="stylesheet">
-    <link href="/css/hybrid.css?1604540408" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1604540408" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1604540408" rel="stylesheet">
-    <link href="/css/auto-complete.css?1604540408" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1604540408" rel="stylesheet">
-    <link href="/css/theme.css?1604540408" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1604540408" rel="stylesheet">
+    <link href="/css/nucleus.css?1604579463" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604579463" rel="stylesheet">
+    <link href="/css/hybrid.css?1604579463" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604579463" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604579463" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604579463" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604579463" rel="stylesheet">
+    <link href="/css/theme.css?1604579463" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604579463" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1604540408" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604579463" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1604540408"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604579463"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1604540408"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1604540408"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604579463"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604579463"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1604540408"></script>
+<script type="text/javascript" src="/js/search.js?1604579463"></script>
 
     
   </div>
@@ -1045,10 +1045,13 @@
 
 
 
-<p>For illustration purposes, let&rsquo;s rebuild our image and make it more secure by starting with a different Base image. To do so:</p>
+<p>For illustration purposes, let&rsquo;s rebuild our image and make it more secure by starting with a different Base image.</p>
 
 <ol>
-<li>Go back into Cloud9 Workspace</li>
+<li><p>Go back into Cloud9 Workspace</p></li>
+
+<li><p>As a bit of housekeeping, first lets delete the older <code>node</code> image as follows to free up space on our cloud9 workstation,</p>
+<pre><code>docker rmi $(docker images | grep node | grep -v lambda | awk &#39;{print $3}&#39;)</code></pre></li>
 
 <li><p>Edit the <code>Dockerfile</code> and in the first line update the base image from</p>
 <pre><code>FROM node:12</code></pre>
@@ -1078,10 +1081,7 @@ CMD [ &#34;node&#34;, &#34;server.js&#34; ]</code></pre></li>
 <li><p>Now rebuild and push the image again with:</p>
 <pre><code>docker build . -t $IMAGE
 docker push $IMAGE</code></pre>
-<p>The image will automatically be scanned, as before.</p>
-
-<p><strong>Troubleshooting</strong> If the build fails reporting no space left on device, then you can delete the older <code>node</code> image, as follows.</p>
-<pre><code>docker rmi $(docker images | grep node | grep -v lambda | awk &#39;{print $3}&#39;)</code></pre></li>
+<p>The image will automatically be scanned, as before.</p></li>
 
 <li><p>Once completed, you will see that the scan result now shows a more recent image (based on debian/10) with fewer vulnerabilities. <img src="/images/30_module_1/securescann03.png" alt="Sysdig Secure" /></p></li>
 </ol>
@@ -1756,19 +1756,19 @@ docker push $IMAGE</code></pre>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1604540408"></script>
-    <script src="/js/perfect-scrollbar.min.js?1604540408"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1604540408"></script>
-    <script src="/js/jquery.sticky.js?1604540408"></script>
-    <script src="/js/featherlight.min.js?1604540408"></script>
-    <script src="/js/highlight.pack.js?1604540408"></script>
+    <script src="/js/clipboard.min.js?1604579463"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604579463"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604579463"></script>
+    <script src="/js/jquery.sticky.js?1604579463"></script>
+    <script src="/js/featherlight.min.js?1604579463"></script>
+    <script src="/js/highlight.pack.js?1604579463"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1604540408"></script>
-    <script src="/js/learn.js?1604540408"></script>
-    <script src="/js/hugo-learn.js?1604540408"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604579463"></script>
+    <script src="/js/learn.js?1604579463"></script>
+    <script src="/js/hugo-learn.js?1604579463"></script>
 
-    <link href="/mermaid/mermaid.css?1604540408" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1604540408"></script>
+    <link href="/mermaid/mermaid.css?1604579463" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604579463"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
