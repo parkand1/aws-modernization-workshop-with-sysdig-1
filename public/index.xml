@@ -212,7 +212,7 @@ ecs-cli --version Now create a file named task-execution-assume-role.json for ou
       <description>To deploy the Sysdig image scanner for Fargate, we&amp;rsquo;ll again use Amazon CloudFormation. The procedure is identical to how we installed Amazon ECR Integration in the previous lab, so this time we&amp;rsquo;ll use the AWS CLI instead.
 Note You can find instructions on using the CLI on the Sysdig Fargate scanning installation page
  First, make sure your Sysdig SecureAPIToken and SecureEndpoint environment variables are set.
-echo $SecureAPIToken echo $SecureEndpoint You would have set these environment variables when setting up your Cloud9 Workspace.</description>
+echo $SecureAPIToken echo $SecureEndpoint You should have set these environment variables when setting up your Cloud9 Workspace.</description>
     </item>
     
     <item>
@@ -280,8 +280,10 @@ To check it has been deployed successfully, navigate to https://console.aws.amaz
       
       <guid>//localhost:1313/50_module_3/52_detecting_runtime_cloud_security_threats.html</guid>
       <description>Let&amp;rsquo;s look at an example of AWS threat detection in action with CloudTrail and the Sysdig CloudConnector. To do so we&amp;rsquo;ll create an S3 bucket, and make it public
- Log into Cloud9 Workspace Create an S3 bucket. S3 bucketnames are globally unique, so use your initials combined with a timestamp
-INITIALS=&amp;lt;your initial&amp;gt; BUCKETNAME=$INITIALS-$(date +%s) aws s3api create-bucket --bucket $BUCKETNAME --acl public-read Now delete the S3 bucket&amp;rsquo;s encryption. This should be considered a potential security threat.</description>
+ Log into Cloud9 Workspace
+S3 bucket names are globally unique, so use your initials in lower case combined with a timestamp
+ First set your initials as an environment variable
+INITIALS=&amp;lt;your initials&amp;gt; Now create the S3 bucket, ensuring the bucket name is in lowercase.</description>
     </item>
     
     <item>
@@ -302,7 +304,7 @@ Browse to CloudWatch, and click &amp;lsquo;Log groups &amp;gt; cloud-connector &
       
       <guid>//localhost:1313/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html</guid>
       <description>Using Sysdig CloudConnector, you are not limited to the out-of-the-box rules provided. You can modify existing rules, or write your own tailored to your own needs.
-Let’s try first modifying a rule. The following rule checks if a resource is created in a region that you are not usually using. But to be active, you have to specify which regions you want to detect.
+Let’s try first modifying a rule. The following rule checks if a resource is created in a region that you are not usually using. However, to be active you must specify which regions you want to detect.
 - list: disallowed_aws_regions items: [] - rule: AWS command executed on unused region desc: Detect AWS command execution on unused regions condition: not jevt.</description>
     </item>
     

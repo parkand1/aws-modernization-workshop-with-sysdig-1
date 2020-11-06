@@ -12,20 +12,20 @@
     <title>Detecting Runtime Cloud Security Threats :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1604421810" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1604421810" rel="stylesheet">
-    <link href="/css/hybrid.css?1604421810" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1604421810" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1604421810" rel="stylesheet">
-    <link href="/css/auto-complete.css?1604421810" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1604421810" rel="stylesheet">
-    <link href="/css/theme.css?1604421810" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1604421810" rel="stylesheet">
+    <link href="/css/nucleus.css?1604686339" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1604686339" rel="stylesheet">
+    <link href="/css/hybrid.css?1604686339" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1604686339" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1604686339" rel="stylesheet">
+    <link href="/css/auto-complete.css?1604686339" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1604686339" rel="stylesheet">
+    <link href="/css/theme.css?1604686339" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1604686339" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1604421810" rel="stylesheet">
+      <link href="/css/theme-mine.css?1604686339" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1604421810"></script>
+    <script src="/js/jquery-3.3.1.min.js?1604686339"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1604421810"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1604421810"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1604686339"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1604686339"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1604421810"></script>
+<script type="text/javascript" src="/js/search.js?1604686339"></script>
 
     
   </div>
@@ -1048,11 +1048,15 @@
 <p>Let&rsquo;s look at an example of AWS threat detection in action with CloudTrail and the Sysdig CloudConnector.  To do so we&rsquo;ll create an S3 bucket, and make it public</p>
 
 <ol>
-<li>Log into Cloud9 Workspace</li>
+<li><p>Log into Cloud9 Workspace</p>
 
-<li><p>Create an S3 bucket. S3 bucketnames are globally unique, so <strong>use your initials</strong> combined with a timestamp</p>
-<pre><code>INITIALS=&lt;your initial&gt;
-BUCKETNAME=$INITIALS-$(date +%s)
+<p>S3 bucket names are globally unique, so use <strong>your initials</strong> in <strong>lower case</strong> combined with a timestamp</p></li>
+
+<li><p>First set your initials as an environment variable</p>
+<pre><code>INITIALS=&lt;your initials&gt;</code></pre></li>
+
+<li><p>Now create the S3 bucket, ensuring the bucket name is in lowercase.</p>
+<pre><code>BUCKETNAME=&#34;${INITIALS,,}&#34;-$(date +%s)
 aws s3api create-bucket --bucket $BUCKETNAME --acl public-read</code></pre></li>
 
 <li><p>Now delete the S3 bucket&rsquo;s encryption.  This should be considered a potential security threat.</p>
@@ -1832,19 +1836,19 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read</code></pre></li>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1604421810"></script>
-    <script src="/js/perfect-scrollbar.min.js?1604421810"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1604421810"></script>
-    <script src="/js/jquery.sticky.js?1604421810"></script>
-    <script src="/js/featherlight.min.js?1604421810"></script>
-    <script src="/js/highlight.pack.js?1604421810"></script>
+    <script src="/js/clipboard.min.js?1604686339"></script>
+    <script src="/js/perfect-scrollbar.min.js?1604686339"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1604686339"></script>
+    <script src="/js/jquery.sticky.js?1604686339"></script>
+    <script src="/js/featherlight.min.js?1604686339"></script>
+    <script src="/js/highlight.pack.js?1604686339"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1604421810"></script>
-    <script src="/js/learn.js?1604421810"></script>
-    <script src="/js/hugo-learn.js?1604421810"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1604686339"></script>
+    <script src="/js/learn.js?1604686339"></script>
+    <script src="/js/hugo-learn.js?1604686339"></script>
 
-    <link href="/mermaid/mermaid.css?1604421810" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1604421810"></script>
+    <link href="/mermaid/mermaid.css?1604686339" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1604686339"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

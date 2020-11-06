@@ -32,7 +32,7 @@ ecs-cli --version Now create a file named task-execution-assume-role.json for ou
       <description>To deploy the Sysdig image scanner for Fargate, we&amp;rsquo;ll again use Amazon CloudFormation. The procedure is identical to how we installed Amazon ECR Integration in the previous lab, so this time we&amp;rsquo;ll use the AWS CLI instead.
 Note You can find instructions on using the CLI on the Sysdig Fargate scanning installation page
  First, make sure your Sysdig SecureAPIToken and SecureEndpoint environment variables are set.
-echo $SecureAPIToken echo $SecureEndpoint You would have set these environment variables when setting up your Cloud9 Workspace.</description>
+echo $SecureAPIToken echo $SecureEndpoint You should have set these environment variables when setting up your Cloud9 Workspace.</description>
     </item>
     
     <item>
