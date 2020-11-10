@@ -12,20 +12,20 @@
     <title>Push and Scan an Image from the Registry :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1604684694" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1604684694" rel="stylesheet">
-    <link href="/css/hybrid.css?1604684694" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1604684694" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1604684694" rel="stylesheet">
-    <link href="/css/auto-complete.css?1604684694" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1604684694" rel="stylesheet">
-    <link href="/css/theme.css?1604684694" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1604684694" rel="stylesheet">
+    <link href="/css/nucleus.css?1605018634" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1605018634" rel="stylesheet">
+    <link href="/css/hybrid.css?1605018634" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1605018634" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1605018634" rel="stylesheet">
+    <link href="/css/auto-complete.css?1605018634" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1605018634" rel="stylesheet">
+    <link href="/css/theme.css?1605018634" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1605018634" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1604684694" rel="stylesheet">
+      <link href="/css/theme-mine.css?1605018634" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1604684694"></script>
+    <script src="/js/jquery-3.3.1.min.js?1605018634"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1604684694"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1604684694"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1605018634"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1605018634"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1604684694"></script>
+<script type="text/javascript" src="/js/search.js?1605018634"></script>
 
     
   </div>
@@ -1070,12 +1070,16 @@
 <ol>
 <li><p>Go to your Cloud9 Workspace and download and uncompress example container files</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download/v1.0/hello-world-node-vulnerable.zip
+
 unzip hello-world-node-vulnerable.zip
+
 cd hello-world-node-vulnerable/</code></pre></div></li>
 
 <li><p>And build and push the image to ECR</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export IMAGE<span style="color:#f92672">=</span>$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$ECR_NAME
+
 docker build . -t $IMAGE
+
 docker push $IMAGE</code></pre></div></li>
 
 <li><p>As soon as the image has been pushed to the registry, a new <strong>Amazon CodeBuild pipeline</strong> will be automatically created that executes an image scan using the integrated Sysdig Inline Scanner.</p>
@@ -1806,19 +1810,19 @@ docker push $IMAGE</code></pre></div></li>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1604684694"></script>
-    <script src="/js/perfect-scrollbar.min.js?1604684694"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1604684694"></script>
-    <script src="/js/jquery.sticky.js?1604684694"></script>
-    <script src="/js/featherlight.min.js?1604684694"></script>
-    <script src="/js/highlight.pack.js?1604684694"></script>
+    <script src="/js/clipboard.min.js?1605018634"></script>
+    <script src="/js/perfect-scrollbar.min.js?1605018634"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1605018634"></script>
+    <script src="/js/jquery.sticky.js?1605018634"></script>
+    <script src="/js/featherlight.min.js?1605018634"></script>
+    <script src="/js/highlight.pack.js?1605018634"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1604684694"></script>
-    <script src="/js/learn.js?1604684694"></script>
-    <script src="/js/hugo-learn.js?1604684694"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1605018634"></script>
+    <script src="/js/learn.js?1605018634"></script>
+    <script src="/js/hugo-learn.js?1605018634"></script>
 
-    <link href="/mermaid/mermaid.css?1604684694" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1604684694"></script>
+    <link href="/mermaid/mermaid.css?1605018634" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1605018634"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

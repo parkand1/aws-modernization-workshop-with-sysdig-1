@@ -15,7 +15,9 @@ To illustrate the images scanning we will build an example Node.JS application b
 
 	```bash
 	wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download/v1.0/hello-world-node-vulnerable.zip
+
 	unzip hello-world-node-vulnerable.zip
+
 	cd hello-world-node-vulnerable/
 	```
 
@@ -24,7 +26,9 @@ To illustrate the images scanning we will build an example Node.JS application b
 
 	```bash
 	export IMAGE=$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$ECR_NAME
+
 	docker build . -t $IMAGE
+
 	docker push $IMAGE
 	```
 

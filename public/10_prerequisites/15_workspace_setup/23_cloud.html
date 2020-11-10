@@ -12,20 +12,20 @@
     <title>Configure workspace for Sysdig Workshop :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1604684693" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1604684693" rel="stylesheet">
-    <link href="/css/hybrid.css?1604684693" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1604684693" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1604684693" rel="stylesheet">
-    <link href="/css/auto-complete.css?1604684693" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1604684693" rel="stylesheet">
-    <link href="/css/theme.css?1604684693" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1604684693" rel="stylesheet">
+    <link href="/css/nucleus.css?1605018634" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1605018634" rel="stylesheet">
+    <link href="/css/hybrid.css?1605018634" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1605018634" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1605018634" rel="stylesheet">
+    <link href="/css/auto-complete.css?1605018634" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1605018634" rel="stylesheet">
+    <link href="/css/theme.css?1605018634" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1605018634" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1604684693" rel="stylesheet">
+      <link href="/css/theme-mine.css?1605018634" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1604684693"></script>
+    <script src="/js/jquery-3.3.1.min.js?1605018634"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1604684693"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1604684693"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1605018634"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1605018634"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1604684693"></script>
+<script type="text/javascript" src="/js/search.js?1605018634"></script>
 
     
   </div>
@@ -1021,17 +1021,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#explanation-of-the-commands">Explanation of the commands:</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
+
     </div>
 </div>
 
@@ -1056,8 +1046,6 @@
 
 
 
-
-
 <div class="notices info" ><p>Cloud9 normally manages IAM credentials dynamically. This isn&rsquo;t currently compatible with
 the EKS IAM authentication, so we will disable it and rely on the IAM role instead.</p>
 </div>
@@ -1072,22 +1060,49 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 
 <p><img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" ></p></li>
 
-<li><p>Copy paste the following two commands to configure your <strong>Secure API Token</strong> and  <strong>Secure API Endpoint</strong> environment variables (these are the values you made a note of <a href="/10_prerequisites/11_sysdig.html" target="_blank">here</a>)</p>
+<li><p>Copy and run (paste with <strong>Ctrl+P</strong>) the following two commands to configure your <strong>Secure API Token</strong> and  <strong>Secure API Endpoint</strong> environment variables (these are the values you made a note of <a href="/10_prerequisites/11_sysdig.html" target="_blank">here</a>)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#34;Enter your &#39;Sysdig Secure API Token&#39;&#34;</span>; read SecureAPIToken </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#34;Enter your &#39;Sysdig Secure API Endpoint&#39;&#34;</span>; read SecureEndpoint</code></pre></div></li>
 
-<li><p>And copy and run (paste with <strong>Ctrl+P</strong>) the command below. Before running it, review what it does at the end of this step.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo yum -y install jq
+<li><p>Copy and run the commands below.</p>
+
+<p>Before running it, review what it does by reading through the comments.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Update awscli</span>
+sudo pip install --upgrade awscli <span style="color:#f92672">&amp;&amp;</span> hash -r
+
+<span style="color:#75715e"># Install jq command-line tool for parsing JSON, and bash-completion</span>
+sudo yum -y install jq gettext bash-completion moreutils
+
+<span style="color:#75715e"># Install yq for yaml processing</span>
+echo <span style="color:#e6db74">&#39;yq() {
+</span><span style="color:#e6db74">docker run --rm -i -v &#34;${PWD}&#34;:/workdir mikefarah/yq yq &#34;$@&#34;
+</span><span style="color:#e6db74">}&#39;</span> | tee -a ~/.bashrc <span style="color:#f92672">&amp;&amp;</span> source ~/.bashrc
+
+<span style="color:#75715e"># Verify the binaries are in the path and executable</span>
+<span style="color:#66d9ef">for</span> command in jq aws
+<span style="color:#66d9ef">do</span>
+which $command &amp;&gt;/dev/null <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;</span>$command<span style="color:#e6db74"> in path&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;</span>$command<span style="color:#e6db74"> NOT FOUND&#34;</span>
+<span style="color:#66d9ef">done</span>
+
+<span style="color:#75715e"># Remove existing credentials file.</span>
 rm -vf <span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/.aws/credentials
-export ACCOUNT_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws sts get-caller-identity --output text --query Account<span style="color:#66d9ef">)</span>
+
+<span style="color:#75715e"># Set the ACCOUNT_ID and the region to work with our desired region</span>
 export AWS_REGION<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r <span style="color:#e6db74">&#39;.region&#39;</span><span style="color:#66d9ef">)</span>
 test -n <span style="color:#e6db74">&#34;</span>$AWS_REGION<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> echo AWS_REGION is <span style="color:#e6db74">&#34;</span>$AWS_REGION<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> echo AWS_REGION is not set
+
+<span style="color:#75715e"># Configure .bash_profile</span>
+export ACCOUNT_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws sts get-caller-identity --output text --query Account<span style="color:#66d9ef">)</span>
 echo <span style="color:#e6db74">&#34;export ACCOUNT_ID=</span><span style="color:#e6db74">${</span>ACCOUNT_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | tee -a ~/.bash_profile
 echo <span style="color:#e6db74">&#34;export AWS_REGION=</span><span style="color:#e6db74">${</span>AWS_REGION<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> |
 tee -a ~/.bash_profile
 aws configure set default.region <span style="color:#e6db74">${</span>AWS_REGION<span style="color:#e6db74">}</span>
 aws configure get default.region
+
+<span style="color:#75715e"># Instantiate workshop specific scripts</span>
 curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/272b0f1a45fa8a54571ebb707b7e7d51e4db0fb5/deploy-amazon-ecs-sample.sh &gt; deploy-amazon-ecs-sample.sh
 chmod +x deploy-amazon-ecs-sample.sh
+
+<span style="color:#75715e"># Validate that our IAM role is valid.</span>
 aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;IAM role valid&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;IAM role NOT valid&#34;</span></code></pre></div></li>
 </ol>
 
@@ -1096,20 +1111,24 @@ aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q <span st
 </div>
 
 
-<h3 id="explanation-of-the-commands">Explanation of the commands:</h3>
+<!--
+### Explanation of the commands:
 
-<p>Actions executed:
-🔹 Install jq - jq is a command-line tool for parsing JSON</p>
+Actions executed:
 
-<p>🔹 Ensure temporary credentials aren’t already in place.</p>
+🔹 Install jq - jq is a command-line tool for parsing JSON
 
-<p>🔹 Remove any existing credentials file.</p>
+🔹 Ensure temporary credentials aren’t already in place.
 
-<p>🔹 Set the region to work with our desired region.</p>
+🔹 Remove any existing credentials file.
 
-<p>🔹 Validate that our IAM role is valid.</p>
+🔹 Set the region to work with our desired region.
 
-<p>🔹 Copy two scripts into place for use later in the workshop.</p>
+🔹 Validate that our IAM role is valid.
+
+🔹 Copy two scripts into place for use later in the workshop.
+
+-->
 
 
 <footer class="footline">
@@ -1781,19 +1800,19 @@ aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q <span st
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1604684693"></script>
-    <script src="/js/perfect-scrollbar.min.js?1604684693"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1604684693"></script>
-    <script src="/js/jquery.sticky.js?1604684693"></script>
-    <script src="/js/featherlight.min.js?1604684693"></script>
-    <script src="/js/highlight.pack.js?1604684693"></script>
+    <script src="/js/clipboard.min.js?1605018634"></script>
+    <script src="/js/perfect-scrollbar.min.js?1605018634"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1605018634"></script>
+    <script src="/js/jquery.sticky.js?1605018634"></script>
+    <script src="/js/featherlight.min.js?1605018634"></script>
+    <script src="/js/highlight.pack.js?1605018634"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1604684693"></script>
-    <script src="/js/learn.js?1604684693"></script>
-    <script src="/js/hugo-learn.js?1604684693"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1605018634"></script>
+    <script src="/js/learn.js?1605018634"></script>
+    <script src="/js/hugo-learn.js?1605018634"></script>
 
-    <link href="/mermaid/mermaid.css?1604684693" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1604684693"></script>
+    <link href="/mermaid/mermaid.css?1605018634" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1605018634"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

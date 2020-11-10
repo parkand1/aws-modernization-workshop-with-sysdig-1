@@ -8,11 +8,11 @@ For illustration purposes, let's rebuild our image and make it more secure by st
 
 1. Go back into Cloud9 Workspace
 
-2. As a bit of housekeeping, first lets delete the older `node` image as follows to free up space on our cloud9 workstation,
+2. As a bit of housekeeping, first lets delete the older `node` image as follows to free up space on our cloud9 workspace,
 
 	```
-	docker rmi $(docker images | grep node | grep -v lambda | awk '{print $3}')
-	```
+	docker rmi node:12
+  ```
 
 3. Edit the `Dockerfile` and in the first line update the base image from
 

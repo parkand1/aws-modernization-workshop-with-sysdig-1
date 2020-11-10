@@ -12,20 +12,20 @@
     <title>AWS Fargate and ECS Security :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1604684693" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1604684693" rel="stylesheet">
-    <link href="/css/hybrid.css?1604684693" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1604684693" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1604684693" rel="stylesheet">
-    <link href="/css/auto-complete.css?1604684693" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1604684693" rel="stylesheet">
-    <link href="/css/theme.css?1604684693" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1604684693" rel="stylesheet">
+    <link href="/css/nucleus.css?1605018634" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1605018634" rel="stylesheet">
+    <link href="/css/hybrid.css?1605018634" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1605018634" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1605018634" rel="stylesheet">
+    <link href="/css/auto-complete.css?1605018634" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1605018634" rel="stylesheet">
+    <link href="/css/theme.css?1605018634" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1605018634" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1604684693" rel="stylesheet">
+      <link href="/css/theme-mine.css?1605018634" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1604684693"></script>
+    <script src="/js/jquery-3.3.1.min.js?1605018634"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1604684693"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1604684693"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1605018634"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1605018634"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1604684693"></script>
+<script type="text/javascript" src="/js/search.js?1605018634"></script>
 
     
   </div>
@@ -1045,7 +1045,11 @@
 
 
 
-<p><strong>AWS Fargate and ECS</strong> allow you to deploy containerized workloads quickly. Those services are so convenient that many people leave them unattended, risking exposure to vulnerabilities inside their containers that can exfiltrate secrets, compromise business data, impact performance, and increase their AWS costs.</p>
+<p><a href="https://aws.amazon.com/ecs" target="_blank"><strong>Amazon Elastic Container Service</strong></a> (Amazon ECS) is a fully managed container orchestration service based on Kubernetes, allowing developers to run applications without the need to configure the required running environment. Amazon ECS is fully integrated with the Docker container registry <a href="https://aws.amazon.com/ecr" target="_blank"><strong>AWS ECR</strong></a>.</p>
+
+<p><a href="https://aws.amazon.com/fargate" target="_blank"><strong>AWS Fargate</strong></a> is a serverless compute engine for containers that removes the need to provision and manage servers. Fargate works alongside Amazon ECS (as well as Amazon EKS) to allocate the correct amount of compute resources for your application no matter the load, hence eliminating the need to choose instance types or scale cluster capacity. You only pay for the resources required to run your containers, so there is no over-provisioning and paying for additional servers.</p>
+
+<p><strong>AWS Fargate and ECS</strong> both allow you to deploy containerized workloads quickly. Those services are so convenient that many people leave them unattended, risking exposure to vulnerabilities inside their containers that can exfiltrate secrets, compromise business data, impact performance, and increase their AWS costs.</p>
 
 <p>For example, think of some <strong>credentials</strong> mistakenly included in an image, later deployed on Fargate. They will be exposed to anyone with access to the image (think on the repository), or to the Fargate service.</p>
 
@@ -1725,19 +1729,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1604684693"></script>
-    <script src="/js/perfect-scrollbar.min.js?1604684693"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1604684693"></script>
-    <script src="/js/jquery.sticky.js?1604684693"></script>
-    <script src="/js/featherlight.min.js?1604684693"></script>
-    <script src="/js/highlight.pack.js?1604684693"></script>
+    <script src="/js/clipboard.min.js?1605018634"></script>
+    <script src="/js/perfect-scrollbar.min.js?1605018634"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1605018634"></script>
+    <script src="/js/jquery.sticky.js?1605018634"></script>
+    <script src="/js/featherlight.min.js?1605018634"></script>
+    <script src="/js/highlight.pack.js?1605018634"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1604684693"></script>
-    <script src="/js/learn.js?1604684693"></script>
-    <script src="/js/hugo-learn.js?1604684693"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1605018634"></script>
+    <script src="/js/learn.js?1605018634"></script>
+    <script src="/js/hugo-learn.js?1605018634"></script>
 
-    <link href="/mermaid/mermaid.css?1604684693" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1604684693"></script>
+    <link href="/mermaid/mermaid.css?1605018634" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1605018634"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

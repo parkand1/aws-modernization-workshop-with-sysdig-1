@@ -27,15 +27,7 @@ To illustrate automatic scanning, we will now deploy a sample ECS cluster that s
     Cluster creation succeeded.
     ```
 
-    We'll use a custom deployment script that will
-
-  - Retrieve the id of the default security group for the VPC created, and allows inbound access on port 80
-
-  - Create a `ecs-params.yml` file using the subnets and security group already retrieved
-
-  - Create a `docker-compose.yaml` to instantiate the image `amazon/amazon-ecs-sample`
-
-3. Run the script `deploy-amazon-ecs-sample.sh`, copying and pasting the VPC & Subnet values from the above out when prompted
+3. Now run the script `deploy-amazon-ecs-sample.sh`, copying and pasting the VPC & Subnet values from the above out when prompted
 
     ```bash
     cd /home/ec2-user/environment
@@ -46,13 +38,54 @@ To illustrate automatic scanning, we will now deploy a sample ECS cluster that s
 
     ![ECS Cluster](/images/40_module_2/image7.png)
 
+    This script will
 
-    Optionally, for details of this script you can run the following command
+    - Retrieve the id of the default security group for the VPC created, and allows inbound access on port 80
 
-    ```bash
-    cat ./deploy-amazon-ecs-sample.sh
-    ```
+    - Create a `ecs-params.yml` file using the subnets and security group already retrieved. This file should look as follows
 
-6. Once completed you can see on the [Amazon ECS UI](https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/tutorial/services)
+        ```
+        version: 1
+        task_definition:
+            task_execution_role: ecsTaskExecutionRole
+            ecs_network_mode: awsvpc
+            task_size:
+              mem_limit: 0.5GB
+              cpu_limit: 256
+        run_params:
+            network_configuration:
+              awsvpc_configuration:
+                subnets:
+                  - "subnet-045df8f58a51b2291"
+                  - "subnet-0e4623283c4907ea7"
+                security_groups:
+                  - "sg-3a1f94b6"
+                assign_public_ip: ENABLED
+        ```
+
+    - Create a `docker-compose.yaml` to instantiate the image `amazon/amazon-ecs-sample`.  This file looks as follows
+
+        ```
+        version: '3'
+        services:
+            web:
+              image: amazon/amazon-ecs-sample
+              ports:
+                - "80:80"
+              logging:
+                driver: awslogs
+                options:
+                  awslogs-group: tutorial
+                  awslogs-region: us-east-1
+                  awslogs-stream-prefix: web
+        ```
+
+        Optionally, for details of this script you can run the following command
+
+        ```bash
+        cat ./deploy-amazon-ecs-sample.sh
+        ```    
+
+6. Once the script has completed you can see details of of the ECS cluster on the [Amazon ECS UI](https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/tutorial/services)
 
 ![Cluster Tutorial](/images/40_module_2/image5.png)

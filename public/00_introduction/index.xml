@@ -47,8 +47,8 @@ AWS provides a rich environment upon which to base your application, but it&amp;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/00_introduction/06_fargate_ecs_sec.html</guid>
-      <description>AWS Fargate and ECS allow you to deploy containerized workloads quickly. Those services are so convenient that many people leave them unattended, risking exposure to vulnerabilities inside their containers that can exfiltrate secrets, compromise business data, impact performance, and increase their AWS costs.
-For example, think of some credentials mistakenly included in an image, later deployed on Fargate. They will be exposed to anyone with access to the image (think on the repository), or to the Fargate service.</description>
+      <description>Amazon Elastic Container Service (Amazon ECS) is a fully managed container orchestration service based on Kubernetes, allowing developers to run applications without the need to configure the required running environment. Amazon ECS is fully integrated with the Docker container registry AWS ECR.
+AWS Fargate is a serverless compute engine for containers that removes the need to provision and manage servers. Fargate works alongside Amazon ECS (as well as Amazon EKS) to allocate the correct amount of compute resources for your application no matter the load, hence eliminating the need to choose instance types or scale cluster capacity.</description>
     </item>
     
   </channel>

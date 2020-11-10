@@ -17,8 +17,10 @@ You need a Sysdig Secure account to complete this workshop. In particular you wi
      - https://eu1.app.sysdig.com
      - https://us2.app.sysdig.com
 
+         For more information of Sysdig's regional URLs, please refer to the [Sysdig documentation](https://docs.sysdig.com/en/saas-regions-and-ip-ranges.html).
+
  - Your '**Sysdig Secure API Token**'. Click your initials on the left nav bar, click '**Settings**' and navigate to '**User Profile**'.
 
         **IMPORTANT:** Make sure you DO NOT use the **Sysdig Monitor** API Token, or the **Access Token**!
 
-<img src=/images/10_prerequisites/sysdigAPITokenBlur.gif width="100%" >
+<img src=/images/10_prerequisites/apiValues.gif width="100%" >

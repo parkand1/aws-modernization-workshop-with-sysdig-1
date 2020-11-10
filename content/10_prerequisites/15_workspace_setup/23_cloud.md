@@ -17,7 +17,7 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 
      <img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" >
 
-  4. Copy paste the following two commands to configure your __Secure API Token__ and  __Secure API Endpoint__ environment variables (these are the values you made a note of [here]({{< ref "/10_prerequisites/11_sysdig.md" >}}))
+  4. Copy and run (paste with **Ctrl+P**) the following two commands to configure your __Secure API Token__ and  __Secure API Endpoint__ environment variables (these are the values you made a note of [here]({{< ref "/10_prerequisites/11_sysdig.md" >}}))
 
 ```sh
 echo "Enter your 'Sysdig Secure API Token'"; read SecureAPIToken 
@@ -27,31 +27,61 @@ echo "Enter your 'Sysdig Secure API Token'"; read SecureAPIToken 
 echo "Enter your 'Sysdig Secure API Endpoint'"; read SecureEndpoint
 ```
 
-  5. And copy and run (paste with **Ctrl+P**) the command below. Before running it, review what it does at the end of this step.
+  5. Copy and run the commands below.
+
+     Before running it, review what it does by reading through the comments.
 
 
 ```sh
-sudo yum -y install jq
+# Update awscli
+sudo pip install --upgrade awscli && hash -r
+
+# Install jq command-line tool for parsing JSON, and bash-completion
+sudo yum -y install jq gettext bash-completion moreutils
+
+# Install yq for yaml processing
+echo 'yq() {
+docker run --rm -i -v "${PWD}":/workdir mikefarah/yq yq "$@"
+}' | tee -a ~/.bashrc && source ~/.bashrc
+
+# Verify the binaries are in the path and executable
+for command in jq aws
+do
+  which $command &>/dev/null && echo "$command in path" || echo "$command NOT FOUND"
+done
+
+# Remove existing credentials file.
 rm -vf ${HOME}/.aws/credentials
-export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
+
+# Set the ACCOUNT_ID and the region to work with our desired region
 export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
 test -n "$AWS_REGION" && echo AWS_REGION is "$AWS_REGION" || echo AWS_REGION is not set
+
+# Configure .bash_profile
+export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
 echo "export ACCOUNT_ID=${ACCOUNT_ID}" | tee -a ~/.bash_profile
 echo "export AWS_REGION=${AWS_REGION}" |
 tee -a ~/.bash_profile
 aws configure set default.region ${AWS_REGION}
 aws configure get default.region
+
+# Instantiate workshop specific scripts
 curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/272b0f1a45fa8a54571ebb707b7e7d51e4db0fb5/deploy-amazon-ecs-sample.sh > deploy-amazon-ecs-sample.sh
 chmod +x deploy-amazon-ecs-sample.sh
+
+# Validate that our IAM role is valid.
 aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q && echo "IAM role valid" || echo "IAM role NOT valid"
 ```
+
 {{% notice warning %}}
 If the IAM role is not valid, <span style="color: red;">**DO NOT PROCEED**</span>. Go back and confirm the steps on this page.
 {{% /notice %}}
 
+<!--
 ### Explanation of the commands:
 
 Actions executed:
+
 :small_blue_diamond: Install jq - jq is a command-line tool for parsing JSON
 
 :small_blue_diamond: Ensure temporary credentials aren’t already in place.
@@ -63,3 +93,5 @@ Actions executed:
 :small_blue_diamond: Validate that our IAM role is valid.
 
 :small_blue_diamond: Copy two scripts into place for use later in the workshop.
+
+-->
