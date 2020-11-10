@@ -12,20 +12,20 @@
     <title>AWS Fargate and ECS Security :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1605020149" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1605020149" rel="stylesheet">
-    <link href="/css/hybrid.css?1605020149" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1605020149" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1605020149" rel="stylesheet">
-    <link href="/css/auto-complete.css?1605020149" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1605020149" rel="stylesheet">
-    <link href="/css/theme.css?1605020149" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1605020149" rel="stylesheet">
+    <link href="/css/nucleus.css?1605023038" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1605023038" rel="stylesheet">
+    <link href="/css/hybrid.css?1605023038" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1605023038" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1605023038" rel="stylesheet">
+    <link href="/css/auto-complete.css?1605023038" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1605023038" rel="stylesheet">
+    <link href="/css/theme.css?1605023038" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1605023038" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1605020149" rel="stylesheet">
+      <link href="/css/theme-mine.css?1605023038" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1605020149"></script>
+    <script src="/js/jquery-3.3.1.min.js?1605023038"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1605020149"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1605020149"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1605023038"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1605023038"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1605020149"></script>
+<script type="text/javascript" src="/js/search.js?1605023038"></script>
 
     
   </div>
@@ -1049,15 +1049,13 @@
 
 <p><a href="https://aws.amazon.com/fargate" target="_blank"><strong>AWS Fargate</strong></a> is a serverless compute engine for containers that removes the need to provision and manage servers. Fargate works alongside Amazon ECS (as well as Amazon EKS) to allocate the correct amount of compute resources for your application no matter the load, hence eliminating the need to choose instance types or scale cluster capacity. You only pay for the resources required to run your containers, so there is no over-provisioning and paying for additional servers.</p>
 
-<p><strong>AWS Fargate and ECS</strong> both allow you to deploy containerized workloads quickly. Those services are so convenient that many people leave them unattended, risking exposure to vulnerabilities inside their containers that can exfiltrate secrets, compromise business data, impact performance, and increase their AWS costs.</p>
+<p><strong>AWS Fargate</strong> and <strong>ECS</strong> both allow you to deploy containerized workloads quickly. Those services are so convenient that many people leave them unattended, risking exposure to vulnerabilities inside their containers that can exfiltrate secrets, compromise business data, impact performance, and increase their AWS costs.</p>
 
 <p>For example, think of some <strong>credentials</strong> mistakenly included in an image, later deployed on Fargate. They will be exposed to anyone with access to the image (think on the repository), or to the Fargate service.</p>
 
-<p>Consider a <strong>known vulnerability</strong>. Imagine you deploy a Fargate task to manage your API, and that it uses an old HTTP library version that ignores the setting to limit a request size. That could be catastrophic! Say you expect requests no bigger than 1MB, but a malicious actor exploits this vulnerability to send requests as big as 80GB. This will absolutely take a toll in your AWS bill, and might cause your service to throttle.</p>
+<p>Or consider a <strong>known vulnerability</strong>. Imagine you deploy a Fargate task to manage your API, and that it uses an old HTTP library version that ignores the setting to limit a request size. That could be catastrophic! Say you expect requests no bigger than 1MB, but a malicious actor exploits this vulnerability to send requests as big as 80GB. This will absolutely take a toll in your AWS bill, and might cause your service to throttle.</p>
 
-<p>Those are serious threats.</p>
-
-<p>You might be reluctant to implement further security checks, thinking they will take away the same flexibility you were looking for when you decided to use Fargate on ECS.</p>
+<p>Those are serious threats. In this workshop you will see how Sysdig helps circumvent these threats by automating the scanning of images both at rest in Amazon ECR, as well as in ECS/Fargate, for known vulnerabilities and issues.</p>
 
 
 <footer class="footline">
@@ -1729,19 +1727,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1605020149"></script>
-    <script src="/js/perfect-scrollbar.min.js?1605020149"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1605020149"></script>
-    <script src="/js/jquery.sticky.js?1605020149"></script>
-    <script src="/js/featherlight.min.js?1605020149"></script>
-    <script src="/js/highlight.pack.js?1605020149"></script>
+    <script src="/js/clipboard.min.js?1605023038"></script>
+    <script src="/js/perfect-scrollbar.min.js?1605023038"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1605023038"></script>
+    <script src="/js/jquery.sticky.js?1605023038"></script>
+    <script src="/js/featherlight.min.js?1605023038"></script>
+    <script src="/js/highlight.pack.js?1605023038"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1605020149"></script>
-    <script src="/js/learn.js?1605020149"></script>
-    <script src="/js/hugo-learn.js?1605020149"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1605023038"></script>
+    <script src="/js/learn.js?1605023038"></script>
+    <script src="/js/hugo-learn.js?1605023038"></script>
 
-    <link href="/mermaid/mermaid.css?1605020149" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1605020149"></script>
+    <link href="/mermaid/mermaid.css?1605023038" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1605023038"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
