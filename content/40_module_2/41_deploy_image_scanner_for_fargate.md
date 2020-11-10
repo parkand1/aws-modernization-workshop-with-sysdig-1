@@ -15,10 +15,10 @@ To deploy the Sysdig image scanner for Fargate, we'll again use Amazon CloudForm
     echo $SecureAPIToken
     echo $SecureEndpoint
     ```
-    
+
     You should have set these environment variables when setting up your [Cloud9 Workspace]({{< ref "/10_prerequisites/15_workspace_setup/23_cloud.md" >}}).
 
-    **IMPORTANT** If these variable are not set, then you can set them manually using the information you noted from [here]({{< ref "/10_prerequisites/11_sysdig.md" >}}).
+    **IMPORTANT** If these variable are not set, then you can set them manually using the information you noted from [here]({{< ref "/10_prerequisites/30_sysdig.md" >}}).
 
 1. Let's set our CloudFormation template URL as an environment variable to simplify the actual `aws` command.  
 

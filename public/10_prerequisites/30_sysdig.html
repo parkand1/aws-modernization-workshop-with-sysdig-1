@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>2. Launch Cloud9 IDE Workspace :: AWS Modernization Workshop with Sysdig</title>
+    <title>3. Sign-up for a Sysdig Trial account :: AWS Modernization Workshop with Sysdig</title>
 
     
     <link href="/css/nucleus.css?1605021544" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/10_prerequisites/16_start_cloud9workspace.html">
+  <body class="" data-url="/10_prerequisites/30_sysdig.html">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -285,7 +285,7 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/16_start_cloud9workspace.html" title="2. Launch Cloud9 IDE Workspace" class="dd-item active">
+      <li data-nav-id="/10_prerequisites/16_start_cloud9workspace.html" title="2. Launch Cloud9 IDE Workspace" class="dd-item ">
         <a href="/10_prerequisites/16_start_cloud9workspace.html">
         2. Launch Cloud9 IDE Workspace
         <i class="fas fa-check read-icon"></i>
@@ -380,7 +380,7 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/30_sysdig.html" title="3. Sign-up for a Sysdig Trial account" class="dd-item ">
+      <li data-nav-id="/10_prerequisites/30_sysdig.html" title="3. Sign-up for a Sysdig Trial account" class="dd-item active">
         <a href="/10_prerequisites/30_sysdig.html">
         3. Sign-up for a Sysdig Trial account
         <i class="fas fa-check read-icon"></i>
@@ -977,7 +977,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/sysdiglabs/aws-modernization-workshop-with-Sysdig/edit/main/content/10_prerequisites/16_start_cloud9workspace.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/sysdiglabs/aws-modernization-workshop-with-Sysdig/edit/main/content/10_prerequisites/30_sysdig.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -1008,7 +1008,7 @@
             
           
           
-            <a href='/'>Main Page</a> > <a href='/10_prerequisites.html'>Prerequisites</a> > 2. Launch Cloud9 IDE Workspace
+            <a href='/'>Main Page</a> > <a href='/10_prerequisites.html'>Prerequisites</a> > 3. Sign-up for a Sysdig Trial account
           
          
           
@@ -1037,7 +1037,7 @@
           
             <h1>
               
-              2. Launch Cloud9 IDE Workspace
+              3. Sign-up for a Sysdig Trial account
             </h1>
           
 
@@ -1045,16 +1045,38 @@
 
 
 
-<p><a href="https://aws.amazon.com/cloud9/" target="_blank">AWS Cloud9</a> is a cloud-based integrated development environment (IDE) that Let’s you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects.</p>
+<p>You need a Sysdig Secure account to complete this workshop. In particular you will need to make a note of your account&rsquo;s associated API token &amp; API Endpoint to configure the integrations.</p>
 
-<p>We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Workshop.  There are a few steps to complete to set this up</p>
+<ol>
+<li><p>Sign-up for a free Sysdig trial here <a href="https://sysdig.com/company/free-trial/" target="_blank">https://sysdig.com/company/free-trial/</a></p>
 
 <ul>
-<li>Create a new Cloud9 IDE environment</li>
-<li>Create an IAM role for your workspace</li>
-<li>Attach the IAM role to your Workspace</li>
-<li>Configure workshop specific requirements</li>
+<li>You will receive a confirmation email with a confirmation link</li>
+</ul></li>
+
+<li><p>Click the link and log into Sysdig, and make a note of the following two items (see animated GIF below for details on how to obtain these two values)</p>
+
+<ul>
+<li><p>The &lsquo;<strong>Sysdig Secure API Endpoint</strong>&rsquo; you are routed to.  The will be the Sysdig Secure hostname in the browser URL. It should be one of the following</p>
+
+<ul>
+<li><a href="https://secure.sysdig.com" target="_blank">https://secure.sysdig.com</a></li>
+<li><a href="https://eu1.app.sysdig.com" target="_blank">https://eu1.app.sysdig.com</a></li>
+<li><a href="https://us2.app.sysdig.com" target="_blank">https://us2.app.sysdig.com</a></li>
 </ul>
+
+<p>For more information of Sysdig&rsquo;s regional URLs, please refer to the <a href="https://docs.sysdig.com/en/saas-regions-and-ip-ranges.html" target="_blank">Sysdig documentation</a>.</p></li>
+
+<li><p>Your &lsquo;<strong>Sysdig Secure API Token</strong>&rsquo;. Click your initials on the left nav bar, click &lsquo;<strong>Settings</strong>&rsquo; and navigate to &lsquo;<strong>User Profile</strong>&rsquo;.</p>
+
+<p><strong>IMPORTANT:</strong> Make sure you DO NOT use the <strong>Sysdig Monitor</strong> API Token, or the <strong>Access Token</strong>!</p></li>
+</ul></li>
+
+<li><p>Copy and run (paste with <strong>Ctrl+P</strong>) the following two commands to configure your <strong>Secure API Token</strong> and  <strong>Secure API Endpoint</strong> as environment variables.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#34;Enter your &#39;Sysdig Secure API Token&#39; from above&#34;</span>; read SecureAPIToken </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#34;Enter your &#39;Sysdig Secure API Endpoint&#39; from above&#34;</span>; read SecureEndpoint</code></pre></div></li>
+</ol>
+
+<p><img src=/images/10_prerequisites/apiValues.gif width="100%" ></p>
 
 
 <footer class="footline">
@@ -1238,26 +1260,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -1333,6 +1335,23 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1340,6 +1359,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1713,10 +1735,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/10_prerequisites/14_self_paced.html" title="...or on your own"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/10_prerequisites/15_workspace_setup/23_cloud.html" title="Configure workspace for Sysdig Workshop"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/10_prerequisites/15_workspace_setup/20_cloud9.html" title="Create a new Cloud9 IDE environment" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/25_prework.html" title="Prework" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

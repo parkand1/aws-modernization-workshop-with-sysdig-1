@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>At an AWS Event... on AWS Modernization Workshop with Sysdig</title>
+    <link>//localhost:1313/10_prerequisites/12_aws_event.html</link>
+    <description>Recent content in At an AWS Event... on AWS Modernization Workshop with Sysdig</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="//localhost:1313/10_prerequisites/12_aws_event/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>At an AWS Event...</title>
+      <link>//localhost:1313/10_prerequisites/12_aws_event1/12_aws_event.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/10_prerequisites/12_aws_event1/12_aws_event.html</guid>
+      <description>To complete this workshop, you are provided with an AWS account via the AWS Event Engine service. A team hash will be provided to you by event staff.
+If you are currently logged in to an AWS Account, you can logout using this link
+ Create AWS Account 1 . Connect to the portal by clicking the button or browsing to https://dashboard.eventengine.run/. The following screen shows up. Enter the provided hash in the text box.</description>
+    </item>
+    
+  </channel>
+</rss>

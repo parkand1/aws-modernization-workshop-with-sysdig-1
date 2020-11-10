@@ -1,6 +1,6 @@
 ---
 title: "...or on your own"
-chapter: true
+chapter: false
 weight: 14
 ---
 

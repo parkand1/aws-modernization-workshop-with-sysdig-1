@@ -17,17 +17,7 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 
      <img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" >
 
-  4. Copy and run (paste with **Ctrl+P**) the following two commands to configure your __Secure API Token__ and  __Secure API Endpoint__ environment variables (these are the values you made a note of [here]({{< ref "/10_prerequisites/11_sysdig.md" >}}))
-
-```sh
-echo "Enter your 'Sysdig Secure API Token'"; read SecureAPIToken 
-```
-
-```sh
-echo "Enter your 'Sysdig Secure API Endpoint'"; read SecureEndpoint
-```
-
-  5. Copy and run the commands below.
+  4. Copy and run (paste with **Ctrl+P**) the commands below.
 
      Before running it, review what it does by reading through the comments.
 
@@ -64,10 +54,6 @@ echo "export AWS_REGION=${AWS_REGION}" |
 tee -a ~/.bash_profile
 aws configure set default.region ${AWS_REGION}
 aws configure get default.region
-
-# Instantiate workshop specific scripts
-curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/272b0f1a45fa8a54571ebb707b7e7d51e4db0fb5/deploy-amazon-ecs-sample.sh > deploy-amazon-ecs-sample.sh
-chmod +x deploy-amazon-ecs-sample.sh
 
 # Validate that our IAM role is valid.
 aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q && echo "IAM role valid" || echo "IAM role NOT valid"

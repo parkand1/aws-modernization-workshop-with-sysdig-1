@@ -27,10 +27,6 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/10_prerequisites/11_sysdig.html</loc>
-  </url>
-  
-  <url>
     <loc>//localhost:1313/10_prerequisites.html</loc>
   </url>
   
@@ -68,6 +64,10 @@
   
   <url>
     <loc>//localhost:1313/25_prework.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites/30_sysdig.html</loc>
   </url>
   
   <url>

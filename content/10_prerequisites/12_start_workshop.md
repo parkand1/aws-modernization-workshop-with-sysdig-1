@@ -1,5 +1,5 @@
 ---
-title: "2. Access AWS Account..."
+title: "1. Access AWS Account..."
 chapter: true
 weight: 11
 ---

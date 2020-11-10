@@ -27,10 +27,19 @@ To illustrate automatic scanning, we will now deploy a sample ECS cluster that s
     Cluster creation succeeded.
     ```
 
+3. We will use a bash script to create our ECS cluster.  So first lets instantiate the script by copying and pasting the following commands
+
+    ```
+    cd /home/ec2-user/environment
+
+    curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/272b0f1a45fa8a54571ebb707b7e7d51e4db0fb5/deploy-amazon-ecs-sample.sh > deploy-amazon-ecs-sample.sh
+
+    chmod +x deploy-amazon-ecs-sample.sh
+    ```
+
 3. Now run the script `deploy-amazon-ecs-sample.sh`, copying and pasting the VPC & Subnet values from the above out when prompted
 
     ```bash
-    cd /home/ec2-user/environment
     ./deploy-amazon-ecs-sample.sh
     ```
 

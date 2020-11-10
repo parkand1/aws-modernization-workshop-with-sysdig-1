@@ -12,20 +12,20 @@
     <title>Configure workspace for Sysdig Workshop :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1605018634" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1605018634" rel="stylesheet">
-    <link href="/css/hybrid.css?1605018634" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1605018634" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1605018634" rel="stylesheet">
-    <link href="/css/auto-complete.css?1605018634" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1605018634" rel="stylesheet">
-    <link href="/css/theme.css?1605018634" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1605018634" rel="stylesheet">
+    <link href="/css/nucleus.css?1605021545" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1605021545" rel="stylesheet">
+    <link href="/css/hybrid.css?1605021545" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1605021545" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1605021545" rel="stylesheet">
+    <link href="/css/auto-complete.css?1605021545" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1605021545" rel="stylesheet">
+    <link href="/css/theme.css?1605021545" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1605021545" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1605018634" rel="stylesheet">
+      <link href="/css/theme-mine.css?1605021545" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1605018634"></script>
+    <script src="/js/jquery-3.3.1.min.js?1605021545"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1605018634"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1605018634"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1605021545"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1605021545"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1605018634"></script>
+<script type="text/javascript" src="/js/search.js?1605021545"></script>
 
     
   </div>
@@ -214,28 +214,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/11_sysdig.html" title="1. Sign-up for a Sysdig Trial account" class="dd-item ">
-        <a href="/10_prerequisites/11_sysdig.html">
-        1. Sign-up for a Sysdig Trial account
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Access AWS Account..." class="dd-item ">
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="1. Access AWS Account..." class="dd-item ">
         <a href="/10_prerequisites/12_start_workshop.html">
-        2. Access AWS Account...
+        1. Access AWS Account...
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -304,9 +285,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/16_start_cloud9workspace.html" title="3. Launch Cloud9 IDE Workspace" class="dd-item ">
+      <li data-nav-id="/10_prerequisites/16_start_cloud9workspace.html" title="2. Launch Cloud9 IDE Workspace" class="dd-item ">
         <a href="/10_prerequisites/16_start_cloud9workspace.html">
-        3. Launch Cloud9 IDE Workspace
+        2. Launch Cloud9 IDE Workspace
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -383,6 +364,25 @@
       <li data-nav-id="/10_prerequisites/15_workspace_setup/23_cloud.html" title="Configure workspace for Sysdig Workshop" class="dd-item active">
         <a href="/10_prerequisites/15_workspace_setup/23_cloud.html">
         Configure workspace for Sysdig Workshop
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/10_prerequisites/30_sysdig.html" title="3. Sign-up for a Sysdig Trial account" class="dd-item ">
+        <a href="/10_prerequisites/30_sysdig.html">
+        3. Sign-up for a Sysdig Trial account
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1060,10 +1060,7 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 
 <p><img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" ></p></li>
 
-<li><p>Copy and run (paste with <strong>Ctrl+P</strong>) the following two commands to configure your <strong>Secure API Token</strong> and  <strong>Secure API Endpoint</strong> environment variables (these are the values you made a note of <a href="/10_prerequisites/11_sysdig.html" target="_blank">here</a>)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#34;Enter your &#39;Sysdig Secure API Token&#39;&#34;</span>; read SecureAPIToken </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">echo <span style="color:#e6db74">&#34;Enter your &#39;Sysdig Secure API Endpoint&#39;&#34;</span>; read SecureEndpoint</code></pre></div></li>
-
-<li><p>Copy and run the commands below.</p>
+<li><p>Copy and run (paste with <strong>Ctrl+P</strong>) the commands below.</p>
 
 <p>Before running it, review what it does by reading through the comments.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Update awscli</span>
@@ -1097,10 +1094,6 @@ echo <span style="color:#e6db74">&#34;export AWS_REGION=</span><span style="colo
 tee -a ~/.bash_profile
 aws configure set default.region <span style="color:#e6db74">${</span>AWS_REGION<span style="color:#e6db74">}</span>
 aws configure get default.region
-
-<span style="color:#75715e"># Instantiate workshop specific scripts</span>
-curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/272b0f1a45fa8a54571ebb707b7e7d51e4db0fb5/deploy-amazon-ecs-sample.sh &gt; deploy-amazon-ecs-sample.sh
-chmod +x deploy-amazon-ecs-sample.sh
 
 <span style="color:#75715e"># Validate that our IAM role is valid.</span>
 aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;IAM role valid&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;IAM role NOT valid&#34;</span></code></pre></div></li>
@@ -1376,22 +1369,6 @@ Actions executed:
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -1404,9 +1381,6 @@ Actions executed:
             
         
                     
-            
-        
-                    
                         
             
             
@@ -1414,6 +1388,25 @@ Actions executed:
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1790,7 +1783,7 @@ Actions executed:
 			<a class="nav nav-prev" href="/10_prerequisites/15_workspace_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/25_prework.html" title="Prework" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/10_prerequisites/30_sysdig.html" title="3. Sign-up for a Sysdig Trial account" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1800,19 +1793,19 @@ Actions executed:
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1605018634"></script>
-    <script src="/js/perfect-scrollbar.min.js?1605018634"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1605018634"></script>
-    <script src="/js/jquery.sticky.js?1605018634"></script>
-    <script src="/js/featherlight.min.js?1605018634"></script>
-    <script src="/js/highlight.pack.js?1605018634"></script>
+    <script src="/js/clipboard.min.js?1605021545"></script>
+    <script src="/js/perfect-scrollbar.min.js?1605021545"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1605021545"></script>
+    <script src="/js/jquery.sticky.js?1605021545"></script>
+    <script src="/js/featherlight.min.js?1605021545"></script>
+    <script src="/js/highlight.pack.js?1605021545"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1605018634"></script>
-    <script src="/js/learn.js?1605018634"></script>
-    <script src="/js/hugo-learn.js?1605018634"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1605021545"></script>
+    <script src="/js/learn.js?1605021545"></script>
+    <script src="/js/hugo-learn.js?1605021545"></script>
 
-    <link href="/mermaid/mermaid.css?1605018634" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1605018634"></script>
+    <link href="/mermaid/mermaid.css?1605021545" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1605021545"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
