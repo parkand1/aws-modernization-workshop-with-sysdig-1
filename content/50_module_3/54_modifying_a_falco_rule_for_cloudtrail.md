@@ -33,7 +33,7 @@ Let’s try first modifying a rule. The following rule checks if a resource is c
   ```
     - list: disallowed_aws_regions
       items: [us-west-1, us-west-2]
-      update: true
+      append: true
 
   ```
 
