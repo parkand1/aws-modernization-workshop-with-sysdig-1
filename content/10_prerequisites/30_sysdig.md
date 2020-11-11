@@ -17,13 +17,13 @@ You need a Sysdig Secure account to complete this workshop. In particular you wi
      - https://eu1.app.sysdig.com
      - https://us2.app.sysdig.com
 
-         For more information of Sysdig's regional URLs, please refer to the [Sysdig documentation](https://docs.sysdig.com/en/saas-regions-and-ip-ranges.html).
+         Make sure you do not leave a trailing `/` in this URL. For more information of Sysdig's regional URLs, please refer to the [Sysdig documentation](https://docs.sysdig.com/en/saas-regions-and-ip-ranges.html).
 
  - Your '**Sysdig Secure API Token**'. Click your initials on the left nav bar, click '**Settings**' and navigate to '**User Profile**'.
 
-        **IMPORTANT:** Make sure you DO NOT use the **Sysdig Monitor** API Token, or the **Access Token**!
+        **IMPORTANT:** Make sure you **DO NOT** use the **Sysdig Monitor** API Token, or the Access Token!
 
-3. Copy and run (paste with **Ctrl+P**) the following two commands to configure your __Secure API Token__ and  __Secure API Endpoint__ as environment variables.
+3. Copy and run the following two commands into your Cloud9 Workspace console and follow the instructions to configure your __Secure API Token__ and  __Secure API Endpoint__ as environment variables.
 
 ```sh
 echo "Enter your 'Sysdig Secure API Token' from above"; read SecureAPIToken 
