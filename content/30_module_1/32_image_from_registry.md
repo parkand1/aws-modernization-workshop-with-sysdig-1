@@ -42,14 +42,7 @@ To illustrate the images scanning we will build an example Node.JS application b
 
 Once complete the scan will show the status '**Failed**'. ![Build Complete](/images/30_module_1/CodeBuild-ScanComplete-Fail.png)
 
-**Important** This means the image has failed the scan, **and not** that the image scan process itself has failed.  The Inline Scanner script returns the following exit codes:
-
-```text
-0  -> Scan result "pass"
-1  -> Scan result "fail"
-2  -> Wrong script invocation
-3  -> Runtime error
-```
+**Important** This may mean the image has failed the scan, **and not** that the image scan process itself has failed. Check the CodeBuild pipeline logs to verify.
 
 #### Optional: Further Information
 
