@@ -15,10 +15,10 @@ Let’s try first modifying a rule. The following rule checks if a resource is c
 
 - rule: AWS command executed on unused region
   desc: Detect AWS command execution on unused regions
-  condition:
+  condition: >
     not jevt.value[/errorCode] exists and
     jevt.value[/awsRegion] in (disallowed_aws_regions)
-  output:
+  output: >
     An AWS command has been executed on an unused region
     (requesting user=%jevt.value[/userIdentity/arn],
      requesting IP=%jevt.value[/sourceIPAddress],
